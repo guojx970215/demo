@@ -1,0 +1,37 @@
+.stdMenuItemOuter {
+	width: 140px;
+	font-size: 9pt;
+	height: 95%;
+	height: calc(100% - 4px);
+  margin: auto 0;
+  margin-right: 120px;
+}
+
+.stdMenuItem {
+	width: 100%;
+	height: 95%;
+	height: calc(100% - 4px);
+	padding: 2px 1px;
+	/*border-right: 1px solid #e1e1e1;*/
+	display: flex;
+	flex-direction: column;
+}
+
+.stdMenuIcon {
+	width: 36px;
+	height: 40px;
+	margin: auto;
+}
+
+.stdMenuItem span {
+	display: block;
+	text-align: center;
+  line-height: 1.25;
+  color: #3290fc;
+  font-size: 18px;
+}
+
+.stdMenuItem .stdMenuIcon:hover {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}

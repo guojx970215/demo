@@ -1,0 +1,338 @@
+.stdMenuItem {
+  position: relative;
+  cursor: pointer;
+}
+
+.stdMenuItemButton {
+  width: 100%;
+  height: 95%;
+  height: calc(100% - 4px);
+  padding: 2px 1px;
+  /*border-right: 1px solid #e1e1e1;*/
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.ThemeIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  cursor: pointer;
+  background-image: url('colorbak.png');
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.ThemeIcon .ThemeIconChild {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border-radius: 100%;
+}
+
+.ThemeIcon:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.ThemePanel {
+  position: absolute;
+  width: 300px;
+  padding: 10px 10px;
+  z-index: 2;
+  top: 89px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  background-color: rgba(70, 79, 96, .95);
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, .4), 4px 4px 6px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0 0 0 1px rgba(255, 255, 255, .4), 4px 4px 6px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .4), 4px 4px 6px rgba(0, 0, 0, .5);
+}
+
+.GradientPanel {
+  position: absolute;
+  width: 350px;
+  /* height: 220px; */
+  background-color: rgba(70, 79, 96, .95);
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: 0 0 0 1px rgba(255, 255, 255, .4), 4px 4px 6px rgba(0, 0, 0, .5);
+  -moz-box-shadow: 0 0 0 1px rgba(255, 255, 255, .4), 4px 4px 6px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .4), 4px 4px 6px rgba(0, 0, 0, .5);
+  right:-375px;
+  bottom: 0px;
+  padding: 10px 10px;
+}
+
+.TxtBox {
+  height: 140px;
+  width: 230px;
+  background: #ffffff;
+  padding: 10px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.GradientPanel a {
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.GradientPanel button {
+  margin-left: 5px;
+  cursor: pointer;
+  background-color: #3290fc;
+  border: 0;
+  padding: 4px 15px;
+  border-radius: 4px;
+}
+
+.GradientPanel button span {
+  color: #fff;
+}
+
+.NavList {
+  width: 100%;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.NavList ul {
+  padding: 0;
+  margin: 0;
+}
+
+.NavList ul li {
+  list-style: none;
+  display: inline-block;
+  width: 50%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.NavList ul li.active {
+  background: #ffffff;
+  color: #333333;
+}
+
+.ColorTips {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ColorList {
+  text-align: left;
+}
+
+.ColorItem {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20%;
+  height: 50px;
+}
+
+.ColorItem img {
+  position: absolute;
+  width: 20px;
+  height: auto;
+  right:15px;
+  top:-10px;
+  z-index: 9;
+  cursor: pointer;
+}
+
+.ColorCircleBox {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  border: 2px solid #eee;
+  -webkit-box-shadow: 0 1px 4px #222;
+  -moz-box-shadow: 0 1px 4px #222;
+  box-shadow: 0 1px 4px #222;
+  background-image: url('colorbak.png');
+}
+
+.ColorCircle {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.ColorCircleBox:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.ActionArea {
+  text-align: right;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.ActionArea>span {
+  padding: 5px 0px 0 10px;
+  cursor: pointer;
+  position: relative;
+  top: -10px;
+}
+
+.rc-color-picker-wrap {
+  width: 34px;
+  height: 34px;
+  display: inline-block;
+  border-radius: 100%;
+  padding: 0 0 !important;
+  margin-left: 10px;
+  top: 0px !important;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  border: 2px solid #eee;
+  -webkit-box-shadow: 0 1px 4px #222;
+  -moz-box-shadow: 0 1px 4px #222;
+  box-shadow: 0 1px 4px #222;
+  background-color: none !important;
+  position: relative;
+  /*background: url('addcolor.png') no-repeat center center;*/
+}
+
+.ActionArea span.SelectColor {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  padding: 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.rc-color-picker-wrap:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.SketchPicker {
+  position: absolute;
+  right: 0px;
+  z-index: 2;
+}
+
+.FixedBottom {
+  bottom: 0px;
+  right: 0;
+  position: absolute;
+  z-index: 3;
+  color: #d93f3f !important;
+  padding: 10px 10px;
+}
+
+.FixedBottom > span {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.FixedBottom button {
+  cursor: pointer;
+}
+
+.react-confirm-alert-overlay {
+  background: rgba(0, 0, 0, 0.4) !important;
+  align-items: inherit !important;
+}
+
+.set-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.set-item .name {
+  flex: 0 0 3em;
+}
+
+.set-item .value {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.set-item .value .value-item {
+  flex: 0 0 84px;
+  margin-right: 10px;
+}
+
+.set-item .value .value-item-text {
+  margin-right: 15px;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(0, 0, 0, .65);
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.set-item .value .value-item-text:last-child {
+  margin-right: 0;
+}
+
+.set-item .value .preview-item {
+  flex: 1;
+  height: 100px;
+  background-color: #fff;
+}
+
+.set-item .value .value-item:last-child {
+  margin-right: 0;
+}

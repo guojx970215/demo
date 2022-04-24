@@ -1,0 +1,40 @@
+{
+	"data": {
+		"count": 1,
+		"pages": [
+			{
+				"elements": [
+					{
+						"id": "elementId",
+						"type": "textbox",
+						"content": [
+							{
+								"type": "html",
+								"value": "<p>test line 1</p><p>test line 2</p>"
+							}
+						],
+						"config": {
+							"x": 100,
+							"y": 100,
+							"height": 200,
+							"width": 150
+						}
+					}
+				],
+				"id": "mockbook1pageId1",
+				"index": 1,
+				"thumb": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCADAAPYDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAj/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AKpAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//9k="
+			}
+		],
+		"id": "mockbookid1",
+		"name": "book name",
+		"cover": "base64imagesstring",
+		"description": "mockbookid1 discription",
+		"config": {
+			"layout": "Portrait"
+		}
+	},
+	"message": "success",
+	"messageCode": 0,
+	"success": 0
+}

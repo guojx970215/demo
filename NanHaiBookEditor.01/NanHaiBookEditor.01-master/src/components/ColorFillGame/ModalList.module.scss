@@ -1,0 +1,177 @@
+.centent {
+  display: flex;
+
+  // height: 500px;
+  .left {
+    width: 150px;
+    background-color: #212121;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    .top {
+      flex: 1;
+
+      .list {
+        height: 40px;
+        line-height: 40px;
+        text-indent: 1em;
+        cursor: pointer;
+      }
+
+      .active {
+        background-color: #1890ff;
+        color: #fff;
+        font-weight: 700;
+      }
+    }
+
+    .plus {
+      margin: 10px;
+    }
+  }
+
+  .right {
+    height: 600px;
+    flex: 1;
+    padding: 20px 40px 20px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    .loadmoreList {
+      flex: 1;
+      overflow: auto;
+      height: 380px;
+
+      .items {
+        width: 130px;
+        height: 122px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        float: left;
+        position: relative;
+        margin-right: 20px;
+        margin-bottom: 50px;
+
+        .collection,
+        .delete,
+        .edit,
+        .choose,
+        .preview {
+          display: inline-block;
+          position: relative;
+          width: 27px;
+          height: 27px;
+          text-align: center;
+          line-height: 27px;
+          // background-color: #3290fc;
+          color: #fff;
+          background-size: 27px 27px !important;
+          font-size: 18px;
+          margin-left: 4.5px;
+          cursor: pointer;
+        }
+
+        .active {
+          color: #1890ff;
+        }
+
+        .collection {
+          transition: color 0.3s ease-in;
+
+          &:hover {
+            color: rgba(230, 70, 70, 1);
+          }
+        }
+
+        // .preview {
+        //   // bottom: 0;
+        //   // right: 0;
+        //   background: url('./Change.png') no-repeat center center;
+        // }
+
+        // .edit {
+        //   // top: 0;
+        //   // left: 0;
+        //   background: url('./Edit.png') no-repeat center center;
+        // }
+
+        // .delete {
+        //   // top: 0;
+        //   // right: 0;
+        //   background: url('./delete.png') no-repeat center center;
+        //   background-size: 26px 27px !important;
+        // }
+
+        .choose {
+          top: 0px;
+          left: auto;
+          right: 0px;
+          margin-left: 0px;
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .pic {
+        width: 50px;
+        height: 50px;
+      }
+
+      .picName {
+        flex: 1;
+      }
+    }
+
+    .ext {
+    }
+
+    .tag {
+      margin-top: 5px;
+      padding-bottom: 5px;
+      height: 29px;
+      overflow: visible;
+      z-index: 9;
+
+      .innerTag {
+        border-radius: 4px;
+        height: 29px;
+        padding: 5px 8px;
+        display: inline-block;
+        overflow: hidden;
+        width: calc(100% - 40px);
+        background-color: #ffffff;
+
+        &:hover {
+          height: auto;
+          box-shadow: 0 0 4px #00000033;
+        }
+      }
+    }
+
+    .tool {
+      display: flex;
+
+      .Search {
+        flex: 1;
+      }
+
+      .button {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.setPicInput {
+  width: 100%;
+  margin-bottom: 16px;
+
+  > span {
+    display: inline-block;
+    margin-right: 8px;
+  }
+}
+

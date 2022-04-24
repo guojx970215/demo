@@ -1,0 +1,24 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px;
+  }
+}
+</style>
+<div class="custom-modal addCommentsModal">
+	<div class="modal-header">
+		<button class="pull-right" type="button" ng-click="closeModal()">X</button>
+	</div>
+	<form class="form-horizontal" name="addCommentsToBook" ng-submit="commentSubmit()" novalidate>
+		<div class="col-md-12">
+			<textArea class="addComments" maxlength="5000" ng-model="getComment" name="getComment" required></textarea>
+			<div ng-show="addCommentsToBook.$submitted || addCommentsToBook.getComment.$touched">
+            	<div class="error" ng-show="addCommentsToBook.getComment.$error.required">Text is required.</div>
+          	</div>
+		</div>
+    	<div class="modal-footer">
+      		<button type="submit" class="btn btn-primary btnlarge">Save and Send</button>
+    	</div>
+	</form>
+</div>

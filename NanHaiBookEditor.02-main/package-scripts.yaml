@@ -1,0 +1,17 @@
+scripts:
+  default: nps dev
+
+  build:
+    default: cross-env PUBLIC_URL=/public/ NODE_ENV=production webpack
+    client-bundle-analyzer: cross-env NODE_ENV=production WEBPACK_BUNDLE_ANALYZER=true webpack
+
+  dev:
+    default: cross-env NODE_ENV=development webpack serve --hot-only
+
+  lint:
+    default: tsc --noEmit && eslint "**/*.@([jt]s?(x)|json)"
+    fix: eslint --fix "**/*.@([jt]s?(x)|json)"
+
+  format:
+    default: prettier --check "**/*.@([jt]s?(x)|json|?(p)css)"
+    fix: prettier --write "**/*.@([jt]s?(x)|json|?(p)css)"

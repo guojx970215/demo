@@ -1,0 +1,29 @@
+.eletmentsMenuPane {
+	background-color: #ffffff;
+}
+.menuItem {
+	width: 50px;
+	font-size: 9pt;
+	height: 95%;
+	height: calc(100% - 4px);
+	margin: auto 0;
+}
+
+.eletmentsMenuItem {
+	width: 100%;
+	height: 95%;
+	height: calc(100% - 4px);
+	padding: 2px 1px;
+	border-right: 1px solid #e1e1e1;
+}
+
+.eletmentsMenuItem span {
+	display: block;
+	text-align: center;
+	line-height: 1.25;
+}
+.menuIcon {
+	width: 36px;
+	height: 40px;
+	margin: auto;
+}

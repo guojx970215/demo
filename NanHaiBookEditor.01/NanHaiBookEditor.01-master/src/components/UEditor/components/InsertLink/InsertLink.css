@@ -1,0 +1,19 @@
+.insertLinkMain {
+  width: 100%;
+}
+
+.insertLinkMain .item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.insertLinkMain .item .name {
+  margin-right: 10px;
+  min-width: 5em;
+  white-space: nowrap;
+}
+
+.insertLinkMain .item .value {
+  width: 300px;
+}

@@ -1,0 +1,472 @@
+<div ng-controller="headerController as vm">
+	<div class="headerContainer">
+	    <div class="col-xs-5">
+	        <span ng-if="vm.assignmentId === undefined">
+	        	<a ui-sref="home"><img src="images/back-button.png"></a>
+	        </span>
+	        <span ng-if="vm.assignmentId !== undefined">
+	        	<a ui-sref="assignment"><img src="images/back-button.png"></a>
+	        </span>
+	    </div>
+	    <div class="col-xs-7"><span class="page_title"> Report</span></div>
+			<!-- <div class="col-xs-7"><span class="page_title"> Report </span></div> -->
+	</div>
+</div>
+<!-- <div class="col-xs-7"><span class="page_title"> Report </span></div> -->
+<!-- report main container -->
+<div class="reportContainer">
+	<div class="col-md-12 userDetails">
+		<div class="row">
+	      	<div class="col-xs-4 col-sm-3 col-md-2 avatar"><mini-avatar></mini-avatar></div>
+	      	<div class="col-xs-6 col-sm-4 col-md-4">
+	        	<h3 class="h3font">{{ vm.profile.firstName }} {{ vm.profile.lastName }} ({{ vm.profile.nickName | limitTo:8 }})</h3>
+	        	<h3 class="rank h3font" ng-hide="vm.profile.worldRank == -1">World Rank:&nbsp;&nbsp;{{vm.profile.worldRank}}<br />
+					<!-- <span ng-show="vm.role ==='STUDENT'">Class Rank:&nbsp;&nbsp;{{vm.classRank}}</span>  -->
+				</h3>
+	      	</div><!-- profile info -->
+	      	<div class="col-xs-12 col-sm-4 col-md-4">
+		        <div class="row">
+		          <div class="col-md-12"><h3 class="h3font">Total Points Earned:&nbsp;&nbsp;{{vm.profile.pointsCollected}}</h3></div>
+		        </div><!-- row -->
+	      	</div>
+	    </div><!-- row -->
+	</div><!-- user detail container -->
+	<div class="row lastRead">
+		<div class="col-md-12"><h3 class="LastReadFont">Last Read</h3></div>
+  	</div>
+ 	<!-- Last Read Book list -->
+	<div class="row libraryList">
+	  <div class="book col-md-2" ng-repeat="books in vm.readhistory | limitTo:5">
+	      <div class="row">
+	        <div class="col-xs-12 bookView">
+	        	<div class="bookWrap">
+	          		<img class="bookCover" id="one" fallback-src="images/no_book_cover.jpg" ng-src="{{ books.book.bookImageLink }}" />
+	          		<div class="newArival" ng-if="books.book.newArival === true">
+						<img ng-src="images/newarrival.png" />
+		  			</div>
+		  			<p class="bookTitle" id="bookTt">{{ books.book.bookTitle }}</p>
+		  			<p class="clearBoth" id="bookPa">
+		  				<span ng-if="books.lastReadAt !== 0 && books.lastReadAt !== ''">{{books.lastReadAt | date}}</span>
+		  			</p>
+		 		 </div>
+	        </div>
+	      </div>
+	  </div>
+  </div> <!-- Last Read Book list -->
+
+
+<!-- TAB -->
+<uib-tabset>
+  <!-- profile tab -->
+  <uib-tab heading="Overview">
+    <!-- <p>Some content here....</p> -->
+		<p>&nbsp;</p>
+		<!-- NESTED TAB -->
+		<ul class="nav nav-tabs nested-tabs">
+		  <li class="active"><a style="font-size:13px;" data-toggle="tab" data-target="#Assignment" ng-if="isAssignment">Assignment</a></li>
+		  <li ng-class = "(isAssignment == false)? 'in active': ''"><a style="font-size:13px;" data-toggle="tab" data-target="#ProgressReading">Progress Reading</a></li>
+		</ul>
+		<!-- Tab content -->
+		<div class="tab-content">
+			<!-- Assignment Tab pane -->
+		  <div id="Assignment" class="tab-pane fade in active" ng-if="isAssignment">
+				<!-- row -->
+				<div class="row">
+						<div class="col-md-3 selectClass">
+		          <select required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required"
+		              ng-model="vm.classPicked" ng-change="pickClass()"
+		              ng-options="class as class.className for class in vm.allclasses">
+		          </select>
+		        </div>
+				</div>	<!-- row -->
+
+				<!-- current assignment container -->
+				<div class="currentAssignmentContainer">
+					<!-- progress container -->
+			    <div class="row progressContiner">
+			      <div class="col-sm-4"><h3 class="h3font">Current Assignment</h3></div>
+
+
+			    </div><!-- progress container -->
+					<!-- currentAssignment -->
+			    <div class="row currentAssignment">
+						<div class="col-md-12">
+							<table class="table table-bordered custom-table">
+					      <thead>
+					        <tr>
+					          <th>Assignment</th>
+					          <th>Assign Date</th>
+					          <th>Due Date</th>
+					          <th>Assignment Progress</th>
+					        </tr>
+					      </thead>
+					      <tbody>
+					        <tr ng-repeat="x in vm.assignments" ng-class="($index % 2 == 0) ? 'even' : 'odd' " ng-if="x.assignment.status === 'Live'">
+								<td>{{ x.assignment.name }}</td>
+					          	<td>{{ x.assignment.startDate  | date}}</td>
+					          <td>{{ x.assignment.endDateUtc  | date}}</td>
+					          <td style="width:30%">
+											<!-- progress container -->
+												<div class="col-sm-1 ng-binding percentage"> {{ x.overallProgress }}%</div>
+												<div class="col-sm-4 progressView">
+														<div class="progress progress-custom" >
+															<div class="progress-bar progress-bar-custom" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{ x.overallProgress }}" role="progressbar" style="width: {{ x.overallProgress }}%;">
+																	<span class="sr-only">{{ x.overallProgress }}</span>
+															</div>
+														</div>
+											 </div>
+										</td>
+					        </tr>
+					      </tbody>
+					    </table>
+						</div>
+			   </div><!--currentAssignment-->
+			  </div><!-- current assignment container -->
+
+				<!-- previous assignment container -->
+				<div class="currentAssignmentContainer">
+					<!-- progress container -->
+			    <div class="row progressContiner">
+			      <div class="col-sm-4"><h3 class="h3font">Previous Assignment</h3></div>
+						<!-- <div class="col-sm-1 levelText ng-binding"><h3> 50%</h3></div>
+						<div class="col-sm-4 progressView">
+	              <div class="progress progress-custom" >
+	                <div class="progress-bar progress-bar-custom" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{ vm.profile.levelPercentage }}" role="progressbar" style="width: {{ vm.profile.levelPercentage }}%;">
+	                    <span class="sr-only">60% Complete</span>
+	                </div>
+	              </div>
+	         </div> -->
+			    </div><!-- progress container -->
+					<!-- previous Assignment -->
+			    <div class="row currentAssignment">
+						<div class="col-md-12">
+							<table class="table table-bordered custom-table">
+					      <thead>
+					        <tr>
+					          <th>Assignment</th>
+					          <th>Assign Date</th>
+					          <th>Due Date</th>
+					          <th>Assignment Progress</th>
+					        </tr>
+					      </thead>
+					      <tbody>
+								<tr ng-repeat="x in vm.assignments | orderBy:'-assignment.startDate'"
+									ng-class="($index % 2 == 0) ? 'even' : 'odd' "
+									ng-if="x.assignment.status === 'Completed'">
+									<td>{{ x.assignment.name }}</td>
+						          	<td>{{ x.assignment.startDate  | date}}</td>
+						          	<td>{{ x.assignment.endDateUtc  | date}}</td>
+						          	<td style="width:30%">
+									<!-- progress container -->
+										<div class="col-sm-1 ng-binding percentage"> {{ x.overallProgress }}%</div>
+										<div class="col-sm-4 progressView">
+											<div class="progress progress-custom" >
+												<div class="progress-bar progress-bar-custom" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{ x.overallProgress }}" role="progressbar" style="width: {{ x.overallProgress }}%;">
+														<span class="sr-only">{{ x.overallProgress }}</span>
+												</div>
+											</div>
+									 	</div>
+									</td>
+				        		</tr>
+					      </tbody>
+					    </table>
+						</div>
+			   </div><!--previous Assignment-->
+			 </div><!-- previous assignment container -->
+			 <!-- previous assignment books -->
+			 <div class="previousAssignmentBooks">
+				 <!-- progress container -->
+				 <div class="row progressContiner">
+					 <div class="col-sm-4"><h3 class="h3font">Previous Assignment Books</h3></div>
+					 <div class="col-md-3 selectClass" style="left:0;">
+					 	 <select class="form-control"
+								 ng-model="vm.assignmentPicked" ng-change="pickAssignment()"
+								 ng-options="assignment.assignment as assignment.assignment.name for assignment in vm.pastAssignment | orderBy:'-assignment.startDate'">
+							 	<option ng-hide="!assignment.assignment.id" ng-if="assignment.assignment.status == 'Completed'">
+		                  			<span ng-if="(vm.assignments[0].assignment.status == 'Completed') && (!assignment.assignment.id)">
+		                  				{{vm.pastAssignment[0].assignment.name}}
+		                  			</span>
+	                  			</option>
+						 </select>
+
+					 </div>
+				 </div><!-- progress container -->
+				 <!-- Last Read Book list -->
+					<div class="row libraryList">
+					  <div class="book col-md-3 col-xs-3" ng-repeat="books in vm.assignmentBooks" ng-if="vm.AssignmentStatus.status == 'Completed'">
+							<div class="row">
+								<div class="options col-md-3">
+									<div class="bookIcon" >
+											<img ng-src="{{(books.readComplete && 'images/btn_book_read.png') || 'images/old_btn_book_unread.png'}}"/>
+									</div>
+									<div class="quizIcon" ng-click="!books.readComplete || vm.gotoQuiz(books.book, 'report')" ng-show="books.quizAvailable">
+										<!-- condition && true || false -->
+											<img ng-src="{{(books.maxScore.pass && 'images/btn_quiz_complete.png') || (books.readComplete && 'images/btn_quiz_uncomplete.png') || 'images/rsz_btn_quiz_disabled.png'}}"	/>
+									</div>
+								</div>
+								<div class="col-md-9 bookView"
+									 ng-click="vm.readBook(books.book,'report')">
+									<div class="pull-right bookLevel">Level {{ books.book.proficiencyLevel }}</div>
+									<img class="bookCover two" id="two" fallback-src="images/no_book_cover.jpg" ng-src="{{ books.book.bookImageLink }}" />
+									<p class="bookTitle" style="overflow: hidden!important">{{ books.book.bookTitle }}</p>
+									<span class="incomplete"><div ng-if="!books.readComplete">Incomplete</div></span>
+								</div>
+							</div>
+					  </div>
+				  </div> <!-- Last Read Book list -->
+			</div><!-- previous assignment books -->
+		  </div><!-- Assignment Tab pane -->
+			<!-- ProgressReading Tab pane -->
+		  <div id="ProgressReading" class="tab-pane fade" ng-class = "(isAssignment == false)? 'in active': ''">
+				<!-- current level container -->
+				<div class="currentAssignmentContainer">
+					<!-- progress container -->
+					<div class="row progressContiner">
+			      <div class="col-sm-4"><h3>Current Level</h3></div>
+            <div class="col-sm-1 levelText h3font ng-binding" ng-if="vm.profile.playerLevel.intermediate === false"><h4> Level {{ vm.profile.playerLevel.shortName.replace('level',' ') }} </h4></div>
+            <div class="col-sm-1 levelText h3font ng-binding" ng-if="vm.profile.playerLevel.intermediate === true"><h4> Level {{ vm.profile.playerLevel.levelCode }} </h4></div>
+            <div class="col-sm-2 progressView">
+              <div class="progress progress-custom" >
+                <div class="progress-bar progress-bar-custom" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{ vm.profile.levelPercentage }}" role="progressbar" style="width: {{ vm.profile.levelPercentage }}%;">
+                  <span class="sr-only">60% Complete</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-1 levelPercentage ng-binding" style="left:15px;"><h3> {{ vm.profile.levelPercentage }}%</h3></div>
+						<!--
+						<div class="col-sm-1 levelText ng-binding"><h3> Level {{ vm.profile.level }} </h3></div>
+							<div class="col-sm-2 progressView">
+								  <div class="progress progress-custom" >
+									<div class="progress-bar progress-bar-custom" aria-valuemax="100" aria-valuemin="0" aria-valuenow="{{ vm.profile.levelPercentage }}" role="progressbar" style="width: {{ vm.profile.levelPercentage }}%;">
+										<span class="sr-only">60% Complete</span>
+									</div>
+								  </div>
+							 </div>
+					 		<div class="col-sm-1 levelPercentage ng-binding" style="left:15px;"><h3> {{ vm.profile.levelPercentage }}%</h3></div>-->
+			    </div><!-- progress container -->
+					<!-- currentlevel -->
+			    <div class="row currentAssignment">
+						<div class="col-md-12">
+							<table class="table table-bordered custom-table">
+					      <thead>
+					        <tr>
+					          <th>Level</th>
+					          <th>Assign Date</th>
+					          <th>Completed Date</th>
+					        </tr>
+					      </thead>
+					      <tbody>
+					      	<!--ng-if="$last"-->
+					        <tr ng-repeat="(key,val) in vm.profile.levelProgress"
+					        	ng-if="key == vm.profile.level"
+					        	ng-class="($index % 2 == 0) ? 'even' : 'odd' ">
+					          <td>Level {{ key.replace('level',' ') }}</td>
+					          <td>{{ val.startDate   | date}}</td>
+					          <td>{{ val.endDate   | date }}</td>
+					        </tr>
+					      </tbody>
+					    </table>
+						</div>
+			   </div><!--current level-->
+			  </div><!-- current level container -->
+
+				<!-- previous level container -->
+				<div class="currentAssignmentContainer">
+					<!-- progress container -->
+			    <!--
+				<div class="row progressContiner">
+								  <div class="col-sm-4"><h3>Previous Levels</h3></div>
+								</div>
+				<div class="row currentAssignment">
+										<div class="col-md-12">
+											<table class="table table-bordered custom-table">
+										  <thead>
+											<tr>
+											  <th>Level</th>
+											  <th>Assign Date</th>
+											  <th>Completed Date</th>
+											</tr>
+										  </thead>
+										  <tbody>
+											<tr ng-repeat="(key,val) in vm.profile.levelProgress" ng-hide="$last" ng-class="($index % 2 == 0) ? 'even' : 'odd' ">
+											  <td>Level {{ key }}</td>
+											  <td>{{ val.startDate   | date:'yyyy-MM-dd' }}</td>
+											  <td>{{ val.endDate   | date:'yyyy-MM-dd' }}</td>
+											</tr>
+										  </tbody>
+										</table>
+										</div>
+							   </div>-->
+				<!--previous level-->
+			 </div><!-- previous level container -->
+			 <!-- previous level books -->
+			 <div class="previousAssignmentBooks">
+				 <!-- progress container -->
+				 <!-- <div class="row progressContiner">
+					 <div class="col-sm-4"><h3>Previous Level Books</h3></div>
+					 <div class="col-md-3 selectClass" style="left:0;">
+						 <select required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required"
+								 ng-model="vm.levelPicked" ng-change="pickLevel()"
+								ng-options="index as 'Level '+index for (index,value) in vm.profile.levelProgress">
+							 <option value="">--- Select Level ---</option>
+						 </select>
+					 </div>
+				 </div> --><!-- progress container -->
+				 <!-- Last
+				 	Read Book list -->
+					<div class="row libraryList">
+					  <div class="book col-md-3" ng-repeat="books in vm.levelbooks" ng-hide="books.book.proficiencyLevel == 0">
+							<div class="row">
+								<div class="options col-md-3">
+									<div class="bookIcon" >
+											<img ng-src="{{(books.readComplete && 'images/btn_book_read.png') || 'images/old_btn_book_unread.png'}}"/>
+									</div>
+									<div class="quizIcon" ng-click="!books.readComplete || vm.gotoQuiz(books.book,'report')" ng-show="books.quizAvailable">
+										<!-- condition && true || false -->
+											<img ng-src="{{(books.maxScore.pass && 'images/btn_quiz_complete.png') || (books.readComplete && 'images/btn_quiz_uncomplete.png') || 'images/rsz_btn_quiz_disabled.png'}}"	/>
+									</div>
+								</div>
+								<div class="col-md-9 bookView"
+									 ng-click="vm.readBook(books.book,'report')">
+									<div class="pull-right bookLevel">Level {{ books.book.proficiencyLevel }}</div>
+									<img class="bookCover three" id="three" fallback-src="images/no_book_cover.jpg" ng-src="{{ books.book.bookImageLink }}" />
+									<p style="overflow: hidden!important">{{ books.book.bookTitle }}</p>
+									<span class="incomplete"><div ng-if="!books.readComplete">Incomplete</div></span>
+
+								</div>
+							</div>
+					  </div>
+				  </div> <!-- Last Read Book list -->
+			</div><!-- previous level books -->
+		  </div><!-- ProgressReading Tab pane -->
+		</div><!-- Tab content -->
+		<!-- NESTED TAB -->
+
+  </uib-tab><!-- profile tab -->
+  <!-- badges tab -->
+  <uib-tab heading="Badges">
+		<!-- badgesContainer -->
+		<div class="badgesContainer">
+			<div class="row badgesTitle">
+	    		<div class="col-md-12"><h3 class="h3font">Badges</h3></div>
+	    </div>
+			<!-- badgesContent -->
+			<div class="row badgesContent">
+				<div class="col-md-12">
+					<!-- previous level -->
+						<table class="table table-bordered custom-table">
+								<thead>
+									<tr>
+										 <th></th>
+										<th>Badge</th>
+										<th>Description</th>
+										<th>Date Earned</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="x in vm.profile.myAchievements" ng-class="($index % 2 == 0) ? 'even' : 'odd' ">
+										 <td><img class="img-responsive" ng-src="{{x.achievement.image}}" alt="" style="margin: auto"></td>
+										<td>{{x.achievement.name}}</td>
+										<td>{{x.achievement.description}}</td>
+										<td>{{ x.when | date }}</td>
+									</tr>
+								</tbody>
+							</table>
+					</div>
+			</div><!-- badgesContent -->
+		</div><!-- badgesContainer -->
+
+  </uib-tab><!-- badges tab -->
+  <!-- leaderboard tab -->
+  <uib-tab heading="Leaderboards" >
+		<!-- leaderboardContainer -->
+		<div class="leaderboardContainer">
+			<div class="row badgesTitle">
+					<div class="col-md-3"><h3 class="h3font">Leaderboards</h3></div>
+					<div claas="col-md-6"><h3 class="h3font">Points will be reset on first of every month </h3></div>
+			</div>
+			<!-- leaderContent  -->
+			<div>
+				<div class="col-xs-12 col-md-push-4" ng-if = "(vm.leaderboardAll == '') && (vm.leaderboardById == '')">
+				<h4>&nbsp;&nbsp;Currently,Leaderboard is disabled. </h4>
+			</div>
+			<div class="row leaderContent">
+			<div  ng-if = "(vm.leaderboardAll != '') || (vm.leaderboardById != '')" >
+				<div class="col-xs-12 col-md-6" ng-class="{'col-md-offset-3': (vm.role !== 'STUDENT')}">
+					<!-- <h4  class="text-center">World</h4>
+					<div class="selectLeader">
+						<select required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required"
+								ng-model="vm.classPicked" ng-change="pickClass()"
+								ng-options="class as class.className for class in vm.allclasses">
+							<option value="">--- Select Class ---</option>
+						</select>
+					</div> -->
+					<h3 class="col-xs-12 text-center font18">World</h3>
+					<div>
+					<div class="row leaderContent" ng-if = "vm.leaderboardAll == ''" >
+						<div class="col-xs-12 col-md-push-2" ng-class="{'col-md-offset-2': (vm.role !== 'STUDENT')}">
+						<h4>&nbsp;&nbsp;Currently,World class Leaderboard is disabled. </h4>
+					</div>
+					</div>
+					<div ng-if = "vm.leaderboardAll != ''" >
+					<table class="table table-bordered custom-table">
+							<thead>
+								<tr>
+									<th>Rank</th>
+									<th>Name</th>
+									<th>Total Points</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="x in vm.leaderboardAll" ng-class="($index % 2 == 0) ? 'even' : 'odd' " ng-if="x.score !== 0">
+									<td>{{x.rank}}</td>
+									<td>{{(x.member).slice(0,25)}}</td>
+									<td>{{x.score}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				</div>
+				<div class="col-xs-12 col-md-6" ng-show="vm.role=='STUDENT'">
+					<h4  class="text-center">Class</h4>
+					<div class="row leaderContent" ng-if = "vm.leaderboardById == ''" >
+						<div class="col-xs-12 col-md-push-3" ng-class="{'col-md-offset-2': (vm.role !== 'STUDENT')}">
+						<h4>&nbsp;&nbsp;Currently,Class Leaderboard is disabled. </h4>
+					</div>
+					</div>
+					<div ng-if = "vm.leaderboardById != ''" >
+					<div class="selectLeader" >
+						<select required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required"
+								ng-model="vm.classPicked" ng-change="pickClass1()"
+								ng-options="class as class.className for class in vm.allclasses">
+							<option value="">--- Select Class ---</option>
+						</select>
+					</div>
+					<table class="table table-bordered custom-table">
+							<thead>
+								<tr>
+									<th>Rank</th>
+									<th>Name</th>
+									<th>Total Points</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="x in vm.leaderboardById" ng-class="($index % 2 == 0) ? 'even' : 'odd' ">
+									<td>{{x.rank}}</td>
+									<td>{{x.member}}</td>
+									<td>{{x.score}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div> <!-- leaderContent -->
+		</div>
+	</div>
+</div>
+</div>
+  </uib-tab><!-- Subscription tab -->
+</uib-tabset><!-- TAB -->
+
+</div><!-- report main container -->

@@ -1,0 +1,47 @@
+ <div class="libraryList">
+  <div class="row" ng-repeat="set in vm.books" ng-if="$index % 4 === 0"
+       ng-init="group = (vm.books).slice($index, $index + 4)">
+    <div class="book col-md-3 col-xs-6" ng-repeat="books in group">
+      <div class="row">
+        <div class="options col-xs-3 col-md-3">
+          <div class="bookIcon">
+            <img ng-src="{{books.readComplete && 'images/btn_book_read.png' || 'images/btn_book_unread.png'}}"/>
+          </div>
+          <div class="quizIcon" ng-click="!books.readComplete || vm.gotoQuiz(books.book)" ng-show="books.quizAvailable">
+            <!-- condition && true || false -->
+            <img
+              ng-src="{{(books.maxScore.pass && books.readComplete) && 'images/btn_quiz_complete.png' || 'images/btn_quiz_uncomplete.png'}}"
+              title="{{books.readComplete && 'Launch Quiz' || 'Read Book Completely before Attempting quiz'}}"/>
+          </div>
+          <!--
+          <div class="audioIcon">
+                      <img
+                        ng-src="{{books.inAudioPlaylist && 'images/btn_audio_playlist_selected.png' || 'images/btn_audio_playlist_unselected.png'}}"/>
+                    </div>-->
+
+          <div class="favoriteIcon">
+            <!-- <i class="fa fa-star"></i> -->
+            <img
+              ng-src="{{books.inFolder && 'images/icn_add_to_my_library_selected_library.png' || 'images/icn_add_to_my_library_unselected_library.png'}}"/>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="option" id="{{books.book.bookId}}" ng-model="books.book.selected"/>
+            <label for="{{books.book.bookId}}"></label>
+          </div>
+
+        </div>
+        <div class="col-md-9 col-xs-9 bookView" ng-click="vm.readBook(books.book)">
+          <div class="pull-right bookLevel" ng-if="books.book.proficiencyLevel !== 0">Level {{ books.book.proficiencyLevel }}</div>
+           <div class="bookWrap">
+          		<img class="bookCover" fallback-src="images/no_book_cover.jpg" ng-src="{{ books.book.bookImageLink }}"/>
+				<div class="newArival" ng-if="books.book.newArival === true">
+					<img ng-src="images/newarrival.png" />
+		  		</div>
+		  	</div>
+          <p class="bookTitle">{{ books.book.bookTitle }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

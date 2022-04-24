@@ -1,0 +1,32 @@
+<div class="announcementsContainer bg_clr">
+  <h2 class="fontChewy">Announcements</h2>
+  <span class="cross pull-right" ng-click = "closeModal()"><i class = "fa fa-times"> </i></span>
+  <ul ng-if="!isAnnouncement" class="list-unstyled announcementScroll">
+    <li ng-repeat="announcement in announcements" >
+      <div class="announcement_bg" ng-hide="announcement.type == undefined || announcement.type == null">
+      <p class="fontChewy"> <span class="colorAncmt">{{announcement.teacherName}} </span>leaves a comment to your {{announcement.type}} for book <span class="colorBook">{{announcement.bookTitle}}</span> a grade of<span class="gradeColor"> {{announcement.grade}}</span></p>
+      <div class="ancmtMessage fontChewy"> {{announcement.comment}} </div>
+      <button class="btn modalBtnSmall readBtn" ng-click="readAnnouncement($index,announcement)">{{announcement.ack === undefined?'New':'Read'}}</button>
+    </div>
+
+
+      <p class="fontChewy" ng-hide="announcement.type != undefined || announcement.type != null">
+        <span >{{announcement.clas.className}}</span>
+        <button class="btn modalBtnSmall readBtn" ng-click="readAnnouncement($index,announcement)">{{announcement.ack === undefined?'New':'Read'}}</button>
+        <span class="date">{{ announcement.when | date }}</span><br>
+        <span class="title pull-right">{{ announcement.when | date:'h:mma' }}</span>
+      </p>
+
+      <div class="fontChewy" ng-show = "announcement.exapndRead" class="readAnnouncement text-center">
+        <div class = "msg" ng-bind-html="announcement.message"></div>
+        <img class="pointsMascot" src="images/minigame_l2_divercoin_forweb_web.png" ng-if = "announcement.isPoints">
+        <div class = "msg" ng-if = "announcement.isPoints">{{announcement.point}} Points Earned</div>
+      </div>
+    </li>
+  </ul>
+  <ul ng-if="isAnnouncement">
+    <li>
+      <p class="noAnnouncement fontchewy">You have no announcement.</p>
+   </li>
+ </ul>
+</div>

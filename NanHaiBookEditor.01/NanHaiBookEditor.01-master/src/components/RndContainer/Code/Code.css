@@ -1,0 +1,105 @@
+body {
+  height: auto;
+}
+
+.codeModalMain {
+  position: relative;
+  margin: 0 60px;
+  margin-top: 5vh;
+  height: 90vh;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.mainBox {
+  max-width: 1200px;
+  width: 100%;
+  height: calc(100% - 100px);
+  padding: 15px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.codeHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.editArea {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  height: 370px;
+  overflow: hidden;
+}
+
+.codeArea {
+  flex: 0 0 33%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.codeArea .title {
+  width: 100%;
+  height: 30px;
+  padding-left: 10px;
+  line-height: 30px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #333;
+  box-sizing: border-box;
+}
+
+.previewCode {
+  margin-top: 15px;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.CodeMirror {
+  height: 340px;
+}
+
+.CodeMirror-scroll {
+  height: 340px!important;
+}
+
+
+
+.code-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.ueditor-button {
+  line-height: 35px;
+  border: 1px solid #dcdfe6;
+  position: absolute;
+  padding: 0 20px;
+  cursor: pointer;
+  top: 0;
+  border-radius: 4px;
+}
+.ueditor-confirm {
+  background-color: #409eff;
+  right: 130px;
+  color: #fff;
+}
+.ueditor-cancel {
+  background-color: #fff;
+  right: 30px;
+}

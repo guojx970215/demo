@@ -1,0 +1,19 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px;
+	}
+}
+</style>
+<div class="modal-header">
+  <button type="button" class="closeAssignment" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">×</span></button>
+  <div class="assignment_popup_header">
+  	<!-- <span ng-if="getHeader === 'header'">Assignment Instructions</span> -->
+    <span>Assignment Instructions</span>
+  </div>
+</div>
+<div class="modal-body">
+  <div class="assignment_popup_body text-center" ng-if="getItems !== ''">{{getItems}}</div>
+  <div class="assignment_popup_body text-center" ng-if="noItems !== ''">{{noItems}}</div>
+</div>

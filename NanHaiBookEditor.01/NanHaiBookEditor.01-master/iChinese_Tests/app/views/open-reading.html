@@ -1,0 +1,180 @@
+  <style>
+  @media only screen and (max-width:677px)
+  {
+  .padding-top-xs{
+  	padding-top: 33px;
+  	    left: 46px;
+  		}
+  }
+  .breadCrumbsColor{
+  	color: white !important;
+  }
+  </style>
+  <div ng-include="'views/sections/header.html'"></div>
+  <!-- filterContainer -->
+  <div class="filterContainer">
+  	<div class="col-md-4 col-xs-3">
+        	<div class="hamburgerImg"><a ng-click="vm.toggleLeftNav()"><img src="images/btn_hamburger_menu.png"></a></div>
+        	<div class="filterText">Filter</div>
+          <div class="dropdown-1">
+            <div class="form-group search">
+                <input type="text" class="form-control" id="inputValidation"
+                	onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'"
+                	ng-change="removeAll()" placeholder="Search"
+                  ng-model="searchKeyword" ng-keyup="$event.keyCode == 13 && searchQuery()"/>
+                	<i class="fa fa-search" ng-click="searchQuery()"></i>
+                	<i class="fa fa-close right-closeIcon" ng-click="clearAll()"></i>
+            </div>
+          </div>
+     	</div>
+      <div class="col-md-3 col-xs-3">
+      	<div class="row">
+            <span class="selectAll">
+              <input type="checkbox" name="option" id="selectAllBooks" ng-model="selectedAll" ng-click="checkAll()"/>
+              <label for="selectAllBooks">Select All</label>
+            </span>
+      	</div>
+        	<div class="row">
+            <button type="submit" class="btn addtomylibrary" ng-click="showModalAddFolder()"
+                    ng-disabled="bookSelected() == 0">
+            </button>
+          </div>
+        </div>
+  
+      <div class="col-md-5 col-xs-6">
+        <div ng-include="'views/sections/commonprofile.html'"></div><!-- profile info -->
+      </div>
+  </div><!-- filterContainer -->
+  
+  <div class="progressReadView">
+    <!-- filter view -->
+    <div ng-include="'views/sections/leftview-openreading.html'"></div>
+    <!-- filter view ends-->
+    <!--<div class="row" ng-show="vm.filterData && !vm.isEmptyObject(vm.filterData)">-->
+    <!--<div class="col-xs-12">-->
+    <ul class="list-inline filter-breadcrumbs">
+      <div ng-repeat="(key,filter) in vm.filterData" ng-show="filter.length > 0" ng-if="key !='query'">
+        <span ng-if=" key =='proficiencyLevel' " class="breadCrumbsColor">Proficiency Level</span>
+        <span ng-if=" key =='interestLevel' " class="breadCrumbsColor">Interest Level</span>
+        <span ng-if=" key =='textType'" class="breadCrumbsColor">Text type</span>
+        <span ng-if=" key =='topics'" class="breadCrumbsColor">Topics</span>
+        <span ng-if=" key =='seriesId'" class="breadCrumbsColor">Series</span>
+        <span ng-if=" key =='programType'" class="breadCrumbsColor">Program Type</span>
+  
+  				<li class="list-inline" ng-repeat="item in filter" ng-if=" key !='seriesId' &&  key !='query'">
+            {{item}} <a href="" ng-click="clearFilter(filter, item, 'others',key)"><i class="fa fa-times"></i></a>
+          </li>
+          <li class="list-inline" ng-repeat="item in selectedSeriesArr" ng-if=" key =='seriesId' ">
+            {{item.mainCategory}} <a href="" ng-click="clearFilter(selectedSeriesArr, item, 'series')"><i class="fa fa-times"></i></a>
+          </li>
+      </div>
+    </ul>
+    <!--</div>-->
+    <!--</div>-->
+  
+    <div class="bookList" id="bookList">
+  	<div ng-swipe-left="readBooknp(vm.page+1)" ng-swipe-right="readBookpp(vm.page-1)" class="" ng-class="vm.books.length>0?'booklistContainer':'emptyList'">
+  
+  	   <!--  <div ng-include="'views/sections/booklistviewOR.html'"></div> -->
+  	    <div class="libraryList">
+  	      <div class="row marginTopFour" ng-repeat="set in vm.books" ng-if="$index % 4 === 0"
+  	           ng-init="group = (vm.books).slice($index, $index + 4)">
+  	        <div class="book col-md-3 col-xs-6" ng-repeat="books in group">
+  	          <div class="row">
+  	            <div class="options col-xs-4 col-md-4" style="padding-left: 10%; padding-top: 5%;">
+  								<!-- padding-top-xs -->
+  	              <div class="bookIcon">
+  	                <img ng-src="{{(books.readComplete && 'images/btn_book_read.png') || 'images/off-book.png'}}"/>
+  	              </div>
+  	              <div class="quizIcon" ng-click="!books.readComplete || vm.gotoQuiz(books.book)" ng-show="books.quizAvailable">
+  	                <!-- condition && true || false -->
+  	                <img
+  	                  ng-src="{{(books.maxScore.pass && 'images/btn_quiz_complete.png') || (books.readComplete && 'images/btn_quiz_uncomplete.png') || 'images/rsz_btn_quiz_disabled.png'}}"
+  	                  title="{{books.readComplete && 'Launch Quiz' || 'Read Book Completely before Attempting quiz'}}"/>
+  	              </div>
+  	              <!--
+  	              <div class="audioIcon">
+  	                          <img
+  	                            ng-src="{{books.inAudioPlaylist && 'images/btn_audio_playlist_selected.png' || 'images/btn_audio_playlist_unselected.png'}}"/>
+  	                        </div>-->
+  
+  	              <div class="favoriteIcon">
+  	                <!-- <i class="fa fa-star"></i> -->
+  	                <img ng-src="{{books.inFolder && 'images/icn_add_to_my_library_selected_library.png' || 'images/off-star.png'}}"/>
+  	              </div>
+  	              <div class="">
+  	                <input type="checkbox" name="option" id="{{books.book.bookId}}" ng-model="books.book.selected"/>
+  	                <label for="{{books.book.bookId}}"></label>
+  	              </div>
+  
+  	            </div>
+  	            <div class="col-md-8 col-xs-8 bookView" ng-click="vm.readBook(books.book)">
+  	              <div class="pull-right bookLevel" ng-if="books.book.proficiencyLevel !== 0">Level {{ books.book.proficiencyLevel }}</div>
+  	               <div class="bookWrap">
+  	                  <img class="bookCover" fallback-src="images/no_book_cover.jpg" ng-src="{{ books.book.bookImageLink }}"/>
+  	            		<div class="newArival" ng-if="books.book.newArival === true">
+  	              			<img ng-src="images/newarrival.png" />
+  	              		</div>
+  	            	</div>
+  	              <span class="bookTitle" title="{{ books.book.bookTitle }}">{{ books.book.bookTitle }}</span>
+  	            </div>
+  	          </div>
+  	        </div>
+  	      </div>
+  
+  	    </div><!--libraryList-->
+  	    <div class="text-center" ng-if="vm.books.length <1 && !vm.busy" >No results found</div>
+  
+  	    <div class="text-center" ng-show='vm.busy'>Loading books...</div>
+  
+  	    <!-- infinire scroll ends here -->
+  	    <!-- libarary list ends-->
+          <div ng-show="vm.books.length >0 && !vm.busy" class="paginationo">
+            <a ng-click="readBookfp(1)">&laquo;</a>
+            <a ng-click="readBookpp(vm.page-1)">&lsaquo;</a>
+                    <a ng-if="vm.page>4&&vm.page===vm.booktp" ng-click="readBooknn(vm.page-4)" ng-class="vm.nubcla[vm.page-4]">{{vm.page-4}}</a>
+                    <a ng-if="vm.page>3&&vm.page===vm.booktp" ng-click="readBooknn(vm.page-3)" ng-class="vm.nubcla[vm.page-3]">{{vm.page-3}}</a>
+                    <a ng-if="vm.page>3&&vm.page===vm.booktp-1" ng-click="readBooknn(vm.page-3)" ng-class="vm.nubcla[vm.page-3]">{{vm.page-3}}</a>
+                    <a ng-if="vm.page>2" ng-click="readBooknn(vm.page-2)" ng-class="vm.nubcla[vm.page-2]">{{vm.page-2}}</a>
+                    <a ng-if="vm.page>1" ng-click="readBooknn(vm.page-1)" ng-class="vm.nubcla[vm.page-1]">{{vm.page-1}}</a>
+                    <a ng-click="readBooknn(vm.page)" ng-class="vm.nubcla[vm.page]">{{vm.page}}</a>
+                    <a ng-if="vm.page<vm.booktp" ng-click="readBooknn(vm.page+1)" ng-class="vm.nubcla[vm.page+1]">{{vm.page+1}}</a>
+                    <a ng-if="vm.page<vm.booktp-1" ng-click="readBooknn(vm.page+2)" ng-class="vm.nubcla[vm.page+2]">{{vm.page+2}}</a>
+                    <a ng-if="vm.booktp>3&&vm.page===1" ng-click="readBooknn(vm.page+3)" ng-class="vm.nubcla[vm.page+3]">{{vm.page+3}}</a>
+                    <a ng-if="vm.booktp>4&&vm.page===1" ng-click="readBooknn(vm.page+4)" ng-class="vm.nubcla[vm.page+4]">{{vm.page+4}}</a>
+                    <a ng-if="vm.booktp>4&&vm.page===2" ng-click="readBooknn(vm.page+3)" ng-class="vm.nubcla[vm.page+3]">{{vm.page+3}}</a>
+            <!-- <div style="display:inline;" ng-repeat="nub in vm.readBookn" ng-click="readBooknn(nub)"> -->
+            <!--         <a ng-if="nub<10" ng-class="vm.nubcla[nub]">{{nub}}</a> -- -->
+            <!-- </div> -->
+            <!-- <span class="dd" ng-if="vm.readBookn.length>9"> -->
+
+            <!--                 <span style="font-size:27px; top:0px; margin-right:10px;">...</span> -->
+            <!--                 <div class="dd-cont"> -->
+            <!--                     <a ng-if="nub>9" ng-repeat="nub in -->
+            <!--                     vm.readBookn" ng-class="vm.nubcla[nub]" ng-click="readBooknn(nub)">{{nub}}</a> -->
+            <!--                 </div> -->
+              
+            <!-- </span> -->
+
+            <a ng-click="readBooknp(vm.page+1)">&rsaquo;</a>
+            <a ng-click="readBooklp(vm.booktp)">&raquo;</a>
+            <span style="margin:5px;"> Total:&nbsp;{{ vm.booktp }} </span>
+            <!-- <input type="text" id="pageNo"/> -->
+            <form style="display:inline;" ng-submit="readBookgp(readBooktx)">
+              <input type="number" min="1" max="{{vm.booktp}}" ng-model="readBooktx" name="readBooktx" />
+              <input type="submit" class="submit" value="Go" />
+            </form>
+          </div>
+    </div>
+  	    <div id="c-mask" class="c-mask" ng-class="vm.isLeftNavActive()" ng-click="vm.toggleLeftNav()"></div>
+  	     <!-- <a href="#" class="scrollup">Scroll</a> -->
+       </div>
+  <div id="navhover-p" class="navhover" ng-show="vm.books.length >0 && !vm.busy && vm.page > 1"
+       ng-click="readBookpp(vm.page-1)" 
+       style="color:white;font-size:220px;left:50px;position:fixed;top:35%;z-index:3;">‹ 
+  </div>
+  <div id="navhover-n" class="navhover" ng-click="readBooknp(vm.page+1)"
+  style="color:white;font-size:220px;right:50px;position:fixed;top:35%;z-index:3;" ng-show="vm.books.length >0 && !vm.busy && vm.page < vm.booktp">› 
+  </div>
+    </div>
+  </div>

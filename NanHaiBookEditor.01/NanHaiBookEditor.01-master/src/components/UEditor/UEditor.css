@@ -1,0 +1,47 @@
+.ueditor-wraper {
+  padding: 30px;
+}
+.ueditor-footer {
+  height: 35px;
+  width: 100%;
+  position: relative;
+}
+.ueditor-button {
+  line-height: 35px;
+  border: 1px solid #dcdfe6;
+  position: absolute;
+  padding: 0 20px;
+  cursor: pointer;
+  top: 0;
+  border-radius: 4px;
+}
+.ueditor-confirm {
+  background-color: #409eff;
+  right: 100px;
+  color: #fff;
+}
+.ueditor-cancel {
+  background-color: #fff;
+  right: 0;
+}
+.edui-editor-iframeholder {
+  height: calc(100vh - 200px) !important;
+}
+
+
+.music-pause {
+  background-image: url(../RndContainer/img/audio.png);
+  background-position: 5px 4px;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  margin: 0 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+.music-play {
+  background-image: url(../RndContainer/img/audio.gif);
+}

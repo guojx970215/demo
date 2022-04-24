@@ -1,0 +1,63 @@
+<div class="loginContainer">
+  <div class="bgImage">
+     <div class="loginForm">
+       <form class="form-horizontal" name="login_form" role="form" ng-submit="vm.submitLoginForm()" novalidate>
+         <div class="form-group form-group-sm">
+            <div class="col-xs-12">
+             <input type="text" class="form-control" ng-model="vm.username" name="userName" placeholder="User Name" required=""/>
+             <div class="font_smaller">Username is case-sensitive</div>
+             <div ng-show="login_form.$submitted || login_form.userName.$touched">
+               <div class="error" ng-show="login_form.userName.$error.required">UserName is required.</div>
+             </div>
+           </div>
+           <!-- <div class="msg">Username shouldn't be case-sensitive.</div> -->
+         </div>
+         <div class="form-group form-group-sm">
+
+           <div class="col-xs-12 col-sm-12 col-md-12">
+             <input type="password" class="form-control" ng-model="vm.password" name="password" placeholder="Password" ng-minlength="8" required=""/>
+              <div ng-show="login_form.$submitted || login_form.password.$touched">
+                 <div class="error" ng-show="login_form.password.$error.required">Password is required.</div>
+                 <div class="error" ng-show="login_form.password.$error.minlength">Password must be between 8 and 50 characters.</div>
+                 <div class="error" ng-show="login_form.password.$error.maxlength">Password is too long.</div>
+              </div>
+           </div>
+         </div>
+         <div class="form-group">
+           <div class="col-xs-6 col-sm-6 col-md-6"><a href= "" ng-click="vm.forgotPassword()">Forgot Password</a></div>
+           <div class="col-xs-6 col-sm-6 col-md-6">
+             <input type="submit" value="Login" class="appButton">
+           </div>
+         </div>
+        </form>
+     </div>
+  </div>
+</div>
+
+<!--<form name="login_form" role="form" ng-submit="vm.submitLoginForm()" novalidate>
+  <div class="form-group">
+    <label class="control-label col-xs-12">UserName</label>
+    <div class="col-xs-12">
+      <input type="text" class="form-control" ng-model="vm.username" name="userName" placeholder="User Name" required=""/>
+      <div ng-show="login_form.$submitted || login_form.userName.$touched">
+        <div class="error" ng-show="login_form.userName.$error.required">userName is required.</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-xs-12">Password</label>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <input type="password" class="form-control" ng-model="vm.password" name="password" placeholder="Password" ng-minlength="8" required=""/>
+      <div class="error" ng-show="login_form.password.$error.required">Password is required.</div>
+      <div class="error" ng-show="login_form.password.$error.minlength">Password must be between 8 and 50 characters.</div>
+      <div class="error" ng-show="login_form.password.$error.maxlength">Password is too long.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-6 col-sm-6 col-md-6"><a href="">Forgot Password</a></div>
+    <div class="col-xs-6 col-sm-6 col-md-6">
+      <input type="submit" value="Login" class="appButton right margin-bottom-twenty">
+    </div>
+  </div>
+  <hr>
+</form>---->

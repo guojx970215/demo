@@ -1,0 +1,26 @@
+.MusicPanel {
+  position: absolute;
+  width: 600px;
+  padding: 10px 10px;
+  z-index: 2;
+  top: 80px;
+  left: 0px;
+  color: #fff;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  text-align: left;
+}
+.music_del{
+  cursor: pointer;
+}
+.no_music{
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 20px 0;
+}
+.ant-table-thead th,.ant-table-wrapper td {
+  border: none;
+  background-color: transparent !important;
+}

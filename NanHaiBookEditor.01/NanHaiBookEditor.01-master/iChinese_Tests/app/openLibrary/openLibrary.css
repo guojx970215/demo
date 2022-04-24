@@ -1,0 +1,60 @@
+.openLibraryProfile .score {
+    background: #3e515c none repeat scroll 0 0;
+    height: 86px;
+    border-radius: 12px;
+    margin-top: 2.2%;
+    float: left;
+    border: 4px solid grey;
+}
+#openLibrary_spec .form-group {
+    float: left;
+    width: 100%;
+}
+#openFilter{
+    margin-bottom: 6px;
+    padding-top: 8px;
+}
+.library_text{
+  font-size: 13px;
+}
+.pinyin_space{
+  margin-right: -40px;
+}
+.btn-primary1{
+    color: #4FA397;
+    background-color: #d1e5b5;
+    border-color: #a4cc69;
+    font-size: smaller;
+    padding: 3px 20.8px;
+    border-radius: 0;
+}
+.btn-primary2{
+    color: #4FA397;
+    background-color: #d1e5b5;
+    border-color: #a4cc69;
+    font-size: smaller;
+    padding: 3px 20px;
+    border-radius: 0;
+}
+.btn-primary1:hover, .btn-primary1.active, .open .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #a4cc69;
+    border-color: #a4cc69;
+}
+.btn-primary2:hover, .btn-primary2.active, .open .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #a4cc69;
+    border-color: #a4cc69;
+}
+.fa-toggle-on {
+    background: url(../images/btn-enable.png) no-repeat;
+}
+.fa-toggle-off {
+    background: url(../images/btn-disable.png) no-repeat;
+}
+.fa-toggle-on, .fa-toggle-off {
+    color: transparent;
+    width: 84px;
+    height: 23px;
+    cursor: pointer;
+}

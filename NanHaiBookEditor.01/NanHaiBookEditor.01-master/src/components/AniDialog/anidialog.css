@@ -1,0 +1,286 @@
+.anidialog {
+  width: 320px;
+  height: auto;
+  max-height: calc(100vh - 60px);
+  overflow-x: hidden;
+  padding: 0 12px;
+  position: fixed;
+  top: 50px;
+  left: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+  z-index: 999;
+}
+.anihead {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: bold;
+  color: #ffffff;
+  position: relative;
+}
+.aniName {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #333;
+  padding: 0 10px;
+}
+.aniContent {
+  width: 100%;
+  height: 260px;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.aniContent::-webkit-scrollbar {
+  width: 4px;
+}
+.aniContent::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: #1890ff;
+}
+.anibtn {
+  width: 60px;
+  float: left;
+  cursor: pointer;
+  animation-duration: 1s;
+  margin-bottom: 9px;
+  vertical-align: top;
+}
+
+.aniIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 16px;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  line-height: 40px;
+  font-weight: bold;
+}
+.aniIcon > span {
+  background-image: linear-gradient(92deg, #2f54eb 0%, #69c0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+.aniMeaning {
+  width: 100%;
+  line-height: 21px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  word-break: break-all;
+}
+.onSelAniMeaning {
+  color: #1890ff;
+  font-weight: 700;
+}
+
+.rotateDeg,
+.trigger-list {
+  width: 100%;
+  font-size: 14px;
+  padding: 0 10px;
+  color: #333;
+  box-sizing: border-box;
+}
+.trigger-list {
+  margin-bottom: 16px;
+  overflow: visible;
+  height: 32px;
+}
+.trigger-list > span {
+  display: inline-block;
+  min-width: 42px;
+  width: 60px;
+}
+.trigger-loop {
+  float: right;
+  margin-top: 5px;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.dilogfooter {
+  width: 100%;
+  position: relative;
+  padding: 16px 0;
+}
+
+.cancleSetAni {
+  float: right;
+  color: #8e8e8e;
+  margin-right: 10px;
+}
+
+.confirmAniSet {
+  float: right;
+}
+
+.trigger-list .music-selector {
+  position: relative;
+  width: calc(100% - 62px);
+  height: 30px;
+  color: rgba(0, 0, 0, 0.65);
+  text-align: left;
+  padding: 0 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-top-width: 1.02px;
+  border-radius: 4px;
+  outline: none;
+  display: inline-block;
+  line-height: 30px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.trigger-list .music-selector:hover {
+  border-color: #40a9ff;
+}
+
+.music-selector .clear-music {
+  position: absolute !important;
+  top: 50%;
+  right: 11px;
+  z-index: 1;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 12px;
+  text-align: center;
+  text-transform: none;
+  background: #fff;
+  cursor: default;
+  opacity: 0;
+  transition: color 0.3s ease, opacity 0.15s ease;
+  text-rendering: auto;
+}
+.music-selector:hover .clear-music {
+  opacity: 1;
+}
+
+.clear-music:hover {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.music-modal-footer {
+  position: absolute;
+  width: auto;
+  height: auto;
+  bottom: 18px;
+  right: 16px;
+}
+.modal-cancel {
+  margin-right: 16px;
+}
+
+.card-music-list {
+  box-sizing: border-box;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 4px;
+  line-height: 30px;
+  padding: 0 8px;
+  border-radius: 4px;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.card-music-list:hover {
+  background-color: #1890ff11;
+}
+.upload-music-btn {
+  height: 32px;
+  width: 90px;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  background-color: #1890ff;
+  cursor: pointer;
+}
+.upload-music-btn:hover {
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-color: #5ea7f8;
+}
+
+.card-audio-paly {
+  float: right;
+  font-size: 18px;
+  margin-top: 6px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.card-audio-paly:hover {
+  color: #1890ff;
+}
+
+.choose-image-list {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  width: 170px;
+  height: 120px;
+  margin: 0 16px 32px 16px;
+  padding-top: 80px;
+  cursor: pointer;
+}
+.choose-image-list img {
+  position: absolute;
+  width: 120px;
+  height: 80px;
+  object-fit: contain;
+  object-position: center;
+  left: 50%;
+  top: calc(50% - 20px);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.choose-image-list h1 {
+  display: block;
+  width: 170px;
+  height: 40px;
+  line-height: 60px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+}
+.choose-image-list:hover img {
+  transform: translate(-50%, -50%) scale(1.1, 1.1);
+}
+.choose-image-list:hover h1 {
+  color: #1890ff;
+}

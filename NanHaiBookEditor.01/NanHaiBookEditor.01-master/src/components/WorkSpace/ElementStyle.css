@@ -1,0 +1,109 @@
+.element-style-panel {
+  position: fixed;
+  top: 140px;
+  transform: translateX(254px);
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #cccccc;
+  border-bottom: 1px #8e8e8e solid;
+  line-height: 40px;
+}
+.element-style-panel > div > span {
+  margin-right: 4px;
+  margin-left: 12px;
+}
+.element-style-panel .ant-input-number,
+.element-style-panel .ant-input-number-input-wrap input {
+  border-radius: 0;
+  height: 24px;
+}
+.element-style-panel .ant-select-selection,
+.element-style-panel .ant-select-selection__rendered {
+  height: 24px;
+  line-height: 24px;
+  border-radius: 0;
+}
+.element-style-panel .ant-input-number-handler-wrap {
+  display: none;
+}
+.element-style-panel .element-scale-container {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: border-box;
+  border-radius: 2px;
+  margin: 8px 8px;
+  text-align: center;
+  vertical-align: top;
+  line-height: 24px;
+  margin-right: 0;
+  color: #212121;
+}
+.element-style-panel .element-scale-container.active-scale {
+  background-color: #21212155;
+  border: 1px #212121 solid;
+  line-height: 22px;
+}
+.element-style-panel .element-backgroud-color,
+.element-style-panel .element-shadow {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 22px;
+  line-height: 22px;
+  margin: 8px 4px;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: #21212155;
+}
+.element-style-panel .element-backgroud-color .color-cube,
+.element-style-panel .element-shadow .color-cube {
+  display: inline-block;
+  background-color: #fff;
+  width: 12px;
+  height: 12px;
+  margin: 4px 5px;
+}
+.element-style-panel .element-shadow .color-cube {
+  box-shadow: 2px 2px 3px #000000;
+}
+.element-style-panel .element-backgroud-color .color-cube-arrow,
+.element-style-panel .element-shadow .color-cube-arrow {
+  position: absolute;
+  right: 4px;
+  top: 5px;
+}
+
+.element-choose-color .sketch-picker {
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.shadow-input-box {
+  width: 196px;
+}
+.shadow-input-box .shadowGen-color-box {
+  display: inline-block;
+  width: calc(50% - 70px);
+  height: 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 32px;
+  text-align: center;
+  overflow: hidden;
+  vertical-align: top;
+  cursor: pointer;
+}
+.element-text-align {
+  margin: 0 8px !important;
+  cursor: pointer;
+  color: #21212155;
+}
+.element-text-align:hover {
+  color: #1890ff;
+}
+.element-text-align.element-text-align-selected {
+  color: #1890ff;
+}

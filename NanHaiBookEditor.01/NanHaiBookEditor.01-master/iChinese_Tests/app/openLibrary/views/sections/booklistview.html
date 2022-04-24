@@ -1,0 +1,82 @@
+<style>
+@media only screen and (max-width:677px)
+{
+.padding-top-xs{
+	padding-top: 33px;
+	    left: 46px;
+		}
+}
+</style>
+
+<div class="libraryList">
+  <!-- <div class="row" ng-repeat="set in vm.books" ng-if="$index % 4 === 0"
+       ng-init="group = (vm.books).slice($index, $index + 4)"> -->
+    <div class="book col-md-3 col-xs-6" ng-repeat="books in vm.books">
+      <div class="row">
+        <div class="options col-xs-4 col-xs-4">
+					<!-- padding-top-xs -->
+          <div class="bookIcon">
+            <img ng-src="{{(books.readComplete && 'images/btn_book_read.png') || 'images/off-book.png'}}"/>
+          </div>
+          <div class="quizIcon" ng-click="!books.readComplete || vm.gotoQuiz(books.book)" ng-show="books.quizAvailable">
+            <!-- condition && true || false -->
+            <img
+              ng-src="{{(books.maxScore.pass && 'images/btn_quiz_complete.png') || (books.readComplete && 'images/btn_quiz_uncomplete.png') || 'images/rsz_btn_quiz_disabled.png'}}"
+              title="{{books.readComplete && 'Launch Quiz' || 'Read Book Completely before Attempting quiz'}}"/>
+          </div>
+          <!--
+          <div class="audioIcon">
+                      <img
+                        ng-src="{{books.inAudioPlaylist && 'images/btn_audio_playlist_selected.png' || 'images/btn_audio_playlist_unselected.png'}}"/>
+                    </div>-->
+          	<span ng-if="books.book.assessmentLevel === null && books.book.teacherAssessment !== true">
+	          	<div class="favoriteIcon">
+	            	<!-- <i class="fa fa-star"></i> -->
+	            	<img ng-src="{{books.inFolder && 'images/icn_add_to_my_library_selected_library.png' || 'images/off-star.png'}}"/>
+	          	</div>
+	          	<div class="">
+	            	<input type="checkbox" name="option" id="{{books.book.bookId}}" ng-model="books.book.selected"/>
+	            	<label for="{{books.book.bookId}}"></label>
+	          	</div>
+			</span>
+        </div>
+        <div class="col-xs-8 col-xs-8 bookView" ng-click="vm.readBook(books.book)">
+          <div class="pull-right bookLevel" ng-if="books.book.proficiencyLevel !== 0 && books.book.proficiencyLevel !== null">
+          	Level {{ books.book.proficiencyLevel }}
+          </div>
+          <div class="bookWrap">
+          	<img class="bookCover" fallback-src="images/no_book_cover.jpg" ng-src="{{ books.book.bookImageLink }}"/>
+		  	<div class="newArival" ng-if="books.book.newArival === true">
+				<img ng-src="images/newarrival.png" />
+		  	</div>
+		  </div>
+          <span class="bookTitle" title="{{ books.book.bookTitle }}">{{ books.book.bookTitle }}</span>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+
+  <!--
+  <div class="book col-md-3">
+    <div class="row">
+      <div class="options col-xs-3">
+        <div class="bookIcon">
+          <i class="fa fa-book"></i>
+        </div>
+        <div class="quizIcon">
+          <i class="fa fa-question"></i>
+        </div>
+        <div class="favoriteIcon">
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+      <div class="col-xs-9">
+        <img class="bookCover" src="images/51o2UG3sp3L._SX305_BO1,204,203,200_.jpg" />
+        <p>Book Title</p>
+      </div>
+    </div>
+  </div>
+  -->
+  <!-- </scrollable> -->
+<div class="text-center" ng-if="vm.books.length <1 && !vm.busy" >No results found</div>
+</div>

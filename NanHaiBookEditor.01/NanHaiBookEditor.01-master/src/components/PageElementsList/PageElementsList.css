@@ -1,0 +1,66 @@
+.sortable-selected>div {
+  background-color: rgb(222, 235, 255);
+  color: rgb(38, 132, 255);
+}
+.list-group {
+  position: relative;
+}
+.element-tab .ant-tabs-nav .ant-tabs-tab {
+  margin-right: 0;
+  width: 119.5px;
+  text-align: center;
+}
+.group-container {
+  position: relative;
+  width: 100%;
+  background-color: #f6f6f6;
+  cursor: pointer;
+  padding-top: 37px;
+}
+.group-container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  top: 36px;
+  left: 0;
+  height: 1px;
+  background-color:#ccd5db;
+}
+.group-container .group-name {
+  position: absolute;
+  width: auto;
+  cursor: text;
+  height: 21px;
+  line-height: 21px;
+  top: 8px;
+  left: 48px;
+}
+.group-container .name-input {
+  position: absolute;
+  top: 8px;
+  width: 139px;
+  left: 48px;
+}
+.fold-group, .toggle-group, .delete-group,.move-group {
+  position: absolute;
+  top: 12px;
+  left: 8px;
+}
+.toggle-group {
+  left: 30px;
+}
+.delete-group {
+  left: auto;
+  right: 8px;
+}
+.move-group {
+  left: auto;
+  right: 30px;
+}
+.group-container .ele-list{
+  position: relative;
+  padding-left: 30px;
+}
+.group-fold .ele-list {
+  display: none;
+}

@@ -1,0 +1,558 @@
+@import "_config";
+.reportContainer{
+		color: $font-light;
+		background: #1e7da2 url("/images/bg_ocean.png") repeat-x scroll 0 0;
+    //min-height: 506px;
+    padding-top: 30px;
+    width: 100%;
+		padding-bottom: 10%;
+	.profileImgContainer {
+    background-image: url("/images/login/bg_avatar_report.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    height: 140px;
+    left: 0;
+    position: relative;
+    top: 14px;
+    width: 120px;
+    text-align: center;
+      //img{
+       /* display: inline-block;
+        left: 15px;
+        margin: 0 auto;
+        position: absolute;
+        top: 15px;
+        vertical-align: middle;
+        max-height: 90px;
+        max-width: 90px;
+        width: 30%;*/
+      //}
+      div{
+      	position: absolute;
+    	width: 50%;
+    	height: 30%;
+    	text-align: center;
+      	img{
+      		width: 65%;
+      	}
+      }
+
+      .head{
+      	left: 23%;
+      	top: 14%;
+      }
+      .body{
+      	top:37.5%;
+      	left:23%;
+      	img{
+      		width: 50%;
+      	}
+      }
+      .leftArm{
+	      	left: -3%;
+	      	top: 42%;
+	      	.left-arm{
+	      		width: 60%;
+	      	}
+      }
+      .rightArm{
+      	right: 1%;
+      	top: 42%;
+      	.right-arm{
+	      			width: 60%;
+				    transform: scaleX(-1);
+				    -webkit-filter: FlipH;
+				    filter: FlipH;
+				    -ms-filter: "FlipH";
+	      		}
+      }
+      .legs{
+      		top: 58.7%;
+      		left:23.5%;
+      }
+      .hat{
+      	left: 22.7%;
+      	top: -4%;
+      }
+      .eyeWear{
+      	top: 12%;
+      	left: 23%;
+      	img{
+          width: 48%;
+        }
+      }
+      .mustache{
+      	left: 23%;
+      	top:33%;
+      }
+      .tie{
+      	top:39.5%;
+      	left: 23%;
+      	img{
+          width: 42%;
+        }
+      }
+  }
+  .rightInfoContainer{
+    h3{
+      margin-top: 15px;
+    }
+    .list-inline{
+      margin-left: -43px;
+        li{
+          margin-left: 61px;
+        }
+    }
+	}
+	.profileInfo {
+    left: 20px;
+    position: relative;
+    top: -4px;
+    .rank{
+      padding-top: 18px;
+    }
+  }
+
+
+	.lastRead{
+		margin-left: 3px;
+	}
+
+	.libraryList{
+		margin-left: 15px;
+		.scrollup {
+      width: 60px;
+      height: 60px;
+      position: fixed;
+      bottom: 50px;
+      right: 40px;
+      display: none;
+      text-indent: -9999px;
+      background: url('/images/icon_top.png') no-repeat;
+      background-color: #000;
+    }
+	}
+	.book{
+		width: 20%;
+		/*	height: 100%;
+			min-height: 260px;*/
+
+    .bookCover{
+      border-radius: 4px;
+      margin-bottom: 15%;
+      margin-left: -1.5%;
+      margin-top: 9%;
+      width: 117px;
+      height: 162px;
+
+			@media only screen and (max-width:667px) and (orientation: landscape){
+					border-radius: 4px;
+					margin-bottom: 15%;
+					margin-left: -6%;
+					margin-top: 14%;
+					width: 117px;
+				}
+				@media only screen and (max-width: 1440px) and (orientation: landscape)	{
+					margin-left: -1.5%;
+					margin-top: 5%;
+					//width: 122px;
+				}
+				@media only screen and (min-width: 2880px) {
+					margin-left: -0.5%;
+		            margin-top: 4%;
+					width: 20.4% !important;
+	      }
+    }
+
+    .options img{
+      cursor: pointer;
+      font-size: 3em;
+      height: 47px;
+      margin-left: 8px;
+    }
+    .options{
+      .checkbox{
+        //margin-top: 4px;
+        margin-left: 6%;
+        margin-top: 5%;
+      }
+    }
+    .bookView{
+      background: transparent url('/images/icn_book_container.png') no-repeat scroll 0px 0px;
+      //background-size:66%;
+      margin-bottom: 5%;
+      /*
+			.bookTitle{
+		    min-height: 60px;
+		  }*/
+
+		    /*
+				.bookWrap {
+					position:relative;
+				}*/
+				.bookTitle:hover{
+          position: inherit;
+        }
+        .newArival {
+          position:absolute;
+          left: -4px;
+          top: 6px;
+          width: 60px;
+       }
+       .newArival img {
+         width: 100%;
+       }
+      .bookLevel{
+        margin-bottom: -10%;
+        margin-top: 4%;
+        margin-right: 48%;
+        font-size: 1em;
+        color: $font-color-light;
+				@media screen and (min-width: 2880px) {
+					margin-top: 1% !important;
+			    margin-right: 85% !important;
+					}
+					@media screen and (min-width: 1400px) {
+						margin-top : 3%;
+						margin-right: 68%;
+					}
+}
+      p{
+        color: $font-color-light;
+        font-size: 1.1em;
+				// font-size: 1.2em;
+        margin: -4px 0px 10px -10px;
+      }
+			@media only screen and (max-width: 667px) and (orientation: landscape)
+			{
+				p{
+					color: $font-color-light;
+					font-size: 1.1em;
+					// font-size: 1.2em;
+					margin: 14px 0px 10px -10px;
+				}
+			}
+
+			@media only screen and (min-width: 2880px)
+			{
+				#bookTt{
+				          margin-top: -50px !important;
+				}
+				#bookPa{
+				          margin-bottom: -28px !important;
+				}
+				#two{
+					width: 23.4% !important;
+					margin-top: 6%;
+				}
+				#three{
+					width: 23.8% !important;
+    			margin-top: 6%;
+				}
+
+			}
+			@media only screen and (min-width: 1920px)
+			{
+				#bookTt{
+				          margin-top: -40px !important;
+				}
+				#bookPa{
+				          margin-bottom: -25px !important;
+				}
+				.bookCover {
+					width: 34.4% !important;
+					margin-top: 6%;
+				}
+				.two{
+					width: 37.4% !important;
+				 	margin-top: 9% !important;
+				}
+				.three{
+					width: 37.4% !important;
+					margin-top: 8% !important;
+				}
+
+
+			}
+			@media only screen and (min-width: 2880px)
+				{
+					#bookTt{
+					          margin-top: -50px !important;
+					}
+					#bookPa{
+					          margin-bottom: -28px !important;
+					}
+				    .bookCover {
+						width: 21.4% !important;
+						margin-top: 3%;
+					}
+					.two{
+						width: 23.4%!important;
+					  margin-top: 5% !important;
+					}
+					.three{
+						margin-top: 5% !important;
+					  width: 23.4% !important;
+
+					}
+
+				}
+    }
+  }
+
+
+	//tab
+		.nav-tabs {
+				border-bottom: 3px solid #2c4148;
+				margin-left: 0;
+		}
+		.nav-tabs > li {
+				margin-bottom: 0;
+		}
+		.nav-tabs > li:first-child {
+				margin-left: 10px;
+		}
+		.nav-tabs > li > a {
+				color: $font-light;
+      padding: 14px 10px;
+			}
+		.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+				-moz-border-bottom-colors: none;
+				-moz-border-left-colors: none;
+				-moz-border-right-colors: none;
+				-moz-border-top-colors: none;
+				background-image: url("/images/login/btn_tab_selected.png");
+				background-color: transparent;
+				border: medium none;
+				background-repeat: no-repeat;
+				color: $font-light;
+				cursor: default;
+				height: 48px;
+				width: 120px;
+      text-align: center;
+		}
+		.nav-tabs > li > a,.nav-tabs > li > a:hover{
+				-moz-border-bottom-colors: none;
+				-moz-border-left-colors: none;
+				-moz-border-right-colors: none;
+				-moz-border-top-colors: none;
+				background-image: url("/images/login/btn_tab_unselected.png");
+				background-color: transparent;
+				border: medium none;
+				background-repeat: no-repeat;
+				color: $font-light;
+				float: left;
+				height: 48px;
+				margin-bottom: 0;
+				margin-left: 5px;
+				width: 120px;
+		}
+
+		//nested tab
+		.nested-tabs {
+			li {
+			    left: 33%;
+			    position: relative;
+			}
+			li.active > a, li.active > a:hover,li.active > a:focus{
+				//padding: 15px 14px;
+				cursor: default;
+			}
+			li > a{
+				cursor: pointer;
+			}
+		}
+		.selectClass{
+	    position:relative;
+	    left:33%;
+	    top:8px
+	  }
+		@media only screen and (max-width:667px) and (orientation: landscape)
+		{
+			.selectClass{
+				width:40%;
+				position:relative;
+			  left:33%;
+			  top:8px
+				}
+		}
+		.form-control {
+		    background-color: #e4eaef;
+		    border: 1px solid #212929;
+		    border-radius: 10px;
+		}
+		// .currentAssignmentContainer {
+		//     margin-left: 15px;
+		// }
+		.progressContiner{
+	    margin-bottom:20px;
+			margin-top:20px;
+			margin-left: 0;
+	  }
+	  .progressView{
+	    margin-top:25px;
+	  }
+	  .progress-bar-custom{
+	    width: 50%;
+	    background-color: #70ffea;
+	  }
+	  .progress-custom{
+	    background: #0b7e99 none repeat scroll 0 0;
+	    border: 1px solid #208989 !important;
+	    border-radius: 10px;
+	    height: 20px;
+	    width: 177px
+	  }
+		.levelText {
+	    color: #fff;
+	    // font-size: 20pt;
+	    padding-left: 0;
+	    padding-top: 15px;
+		}
+
+		.custom-table {
+		  font-size: 1em;
+			color: $font-color-dark;
+			border-top: 1px solid;
+		}
+		.odd{
+			background-color: $table_bg_odd;
+			height: 30px;
+		}
+		.even{
+			background-color: $table_bg_even;
+			height: 30px;
+		}
+		.table > tbody > tr > th, .table > tfoot > tr > th, .table > tbody > tr > td, .table > tfoot > tr > td {
+			vertical-align: middle;
+			padding: 0 0 0 20px;
+			border: 1px solid $font-color-dark;
+		}
+		.table > thead > tr > th, , .table > thead > tr > td{
+			border: 1px solid $font-color-dark;
+			padding: 10px 10px 10px 20px;
+		}
+		.percentage{
+			margin-right: 30px;
+    	margin-top: 10px;
+		}
+		.currentAssignment{
+			.progressView {
+				margin-bottom: -13px;
+				margin-top: 7px;
+			}
+		}
+
+		.previousAssignmentBooks{
+			.book{
+				width: 25%;
+			}
+			.bookCover {
+			    border-radius: 4px;
+			    height: 149px;
+			    margin-bottom: 10%;
+			    margin-left: 0.2%;
+			    margin-top: 9%;
+			    width: 53%;
+					cursor: pointer;
+					@media only screen and (max-width:667px) and (orientation: landscape) {
+								border-radius: 4px;
+								height: 149px;
+								margin-bottom: 10%;
+								margin-left: -1.8%;
+								margin-top: 9%;
+								width: 85%;
+								cursor: pointer;
+					}
+				    @media only screen and (min-width: 1366px) and (orientation: landscape){
+								width: 48%;
+				    }
+					@media screen and (min-width: 1400px) and (orientation: landscape) {
+						    border-radius: 4px;
+						    height: 149px;
+						    margin-bottom: 10%;
+						    margin-left: -1.8%;
+						    margin-top: 9%;
+						    width: 49.4%;
+								cursor: pointer;
+					}
+					@media screen and (min-width: 2880px){
+						margin-left: -1%;
+						margin-top: 5%;
+						width: 24%;
+					}
+			}
+
+
+	// 		@-moz-document url-prefix() {
+	// 		.bookCover {
+	// 		border-radius: 4px;
+	// 		margin-bottom: 15%;
+	// 		margin-left: -5%;
+	// 		margin-top: 9%;
+	// 		width: 117px;
+	// 	}
+	// }
+
+		}
+		.badgesTitle{
+			padding-left: 15px;
+		}
+		.selectLeader{
+			left: 30%;
+	    margin-bottom: 4px;
+	    position: relative;
+	    top: 0;
+	    width: 40%;
+		}
+
+
+	.reportNav{
+		margin-top: 3%;
+	}
+	.reportNav:nth-child(2){
+		border-left: 0px;
+		border-right: 0px;
+	}
+	.reportNav .content{
+		background-color: #ddd;
+		padding: 10px 15px;
+		border:1px solid #000000;
+
+	}
+	.reportNav .content a{
+		color: #000;
+	}
+	.reportNav .content.active{
+		background-color: #009933;
+
+	}
+	.reportNav .content.active a{
+		color: #FFF;
+	}
+}
+.book .bookCover {
+    	width: 100%;
+	}
+	.incomplete{
+        color: red;
+      }
+
+
+.left { float:left}
+h3.leaderBoardClass{
+    float: left;
+    margin-top: 12px;
+    width: 100%;
+}
+.h3font{
+	font-size: 22px!important;
+}
+.LastReadFont {
+	font-size: 20px!important;
+}
+
+.font18{
+	font-size: 18px;
+}

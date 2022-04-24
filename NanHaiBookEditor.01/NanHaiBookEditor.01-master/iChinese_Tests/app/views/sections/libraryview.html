@@ -1,0 +1,91 @@
+<div class="libraryList">
+  <div class="row" ng-repeat="set in vm.books | filter: searchKeyword" ng-if="$index % 4 === 0"
+       ng-init="group = (vm.books | filter: searchKeyword).slice($index, $index + 4)">
+    <div class="book col-md-3" ng-repeat="books in group  | filter: searchKeyword ">
+      <div class="row">
+        <div class="options col-xs-3">
+          <div class="bookIcon" ng-click="vm.readBook(books.book)">
+            <img ng-src="{{books.readComplete && 'images/btn_book_read.png' || 'images/btn_book_unread.png'}}"/>
+          </div>
+          <div class="quizIcon" ng-click="!books.readComplete || vm.gotoQuiz(books.book)">
+            <img ng-src="{{books.readComplete && 'images/btn_quiz_complete.png' || 'images/btn_quiz_uncomplete.png'}}"/>
+          </div>
+          <div class="audioIcon">
+            <img
+              ng-src="{{books.inAudioPlaylist && 'images/btn_audio_playlist_selected.png' || 'images/btn_audio_playlist_unselected.png'}}"/>
+          </div>
+          <div class="favoriteIcon">
+            <!-- <i class="fa fa-star"></i> -->
+            <img
+              ng-src="{{books.inFolder && 'images/icn_add_to_my_library_selected_library.png' || 'images/icn_add_to_my_library_unselected_library.png'}}"/>
+          </div>
+          <div class="checkbox">
+            <input type="checkbox" name="option" id="{{$index}}" ng-model="books.book.selected"/>
+            <label for="{{$index}}"></label>
+          </div>
+        </div>
+        <div class="col-xs-9 bookView">
+          <div class="pull-right bookLevel">Level {{ books.book.proficiencyLevel }}</div>
+          <img class="bookCover" fallback-src="images/no_book_cover.jpg" ng-src="{{ books.book.bookImageLink }}"/>
+
+          <p class="bookTitle">{{ books.book.bookTitle }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="row">-->
+  <!-- <div class="rows nano-wrapper"> -->
+  <!-- <scrollable> -->
+  <!--<div class="book col-md-3" ng-repeat="books in vm.books  | filter: searchKeyword ">-->
+  <!--<div class="row">-->
+  <!--<div class="options col-xs-3">-->
+  <!--<div class="bookIcon" ng-click="vm.readBook(books.book)">-->
+  <!--<img ng-src="{{books.readComplete && 'images/btn_book_read.png' || 'images/btn_book_unread.png'}}"/>-->
+  <!--</div>-->
+  <!--<div class="quizIcon" ng-click="!books.readComplete || vm.gotoQuiz(books.book)">-->
+  <!--<img ng-src="{{books.readComplete && 'images/btn_quiz_complete.png' || 'images/btn_quiz_uncomplete.png'}}"/>-->
+  <!--</div>-->
+  <!--<div class="audioIcon">-->
+  <!--<img ng-src="{{books.inAudioPlaylist && 'images/btn_audio_playlist_selected.png' || 'images/btn_audio_playlist_unselected.png'}}"/>-->
+  <!--</div>-->
+  <!--<div class="favoriteIcon">-->
+  <!--&lt;!&ndash; <i class="fa fa-star"></i> &ndash;&gt;-->
+  <!--<img ng-src="{{books.inFolder && 'images/icn_add_to_my_library_selected_library.png' || 'images/icn_add_to_my_library_unselected_library.png'}}"/>-->
+  <!--</div>-->
+  <!--<div class="checkbox">-->
+  <!--<input type="checkbox" name="option" id="{{$index}}" ng-model="books.book.selected"/>-->
+  <!--<label for="{{$index}}"></label>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="col-xs-9 bookView" >-->
+  <!--<div class="pull-right bookLevel">Level {{ books.book.proficiencyLevel }}</div>-->
+  <!--<img class="bookCover" fallback-src="images/no_book_cover.jpg" ng-src="{{ books.book.bookImageLink }}" />-->
+  <!--<p class="bookTitle">{{ books.book.bookTitle }}</p>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--
+  <div class="book col-md-3">
+    <div class="row">
+      <div class="options col-xs-3">
+        <div class="bookIcon">
+          <i class="fa fa-book"></i>
+        </div>
+        <div class="quizIcon">
+          <i class="fa fa-question"></i>
+        </div>
+        <div class="favoriteIcon">
+          <i class="fa fa-star"></i>
+        </div>
+      </div>
+      <div class="col-xs-9">
+        <img class="bookCover" src="images/51o2UG3sp3L._SX305_BO1,204,203,200_.jpg" />
+        <p>Book Title</p>
+      </div>
+    </div>
+  </div>
+  -->
+  <!-- </scrollable> -->
+  <!--</div>-->
+
+</div>

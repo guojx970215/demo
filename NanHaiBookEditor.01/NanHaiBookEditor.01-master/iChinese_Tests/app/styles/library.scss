@@ -1,0 +1,667 @@
+  @import "_config";
+  
+  .libFilterContainer{
+      float: left;
+      width: 100%;
+      // font-family: 'FuturaStd-Medium', cursive;
+      font-family: 'FuturaStd-Medium';
+      background: url('/images/bg_filter_search_bar.png') repeat-x scroll 0 0;
+      height: 94px;
+  @media only screen and (max-width:667px) and (orientation: landscape)
+  {
+      height: 108px;
+  }
+      .hamburgerImg{
+        float: left;
+        margin-top: 13px;
+        img{
+          width: 65%;
+          cursor: pointer;
+        }
+      }
+      .filterText{
+        float: left;
+        // font-size: 24pt;
+        font-size: 20pt;
+        color: #fff;
+        margin: 10px 0 0 0px;
+  
+      @media only screen and (max-width: 667px) and (orientation: landscape)
+      {
+        display: none;
+      }
+    }
+      .btn-default:focus,
+      .btn-default:active,
+      .btn-default.hover
+      {
+        background-color: #002C6E;
+        border-radius: 7px;
+      }
+  
+      button[disabled]:focus,
+      button[disabled]:active,
+      button[disabled]:hover{
+        background-color: #002C6E;
+        border-radius: 7px;
+       }
+      .search{
+        margin-bottom: 0;
+        position: relative;
+        width: 200px;
+        .fa.fa-search {
+          color: gray;
+          font-size: 16px;
+          margin-bottom: 0;
+          position: absolute;
+          top: 4px;
+          right: 13px;
+          cursor: pointer;
+          @media only screen and (max-width: 667px) and (orientation: landscape)
+          {
+            right: 67px;
+          }
+        }
+      }
+      .form-group{
+        float:left;
+          margin-bottom: 0;
+      }
+      .form-control{
+        background-color: #fff;
+        border-radius: 15px;
+        border: 1px solid gray;
+        height: 27px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left:24px;
+        padding-right:34px;
+        // font-family: $verdana;
+        font-family:FuturaStd-Medium;
+        font-size: 12px;
+        @media only screen and (max-width: 667px) and (orientation: landscape)
+        {
+          width: 73%;
+          margin-top: -2px;
+        }
+      }
+  
+       .form-control::-webkit-input-placeholder {  font-family: $verdana; text-align:center}
+       .form-control:-moz-placeholder { font-family: $verdana; text-align:center }
+       .form-control::-moz-placeholder { font-family: $verdana; text-align:center }
+       .form-control:-ms-input-placeholder { font-family: $verdana; text-align:center }
+     .dropdown-1{
+            margin: 1px 0 2px;
+  
+              .dropdown-toggle{
+                background-color: #fff;
+                border-radius: 15px;
+                border: 1px solid gray;
+                // color: gray;
+                color:#949494;
+                width: 165px;
+                height: 27px;
+                padding-top: 0;
+                padding-bottom: 0;
+                font-family: $verdana;
+                @media only screen and (max-width: 667px) and (orientation: landscape)
+                {
+                  // width: 133px;
+                  width:116px;
+                  margin-top: -3px;
+                }
+              }
+              .btn .caret {
+                 float: right;
+                margin-left: 0;
+                margin-right: -8px;
+                margin-top: 5%;
+                vertical-align: middle;
+              }
+              .open > .dropdown-menu {
+                  background: #e4eaef none repeat scroll 0 0;
+                  display: block;
+                  li > div > a {
+                      clear: both;
+                      color: #333;
+                      display: inline-block;
+                      font-weight: normal;
+                      line-height: 1.42857;
+                      padding: 3px 20px;
+                      white-space: nowrap;
+                      cursor: pointer;
+                  }
+                  li > div > span {
+                      float: right;
+                      position: relative;
+                      right: 10px;
+                      cursor: pointer;
+                      text-decoration: underline;
+                      color: #1E7DA2;
+                  }
+              }
+  
+        }
+      .dropdown-2{
+        padding-left:2.6%
+      }
+      .dropdown-3{
+        left: 58%;
+        position: absolute;
+      }
+  
+      .btnlarge{
+        background: no-repeat url("/images/btn_orangegradient_medium.png") 0 0;
+        border:none;
+        //margin-top:5.6%;
+        height: 36px;
+        width: 120px;
+        margin-left: 0;
+      }
+      @media only screen and (max-width: 667px) and (orientation: landscape)
+      {
+        .btnlarge {
+            margin-left:-8px;
+            width: 95px;
+        }
+      }
+      .btnSmall{
+        background: no-repeat url("/images/btn_orangegradient_small.png") 0 0;
+        border:none;
+        //margin-top:5.6%;
+        border: medium none;
+        border-radius: 4px;
+        height: 36px;
+        margin-left: 5px;
+        width: 80px;
+        @media only screen and (max-width: 667px) and (orientation: landscape)
+        {
+            margin-left: -21px;
+        }
+      }
+      .buttonTextSmall{
+        margin-top: -20px;
+        color: #c3d2d9;
+        margin-left: 18%;
+        margin-top: -32%;
+      }
+      .buttonText{
+  
+        // font-size: 12px;
+        // margin-left: 8px;
+        margin-top: -20px;
+        color: #c3d2d9;
+        margin-left: 18%;
+        margin-top: -21%;
+      }
+      .buttonText1{
+        color: #c3d2d9;
+        font-size: 12px;
+        margin-left: 8px;
+        margin-top: -27px;
+      }
+      .buttonText2{
+        color: #c3d2d9;
+        font-size: 12px;
+        margin-left: 14px;
+        margin-top: -2px;
+      }
+      .btnText {
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        margin-top: -4px;
+      }
+      .lib_btnWrap{
+        float:left;
+        margin-top: 15px;
+        margin-left:10px;
+      }
+      .fa{
+        float:left;
+        color:#fff;
+        // margin-right: 82px;
+        // margin-top: 6px;
+        // color: $font-color-light;
+      }
+      .button1{
+        //padding-left:20px;
+        //margin-left: -2%;
+        margin-left: -0.8%;
+        margin-top: 0.5%;
+        padding: 6px 0px;
+      }
+      .button2{
+        padding-left:20px
+      }
+    .addtomylibrary {
+      background: transparent url('/images/addtomylibrary.png')no-repeat;
+      width: 137px;
+      height: 40px;
+      border: none;
+      margin-left: 5px;
+     }
+      .Books{
+        margin-bottom: 0;
+        margin-top: 3px;
+        input[type="checkbox"] + label {
+          color: #ffffff;
+        }
+      }
+      // input[type=checkbox] {
+          // display:none;
+      // }
+      .selectAll {
+        margin: 1px 0 0 14px;
+        font-size: x-small;
+        color: #fff;
+        float: left;
+        @media only screen and (max-width: 667px) and (orientation: landscape)
+        {
+              margin: -2px 0 0 14px;
+        }
+  
+        input[type="checkbox"] {
+          float: left;
+          width: 16px;
+          height: 16px;
+        }
+        label {
+          float: left;
+          margin: 2px 8px;
+          font-family: $verdana;
+          font-size: 12px;
+        }
+    }
+      /* to hide the checkbox itself */
+      // input[type=checkbox] + label:before {
+        // font-family: FontAwesome;
+        // display: inline-block;
+      // }
+      // input[type=checkbox] + label:before {
+          // content: "\f096";
+      // }
+      /* unchecked icon */
+      // input[type=checkbox] + label:before {
+          // letter-spacing: 10px;
+          // font-size: 23px;
+          // vertical-align: middle;
+      // }
+      /* space between checkbox and label */
+      // input[type=checkbox]:checked + label:before {
+          // content: "\f046";
+  //
+      // }
+      /* checked icon */
+      // input[type=checkbox]:checked + label:before {
+          // letter-spacing: 5px;
+          // font-size: 23px;
+      // }
+      .homeBtn{
+        //margin-right:15px;
+        margin: 0 auto;
+  
+        button{
+          float: right;
+          background: #b7dde5 none repeat scroll 0 0;
+          border: medium none;
+          border-radius: 12px;
+          height: 69px;
+          // margin: 12px 0;
+          margin: 16px 0;
+          width: 65px;
+  
+          // background: #3e515c none repeat scroll 0 0;
+          // border: medium none;
+          // border-radius: 12px;
+          // height: 90px;
+          // margin-top: 8%;
+          // width: 100%;
+        }
+        span{
+          color: gray;
+          font-size: 14pt;
+          font-family: Verdana;
+        }
+  
+      }
+      .score{
+        background:#3e515c none repeat scroll 0 0;
+        height:90px;
+        border-radius: 12px;
+        margin-top: 2%;
+        //width:253px;
+        //margin-left:-16px;
+         div{
+           color: $font-color-light;
+         }
+        .name{
+          font-size: 20pt;
+          margin-bottom: -4px;
+        }
+        // .progress {
+        //   height: 10px;
+        //   margin-bottom: 0px;
+        // }
+        .progress-bar-custom{
+          width: 50%;
+          background-color: #70ffea;
+        }
+        .progress-custom{
+          background: rgb(11,126,153);
+          border: 1px solid #208989!important;
+          border-radius: 7px;
+          height: 12px;
+          margin-bottom: 0px;
+        }
+        .levelText{
+          font-size: 12px;
+          margin-left: 31%;
+        }
+        img.profilePic{
+          background-color: #2cafd1;
+          border-radius: 5px;
+          padding: 8px;
+          position: absolute;
+          right: -5px;
+          top: 10px;
+          vertical-align: middle;
+          width: 72px;
+          height: 72px;
+        }
+        .btn_faq {
+          left: 74px;
+          position: absolute;
+          top: 64px;
+          cursor: pointer;
+        }
+        .icon_points {
+          left: 94px;
+          position: absolute;
+          top: 36px;
+        }
+        .points{
+          font-size: 18px;
+        }
+      }
+  
+  
+  }
+  
+  
+  
+  
+  .libraryView{
+    font-family: 'FuturaStd-Medium', cursive;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  
+    .book{
+      height: 100%;
+      .bookCover{
+        //width: 100%;
+        border-radius: 4px;
+        height: 145px;
+        margin-bottom: 15%;
+        margin-left: -1.8%;
+        margin-top: 9%;
+        width: 64%;
+      }
+      .options img{
+        cursor: pointer;
+        font-size: 3em;
+        height: 47px;
+        margin-left: 8px;
+      }
+      .options{
+        .checkbox{
+          //margin-top: 4px;
+          margin-left: 6%;
+          margin-top: 5%;
+        }
+      }
+      .bookView{
+        background: transparent url('/images/icn_book_container.png') no-repeat scroll 0px 0px;
+        background-size:66%;
+        margin-bottom: 5%;
+        .bookLevel{
+          margin-bottom:-10%;
+          margin-top:4%;
+          margin-right:40%;
+          font-size: 1em;
+          color: $font-color-light;
+        }
+        p{
+          color: $font-color-light;
+          font-size: 20px;
+          margin: -4px 0 10px;
+        }
+      }
+    }
+    .levelText{
+      font-size:24pt;
+      color:#fff;
+      //margin-top:6px
+    }
+    .levelText1{
+      color: #fff;
+      font-size: 22pt;
+      left: -80px;
+      padding-top: 2px;
+      position: relative;
+      //margin-top:6px
+    }
+    .bookList{
+      background: #1E7DA2 url("/images/bg_ocean.png") repeat-x scroll 0px 0px;
+      width: 100%;
+      min-height: 506px;
+      padding-top: 30px;
+      .nano-wrapper{
+        height: 420px;
+      }
+      .nano-content p{
+        color: $font-color-light;
+        font-size: 1.6em;
+        margin: 0 0 0 -9%;
+      }
+  
+    }
+  
+    .progressContiner{
+      margin-bottom:30px;
+    }
+    .progressView{
+      margin-top:15px;
+    }
+    .progress-bar-custom{
+      width: 50%;
+      background-color: #70ffea;
+    }
+    .progress-custom{
+      background: rgb(11,126,153);
+      border: 1px solid #208989!important;
+      border-radius: 7px;
+      height: 20px;
+    }
+  
+  input[type=checkbox] {
+      display:none;
+  }
+  
+  /* to hide the checkbox itself */
+  input[type=checkbox] + label:before {
+    font-family: FontAwesome;
+    display: inline-block;
+  }
+  
+  input[type=checkbox] + label:before {
+      content: "\f096";
+  }
+  
+  /* unchecked icon */
+  input[type=checkbox] + label:before {
+      letter-spacing: 10px;
+      font-size: 23px;
+  }
+  
+  /* space between checkbox and label */
+  input[type=checkbox]:checked + label:before {
+      content: "\f046";
+  
+  }
+  
+  /* checked icon */
+  input[type=checkbox]:checked + label:before {
+      letter-spacing: 5px;
+      font-size: 23px;
+  }
+  
+  
+  .c-menu {
+    background: rgba(0, 0, 0, 0) url("/images/bg_filter_menu.png") no-repeat scroll 0 0;
+    position: absolute;
+    z-index: 200;
+    transition: transform 0.3s;
+    height: 100%;
+    top:0;
+    width: 219px;
+    //color: #fff;
+    .nav_Buttons{
+      text-align: center;
+      font-size: 2em;
+      i{
+        cursor: pointer;
+        margin: 0 0.5em;
+      }
+    }
+  
+    h3{
+      margin: 10px;
+    }
+  
+    .btn{
+      background-color: transparent;
+      border: 1px solid #fff;
+      margin: 15px auto;
+    }
+    .nano {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        width: 200px;
+        left: -15px;
+        .nano-pane{
+          width: 3px;
+        }
+    }
+    .nano-content p{
+      color: $font-color-light;
+      font-size: 1.6em;
+      margin: 0 auto;
+    }
+    }
+    .nano-content p{
+      color: $font-color-light;
+      font-size: 1.6em;
+      margin: 0 auto;
+    }
+  }
+  .panel-group{
+    margin-bottom: 20px;
+    //margin-left: -3%;
+    width: 198px;
+      .panel{
+        border-radius: 0;
+        background-color: transparent;
+        margin-top: 0;
+        }
+      .panel-default{
+        border-color: gray;
+        border-style: none none solid;
+        .panel-heading{
+          background-color: transparent;
+        }
+      }
+      .panel-heading{
+        padding: 8px 8px;
+      }
+      .panel-title{
+        font-size: 1.6em;
+        .a{
+          color: $font-color-dark;
+          }
+        .a:hover{
+          text-decoration: none;
+        }
+      }
+      .list-group{
+        background-color: transparent;
+        .list-group-item{
+          background-color: transparent;
+          padding: 7px 30px;
+        }
+      }
+  }
+  .c-menu--slide-left,
+  .c-menu--push-left {
+    height: 506px;
+    //margin-top: 10.4%;
+    transform: translateX(-411px);
+    -ms-transform: translateX(-411px); /* IE 9 */
+    -webkit-transform: translateX(-411px); /* Chrome, Safari, Opera */
+  }
+  
+  .c-menu--slide-left.is-active,
+  .c-menu--push-left.is-active {
+    transform: translateX(0);
+    -ms-transform: translateX(0); /* IE 9 */
+    -webkit-transform: translateX(0); /* Chrome, Safari, Opera */
+    height: 506px;
+    //margin-left: -1.1%;
+    //margin-top: 10.4%;
+  }
+  
+  
+  .c-mask {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.3s, width 0s 0.3s, height 0s 0.3s;
+    display: none;
+  }
+  
+  .c-mask.is-active {
+    opacity: 0.1;
+    transition: opacity 0.3s;
+    display: block;
+  }
+  
+  .margin_bottom{
+    margin-bottom: 8px;
+  }
+  
+  @media only screen and (max-width:667px) and (orientation: landscape)
+  {
+  .margin-xs-zero {
+  margin: 0px;
+  padding:0px
+  }
+  }
+  // .panel-heading .accordion-toggle:after {
+  //     /* symbol for "opening" panels */
+  //     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+  //     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+  //     float: right;        /* adjust as needed */
+  //     color: $font-color-dark;         /* adjust as needed */
+  // }
+  // .panel-heading .accordion-toggle.collapsed:after {
+  //     /* symbol for "collapsed" panels */
+  //     content: "\e113";    /* adjust as needed, taken from bootstrap.css */
+  // }

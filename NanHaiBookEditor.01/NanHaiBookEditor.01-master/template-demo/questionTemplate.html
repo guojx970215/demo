@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>答题模板</title>
+    <style>
+        body {
+            background-color: rgb(245, 245, 245);
+        }
+
+        .wjContent {
+            background-color: rgba(255, 255, 255, 1);
+            width: 814px;
+            margin: 0px auto 10px auto;
+        }
+
+        .wjContent,
+        .wj-content-padding {
+            min-height: 200px;
+            background: #fff;
+            word-break: normal;
+            z-index: 99;
+            position: relative;
+        }
+
+        .wjContent .content_box.content_top {
+            padding-top: 30px;
+        }
+
+        .wjContent .content_box {
+            padding: 10px 40px 66px;
+        }
+
+        #begin_content {
+            clear: both;
+            overflow: hidden;
+        }
+
+        .wjtitle {
+            float: left;
+            width: 100%;
+        }
+
+        .mtop {
+            margin-top: 20px;
+        }
+
+
+        .wjintro,
+        .wjintro {
+            font-size: 16px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .wjhr {
+          
+            width: 100%;
+            height: 3px;
+            background-color: #f29400;
+        }
+
+        .wjques {
+            padding-left: 15px;
+        }
+
+        .maxtop {
+            width: 734px;
+            margin-top: 30px;
+        }
+
+        .title {
+            width: 100%;
+            font-size: 16px;
+            margin-left: -15px;
+            padding-bottom: 8px;
+            position: relative;
+            padding-left: 5px;
+        }
+
+        .matrix {
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options-li {
+            padding: 10px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+            background: #f5f5f5;
+        }
+
+        .selected {
+            color: #409eff;
+        }
+        .error {
+           background-color:#f56c6c;
+           color:#fff;
+        }
+        .right {
+           background-color:#67c23a ;
+           color:#fff;
+        }
+        .right-option {
+           border:1px solid #67c23a ;
+        }
+        .submit-question{
+            line-height: 35px;
+            border: 1px solid #dcdfe6;
+            padding: 0 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: #409eff;
+            color: #fff;
+            display: inline-block;
+        }
+    </style>
+    </style>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+class Content extends React.Component {
+  render() {
+    return  <div>
+            <input type="text" value={this.props.myDataProp} onChange={this.props.updateStateProp} /> 
+            <h4>{this.props.myDataProp}</h4>
+            </div>;
+  }
+}
+class QuestionSet extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          questionSetTitle: '答题',
+          submit:false,
+          score:0,
+          questionList:[{
+              title:'小明今年多大？',
+              options:['A .1岁','B .2岁','C.3岁'],
+              rightOptions:1,
+              selectIndex:-1
+          },
+          {
+              title:'小明成绩多少？',
+              options:['A .80','B .20','C.30'],
+              rightOptions:2,
+              selectIndex:-1
+          }]
+        };
+    
+  }
+ 
+  setOption(qIndex,oIndex){
+     if(this.state.submit){return}
+    this.state.questionList[qIndex].selectIndex = oIndex
+    this.setState({questionList:this.state.questionList});
+  }
+  submitQuestion(e){
+      let score = this.state.questionList.reduce((old,ne)=>{
+          console.log(old,ne)
+          if(ne.selectIndex ===ne.rightOptions){
+            return ++old
+          }else{
+              return old
+          }
+      },0)
+      this.setState({
+          submit:true,
+          score
+      })
+  }
+  render() {
+    var value = this.state.value;
+    return <div className="wjContent">
+    <div className="content" id="begin_content">
+
+      <div className="wjtitle mtop project_title">
+        <h1>
+          <p style={{textAlign: 'center'}}>{this.state.questionSetTitle}</p>
+        </h1>
+      </div>
+      <div className="wjintro mtop desc_begin">您好,请完成题目</div>
+
+      <div className="wjhr mtop"></div>
+      <div style={{width: '100%'}}>
+        <div className="wjques maxtop question">
+          <form action="">
+           { this.state.questionList.map((item,index)=>{
+                return (<div key={index} className="title">
+                            <span>{index+1}.{item.title}</span>
+                            <ul  className="options">
+                                {
+                                    item.options.map((option,index1)=>{
+                                        let claName = '';
+                                        if(this.state.submit){
+                                            if(index1===item.rightOptions){
+                                                claName = 'right-option'
+                                            }
+                                            if(index1===item.selectIndex &&　item.selectIndex!==item.rightOptions){
+                                                claName = 'error'
+                                            }
+                                            if(index1===item.selectIndex &&　item.selectIndex===item.rightOptions){
+                                                claName = 'right'
+                                            }
+                                            
+                                        }else{
+                                            if(index1===item.selectIndex){
+                                                claName = 'selected'
+                                            }
+                                          
+                                        }
+                                        console.log('提交答案',claName)
+                                        return <li 
+                                        className={'options-li '+claName} 
+                                        key={index1}
+                                        onClick={(e)=>this.setOption(index,index1)}
+                                        >{option}</li>
+                                    })
+                                }
+                                
+                               
+                            </ul>
+                        </div>)
+            })
+            }
+              
+          
+          </form>
+          
+        </div>
+        <div onClick={(e)=>this.submitQuestion(e)} className="submit-question">提交</div>
+        <span>成绩：{this.state.submit?this.state.score:''}</span>
+      </div>
+    </div>
+  </div>;
+  }
+}
+ReactDOM.render(
+  <QuestionSet />,
+  document.getElementById('root')
+);
+</script>
+
+</body>
+
+</html>

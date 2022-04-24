@@ -1,0 +1,48 @@
+
+.centent {
+  display: flex;
+  min-height: 300px;
+  .left {
+    width: 150px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    .top {
+      flex: 1;
+      .list {
+        height: 40px;
+        line-height: 40px;
+        text-indent: 1em;
+        cursor: pointer;
+
+      }
+      .active {
+        background-color: #1006F1;
+        color: #fff;
+      }
+    }
+    .plus {
+      margin: 10px;
+    }
+
+  }
+  .right {
+    max-height: 600px;
+    flex: 1;
+    padding: 20px 40px 20px 20px;
+    box-sizing: border-box;
+    .ext{
+
+    }
+    .tag{
+      margin-top: 5px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.selectBtn {
+  color: #1890ff;
+}

@@ -1,0 +1,24 @@
+
+# dependencies
+node_modules
+yarn-error.log
+package-lock.json
+
+# production
+dist
+test.js
+# misc
+.DS_Store
+lerna-debug.log
+
+# editor
+.idea
+
+# template
+
+note.md
+
+
+packages/super-template/build
+packages/super-server/temp/db.txt
+

@@ -1,0 +1,198 @@
+{
+  "name": "nanhai-bookeditor",
+  "version": "08.24.2021",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "7.4.3",
+    "@svgr/webpack": "4.1.0",
+    "@typescript-eslint/eslint-plugin": "1.6.0",
+    "@typescript-eslint/parser": "1.6.0",
+    "animate.css": "^3.7.2",
+    "antd": "^3.20.0",
+    "array-move": "^2.2.0",
+    "babel-eslint": "10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "8.0.5",
+    "babel-plugin-named-asset-import": "^0.3.2",
+    "babel-preset-react-app": "^9.0.0",
+    "camelcase": "^5.2.0",
+    "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "codemirror": "^5.49.2",
+    "crypto-js": "^4.0.0",
+    "css-loader": "2.1.1",
+    "dom-to-image-more": "2.7.7",
+    "dotenv": "6.2.0",
+    "dotenv-expand": "4.2.0",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-loader": "2.1.2",
+    "eslint-plugin-flowtype": "2.50.1",
+    "eslint-plugin-import": "2.16.0",
+    "eslint-plugin-jsx-a11y": "6.2.1",
+    "eslint-plugin-react": "7.12.4",
+    "eslint-plugin-react-hooks": "^1.5.0",
+    "esri-leaflet-geocoder": "^2.2.14",
+    "file-loader": "3.0.1",
+    "fs-extra": "7.0.1",
+    "html-react-parser": "^0.7.1",
+    "html-webpack-plugin": "4.0.0-beta.5",
+    "i": "^0.3.6",
+    "identity-obj-proxy": "3.0.0",
+    "ifanrx-react-ueditor-iframe": "0.0.8",
+    "immutable": "^4.0.0-rc.12",
+    "is-wsl": "^1.1.0",
+    "jest": "24.7.1",
+    "jest-environment-jsdom-fourteen": "0.1.0",
+    "jest-resolve": "24.7.1",
+    "jest-watch-typeahead": "0.3.0",
+    "jquery": "3.4.1",
+    "jspdf": "^1.5.3",
+    "leaflet": "1.5.1",
+    "leaflet-control-geocoder": "1.8.2",
+    "leaflet-routing-machine": "3.2.12",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "0.5.0",
+    "nanoid": "2.0.1",
+    "node-sass": "^4.12.0",
+    "node-uuid": "^1.4.8",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "pnp-webpack-plugin": "1.2.1",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-loader": "3.0.0",
+    "postcss-normalize": "7.0.1",
+    "postcss-preset-env": "6.6.0",
+    "postcss-safe-parser": "4.0.1",
+    "rc-slider": "^8.6.13",
+    "react": "16.8.6",
+    "react-addons-css-transition-group": "15.6.2",
+    "react-app-polyfill": "^1.0.1",
+    "react-codemirror2": "^6.0.0",
+    "react-color": "2.17.3",
+    "react-confirm-alert": "^2.4.1",
+    "react-dev-utils": "^9.0.1",
+    "react-dom": "16.8.6",
+    "react-dropdown": "1.6.4",
+    "react-leaflet": "2.4.0",
+    "react-lines-ellipsis": "^0.14.1",
+    "react-redux": "7.0.2",
+    "react-rnd": "9.1.2",
+    "react-sortable-hoc": "^1.10.1",
+    "react-sortablejs": "^6.0.0",
+    "react-transition-group": "^4.2.1",
+    "redux": "4.0.1",
+    "redux-saga": "^1.0.3",
+    "resolve": "1.10.0",
+    "sass-loader": "7.1.0",
+    "semver": "6.0.0",
+    "simple-drawing-board": "^2.0.1",
+    "sortablejs": "^1.11.0",
+    "style-loader": "0.23.1",
+    "terser-webpack-plugin": "1.2.3",
+    "ts-pnp": "1.1.2",
+    "url-loader": "1.1.2",
+    "webpack": "4.29.6",
+    "webpack-dev-server": "3.2.1",
+    "webpack-manifest-plugin": "2.0.4",
+    "workbox-webpack-plugin": "4.2.0"
+  },
+  "scripts": {
+    "dev": "run-p api start",
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
+    "api": "node ./mockapi/api.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.12.7",
+    "@types/lodash": "^4.14.172",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "babel-plugin-import": "^1.13.0",
+    "cheerio": "^1.0.0-rc.3",
+    "eslint": "^5.16.0",
+    "express": "^4.17.1",
+    "npm": "^6.10.1",
+    "npm-run-all": "^4.1.5",
+    "query-string": "^6.8.3",
+    "typescript": "^4.1.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true
+  },
+  "proxy": "http://39.99.182.102",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": true
+        }
+      ],
+      "@babel/plugin-proposal-optional-chaining"
+    ]
+  }
+}

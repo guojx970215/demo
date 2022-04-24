@@ -1,0 +1,35 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px;
+	}
+}
+</style>
+<div class="modal-body text-center" style="background-color: rgba(0, 0, 0, 0.1) !important;">
+	<!-- {{items}} {{bookUrl}} -->
+	<div class="col-md-3 col-md-push-10">
+		<img src ="/student/images/btn_x.png" ng-click="cancel()" style="width: 12px;" />
+	</div>
+	<div class="modal-header">
+		<div class="col-md-6">
+			<img src ="/student/images/profile.png"/>
+		</div>
+		<div class="col-md-12" style="font-size: small;">
+		  <!-- <p>You have finished reading the book!</p> -->
+	  </div>
+    <div class="col-md-12" style="font-size: medium;">
+      {{message}}
+    </div>
+	</div>
+	<div class="row">
+	<div class="col-md-12">
+		<div class="well" ng-if="quizExists">
+			<h4 style="font-size: medium !important;"> To complete the books,please complete the quiz. </h4>
+			<input type="button" class="btn btn-info" ng-click="openQuiz()" value="Quiz"> </input>
+		</div>
+		<div class="well">
+			<input type="button" class="btn btn-danger" ng-click="replay()" value="Replay"> </input>
+		</div>
+	</div>
+</div>

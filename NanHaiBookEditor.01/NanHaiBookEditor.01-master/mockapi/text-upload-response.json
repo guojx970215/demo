@@ -1,0 +1,60 @@
+{
+    "data": {
+        "id": "some backend id",
+        "type": "TextBox",
+        "content": [
+            {
+                "type": "html",
+                "value": "<div class="text-block text-block-fi"><div class="text simp-p chfont"><span>　　</span><span id='w1' class='words w1' data-start='0.86' data-end='3.17'><ruby><rb>最</rb><rt>zuì</rt><rb>近</rb><rt>jìn</rt><rb>包</rb><rt>bāo</rt><rb>包</rb><rt>bāo</rt><rb>听</rb><rt>tīnɡ</rt><rb>到</rb><rt>dào</rt><rb>了</rb><rt>le</rt><rb>一</rb><rt>yí</rt><rb>个</rb><rt>ɡè</rt><rb>新</rb><rt>xīn</rt><rb>词</rb><rt>cí</rt><rb>—</rb><rt></rt><rb>—</rb><rt></rt></ruby></span><span id='w2' class='words w2' data-start='3.18' data-end='4.64'>&#8203;“&#8288;<ruby><rb>贸</rb><rt>mào</rt><rb>易</rb><rt>yì</rt><rb>战</rb><rt>zhàn</rt></ruby>&#8288;”&#8288;，&#8203;</span><span id='w3' class='words w3' data-start='4.65' data-end='10.22'><ruby><rb>因</rb><rt>yīn</rt><rb>为</rb><rt>wèi</rt><rb>电</rb><rt>diàn</rt><rb>视</rb><rt>shì</rt><rb>里</rb><rt>li</rt><rb>每</rb><rt>měi</rt><rb>天</rb><rt>tiān</rt><rb>都</rb><rt>dōu</rt><rb>有</rb><rt>yǒu</rt><rb>美</rb><rt>měi</rt><rb>国</rb><rt>ɡuó</rt><rb>和</rb><rt>hé</rt><rb>中</rb><rt>zhōnɡ</rt><rb>国</rb><rt>ɡuó</rt><rb>贸</rb><rt>mào</rt><rb>易</rb><rt>yì</rt><rb>战</rb><rt>zhàn</rt><rb>的</rb><rt>de</rt><rb>新</rb><rt>xīn</rt><rb>闻</rb><rt>wén</rt></ruby>&#8288;。&#8203;</span><span id='w4' class='words w4' data-start='10.23' data-end='11.68'><ruby><rb>包</rb><rt>bāo</rt><rb>包</rb><rt>bāo</rt><rb>不</rb><rt>bù</rt><rb>明</rb><rt>mínɡ</rt><rb>白</rb><rt>bɑi</rt></ruby>&#8288;，&#8203;</span><span id='w5' class='words w5' data-start='11.69' data-end='14.22'><ruby><rb>两</rb><rt>liǎnɡ</rt><rb>个</rb><rt>ɡè</rt><rb>国</rb><rt>ɡuó</rt><rb>家</rb><rt>jiā</rt><rb>跟</rb><rt>ɡēn</rt><rb>她</rb><rt>tā</rt><rb>都</rb><rt>dōu</rt><rb>有</rb><rt>yǒu</rt><rb>关</rb><rt>ɡuān</rt><rb>系</rb><rt>xi</rt></ruby>&#8288;，&#8203;</span><span id='w6' class='words w6' data-start='14.23' data-end='16.46'><ruby><rb>为</rb><rt>wèi</rt><rb>什</rb><rt>shén</rt><rb>么</rb><rt>me</rt><rb>要</rb><rt>yào</rt><rb>贸</rb><rt>mào</rt><rb>易</rb><rt>yì</rt><rb>战</rb><rt>zhàn</rt><rb>呢</rb><rt>ne</rt></ruby>&#8288;？&#8203;</span><div class='para'></div></div><div class="text trad-p trfont"><span>　　</span><span id='w1' class='words w1' data-start='0.86' data-end='3.17'><ruby><rb>最</rb><rt>zuì</rt><rb>近</rb><rt>jìn</rt><rb>包</rb><rt>bāo</rt><rb>包</rb><rt>bāo</rt><rb>聽</rb><rt>tīnɡ</rt><rb>到</rb><rt>dào</rt><rb>了</rb><rt>le</rt><rb>一</rb><rt>yí</rt><rb>個</rb><rt>ɡè</rt><rb>新</rb><rt>xīn</rt><rb>詞</rb><rt>cí</rt><rb>—</rb><rt></rt><rb>—</rb><rt></rt></ruby></span><span id='w2' class='words w2' data-start='3.18' data-end='4.64'>&#8203;“&#8288;<ruby><rb>貿</rb><rt>mào</rt><rb>易</rb><rt>yì</rt><rb>戰</rb><rt>zhàn</rt></ruby>&#8288;”&#8288;，&#8203;</span><span id='w3' class='words w3' data-start='4.65' data-end='10.22'><ruby><rb>因</rb><rt>yīn</rt><rb>為</rb><rt>wèi</rt><rb>電</rb><rt>diàn</rt><rb>視</rb><rt>shì</rt><rb>裡</rb><rt>li</rt><rb>每</rb><rt>měi</rt><rb>天</rb><rt>tiān</rt><rb>都</rb><rt>dōu</rt><rb>有</rb><rt>yǒu</rt><rb>美</rb><rt>měi</rt><rb>國</rb><rt>ɡuó</rt><rb>和</rb><rt>hé</rt><rb>中</rb><rt>zhōnɡ</rt><rb>國</rb><rt>ɡuó</rt><rb>貿</rb><rt>mào</rt><rb>易</rb><rt>yì</rt><rb>戰</rb><rt>zhàn</rt><rb>的</rb><rt>de</rt><rb>新</rb><rt>xīn</rt><rb>聞</rb><rt>wén</rt></ruby>&#8288;。&#8203;</span><span id='w4' class='words w4' data-start='10.23' data-end='11.68'><ruby><rb>包</rb><rt>bāo</rt><rb>包</rb><rt>bāo</rt><rb>不</rb><rt>bù</rt><rb>明</rb><rt>mínɡ</rt><rb>白</rb><rt>bɑi</rt></ruby>&#8288;，&#8203;</span><span id='w5' class='words w5' data-start='11.69' data-end='14.22'><ruby><rb>兩</rb><rt>liǎnɡ</rt><rb>個</rb><rt>ɡè</rt><rb>國</rb><rt>ɡuó</rt><rb>家</rb><rt>jiā</rt><rb>跟</rb><rt>ɡēn</rt><rb>她</rb><rt>tā</rt><rb>都</rb><rt>dōu</rt><rb>有</rb><rt>yǒu</rt><rb>關</rb><rt>ɡuān</rt><rb>係</rb><rt>xi</rt></ruby>&#8288;，&#8203;</span><span id='w6' class='words w6' data-start='14.23' data-end='16.46'><ruby><rb>為</rb><rt>wèi</rt><rb>什</rb><rt>shén</rt><rb>麼</rb><rt>me</rt><rb>要</rb><rt>yào</rt><rb>貿</rb><rt>mào</rt><rb>易</rb><rt>yì</rt><rb>戰</rb><rt>zhàn</rt><rb>呢</rb><rt>ne</rt></ruby>&#8288;？&#8203;</span><div class='para'></div></div></div>"
+            }
+        ],
+        "config": {
+            "editable": false,
+            "audio": "path to audio file",
+            "timecodes": {
+                "w1": {
+                    "start": 0.86,
+                    "end": 3.17
+                },
+                "w2": {
+                    "start": 3.18,
+                    "end": 4.64
+                },
+                "w3": {
+                    "start": 4.65,
+                    "end": 10.22
+                },
+                "w4": {
+                    "start": 10.23,
+                    "end": 11.68
+                },
+                "w5": {
+                    "start": 11.69,
+                    "end": 14.22
+                },
+                "w6": {
+                    "start": 14.23,
+                    "end": 16.46
+                }
+            },
+            "styles": [
+                {
+                    "selector": ".word",
+                    "styles": {
+                        "fontSize": "24px"
+                    }
+                },
+                {
+                    "selector": ".words:hover, .words.selected",
+                    "styles": {
+                        "color": "#ff3300",
+                        "cursor": "pointer"
+                    }
+                }
+            ]
+        }
+    },
+    "message": "success",
+    "messageCode": 0,
+    "success": 0
+}

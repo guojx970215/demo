@@ -1,0 +1,241 @@
+<script type="text/javascript">
+  $(document).ready(function () {
+     $("html, body").scrollTop(0);
+  });
+
+</script>
+<style>
+	.body-wrapper {background: #252525;
+  margin:0px;
+  padding:0px;
+  }
+  .autoFit{position: absolute !important;
+    margin-left: 20%;
+    /* height: 1121px !important; */
+    height: 175% !important;
+    overflow: hidden !important;
+    transform: scale(0.57) !important;
+    /* top:-222px !important; */
+    top:-35% !important;
+    overflow-y: hidden;
+    }
+  .iframeClass{
+        height: 984px;
+  }
+  .margin_top{
+    margin-top: -20px;
+  }
+  @media only screen and (max-width:667px)
+  {
+    .margin_top{
+      margin-top: -20px;
+      left:-47px;
+    }
+  }
+  @media only screen and (min-width: 1920px)
+  {
+    .margin_top{
+      margin-left: 29% !important;
+    }
+  }
+</style>
+
+  <div class="margin_top" ng-class="class"  ng-style = "vm.bookInfo.viewMode == 'LANDSCAPE' ? { 'width':'1024px','margin-left':'13%','height':'1150px' }:{ 'width':'768px','height':'1150px' }" >
+  <!-- width: 1024px; -->
+  <div class="book_top_navbar">
+  	<div class="col-xs-4">
+	  <div class="pull-left menu-icon">
+	      <a class="pull-left" ng-click="vm.toggleLeftNav()"><img src="images/btn_hamburger_menu.png"></a>
+	  </div>
+    	<a class="pull-left record_icon" ng-if="vm.mode == 'StudentMode'" ng-click="vm.addRecording()" ng-show="vm.microphoneShow"></a>
+      	<div class="record_wrapper" >
+            <div class="audioRecord">
+              <section class="main-controls">
+                <p id="timer" style="display:none">00:00</p>
+                <div id="buttons">
+                    <button class="record recordBtn" title="Record" id="record" ng-click="vm.onBtnRecordClicked()"></button>
+                    <button class="stop recordBtn" title="Stop" id="stop" ng-click="vm.onStopBtnClicked()"></button>
+                    <button class="pause recordBtn" title="Pause"  id="pause" style="display: none;"></button>
+                    <button class="play recordBtn" title="Play" id="play" ng-click="vm.onPlayBtnClicked()">
+                          <audio id="player"></audio>
+                    </button>
+                    <button class="new recordBtn" title="New" id="new" ng-click="vm.onBtnNewClicked()"></button>
+                    <button class="send recordBtn" title="Send" id="send" ng-show="vm.showSendBtn" ng-click="vm.closeRecording()"></button>
+
+                    <button class="share recordBtn" title="Share" id="share" ng-show="vm.showShareBtn" ng-click="vm.sendToParentRecording()"></button>
+                </div>
+                <div class="visualizer_wrap">
+                  <canvas class="visualizer"></canvas>
+                  <div class="disabled_visualizer"><hr></div>
+
+                </div>
+
+              </section>
+              <p id="audioTimerHidden" style="display: none;">Nil</p>
+              <div class="audioTimer">
+                   <!--  <button class="closeRecord recordBtn" ng-click="vm.closeRecording()">
+                      <img src="images/close_icon_recording.png"/>
+                    </button> -->
+                    <p id="audioTimer">00:00</p>
+                </div>
+          </div>
+      	</div>
+      	<a class="pull-left write_icon" ng-if="vm.mode == 'StudentMode'" ng-disable="vm.disableButton" ng-click="vm.addComments(vm.writeText)">  </a>
+	</div>
+	<div class="col-xs-5 text-center">
+  		<button class="book_page_title" style="max-width:250px;">{{vm.bookInfo.bookTitle}} </button>
+  	</div>
+  	<div class="col-xs-3">
+    	<div class="exit" ng-if="vm.popUp == false">
+	      <button class="btn btn-default btnclose pull-right" ng-click="vm.exit()"></button>
+	    </div>
+      <div class="exit" ng-if="vm.popUp == true">
+        <button class="btn btn-default btnclose pull-right" ng-click="vm.openReadPopUp()"></button>
+      </div>
+  	    <!-- <div class="exit" ng-if="vm.showQuiz() && vm.mode == 'StudentMode'"> -->
+	      <!-- <button class="btn btn-default btnSmall pull-right" ng-click="vm.launchQuiz()">Quiz</button> -->
+        <!-- <img ng-src="{{((vm.bookProgressInfo.maxScore.pass && vm.bookProgressInfo.readComplete) && 'images/btn_quiz_complete.png') || 'images/btn_quiz_uncomplete.png'}}" class="pull-right" ng-click="vm.launchQuiz()"> -->
+	    <!-- </div> -->
+  </div>
+
+
+  </div>
+  <nav class="c-menu c-menu--slide-left" ng-class="vm.isLeftNavActive()">
+    <div class="leftfilterContainer">
+    <span class="nav_Buttons">
+      <span class="arrowBack"><a ng-click="vm.gotoPrevPage()"><img src="images/arrow-L.png"></a></span>
+      <span class="pageNumber">{{vm.currentPage}}/{{vm.pageTotal}}</span>
+      <span class="arrowForward"><a ng-click="vm.gotoNextPage()"><img src="images/arrow-R.png"></a></span>
+    </span>
+	<div class="checkboxContainer">
+		<ul>
+      	<li>
+          <button class="btn" ng-click="vm.toggleAutoFit()" ng-class="vm.myDynamicClass">
+            Auto Fit
+            <i class="fa" ng-class="vm.getToggleStatus('autoFit')"></i>
+          </button>
+      	</li>
+		</ul>
+	</div>
+    <div class="radioContainer"
+            ng-class="{'disabled':vm.bookOrigin === vm.str || vm.bookOrigin ==='assignmentReport'}">
+          <h3 class="text-center">Text Settings:</h3>
+          <ul style="margin-left:5%;">
+              <li ng-hide="vm.simplifiedOption === false"><input type="radio" ng-model="vm.wordMode" value="Simplified" ng-change="vm.updateWordMode()">
+                <span>Simplified</span>
+              </li>
+              <li ng-hide="vm.traditionalOption === false"><input type="radio" ng-model="vm.wordMode" value="Traditional" ng-change="vm.updateWordMode()">
+                <span>Traditional</span>
+              </li>
+              <li><input type="radio" ng-model="vm.wordMode" value="No text" ng-change="vm.updateWordMode()">
+                <span>No Text</span>
+              </li>
+        </ul>
+        </div>
+          <div class="radioContainer" ng-class="{'disabled':vm.bookOrigin === vm.str || vm.bookOrigin ==='assignmentReport'}">
+            <h3 class="text-center">Language Settings:</h3>
+            <ul style="margin-left:5%;">
+                <li>
+                  <input type="radio" ng-model="vm.bilingualLanguage" value="Mandarin" ng-change="vm.updateBilingualLanguage()">
+                  <span>Mandarin</span>
+                </li>
+                <li ng-if="vm.bilingual === true">
+                  <input type="radio" ng-model="vm.bilingualLanguage" value="Cantonese" ng-change="vm.updateBilingualLanguage()">
+                  <span>Cantonese</span>
+                </li>
+                <li>
+                  <input type="radio" ng-model="vm.bilingualLanguage" value="No_audio" ng-change="vm.updateBilingualLanguage()">
+                  <span>No Audio</span>
+                </li>
+            </ul>
+          </div>
+
+      <div class="checkboxContainer"
+          ng-class="{'disabled':vm.bookOrigin=== vm.str || vm.bookOrigin ==='assignmentReport'}">
+        <ul>
+        	<li ng-show="vm.autoplayShow">
+	            <button class="btn" ng-click="vm.toggleAutoPlay()">
+	              Autoplay
+	              <i class="fa" ng-class="vm.getToggleStatus('autoplay')"></i>
+	            </button>
+          	</li>
+          	<li ng-show="vm.pinyinShow">
+	            <button class="btn" ng-click="vm.togglePinyin()">
+	              Pinyin
+	              <i class="fa" ng-class="vm.getToggleStatus('pinyin')"></i>
+	            </button>
+          	</li>
+<!--//
+            <li ng-show="vm.dictionaryShow">
+	            <button class="btn" ng-click="vm.toggleDictionary()">
+	              Dictionary
+	              <i class="fa" ng-class="vm.getToggleStatus('dictionary')"></i>
+	            </button>
+            </li>
+//-->
+          	<!-- <li ng-show="vm.voicesShow">
+            <button class="btn" ng-click="vm.toggleVoice()">
+              Audio
+              <i class="fa" ng-class="vm.getToggleStatus('voice')"></i>
+            </button>
+          </li> -->
+          <!--
+          <li ng-show="vm.backgroundMusicPlayingShow">
+            <button class="btn" ng-click="vm.toggleMusic()">
+              Music
+              <i class="fa" ng-class="vm.getToggleStatus('music')"></i>
+            </button>
+          </li>-->
+        </ul>
+      </div>
+
+      <div class="row" ng-class="{'disabled':vm.benchmarkBook === true}" ng-if="vm.mode == 'StudentMode'" >
+        <!-- <div class="col-md-6 star">
+          <img ng-src="{{vm.bookProgressInfo.inFolder && 'images/icn_add_to_my_library_selected_library.png' || 'images/icn_add_to_my_library_unselected_library.png'}}"/>
+        </div> -->
+        <div class="col-xs-12">
+        	<button type="submit" class="btn addtomylibrary" ng-click="showModalAddFolder()" ng-disabled="intermediateFalse"></button>
+
+          <!-- <a ng-click="showModalAddFolder()" type="submit" class="btn btn-default btnSmall">
+            <div class="buttonText1">Add to <br>My Library</div></a> -->
+        </div>
+      </div>
+      <div class="row" ng-if="vm.mode == 'StudentMode'">
+         <!-- <img ng-src="{{vm.bookmarkPage === vm.currentPage  && 'images/icn_add_to_my_library_selected_library.png' || 'images/icn_add_to_my_library_unselected_library.png'}}"/>
+          <span style="position:relative;left:-35px; top: -3px" ng-show="vm.bookmarkPage > 0">{{vm.bookmarkPage}}</span> -->
+        <!-- <div class="col-md-6 star" >
+          <div class="image">
+            <img
+              ng-src="{{vm.bookmarkPage === vm.currentPage  && 'images/icn_add_to_my_library_selected_library.png' || 'images/icn_add_to_my_library_unselected_library.png'}}"/>
+
+            <div class="text" ng-show="vm.bookmarkPage > 0">{{vm.bookmarkPage}}</div>
+          </div>
+        </div> -->
+        <div class="col-xs-12">
+          <!-- <a ng-click="vm.setBookmark(vm.currentPage)" type="submit" class="btn btn-default btnSmall">
+            <div class="buttonText1">Bookmark <br> Page</div>
+          </a> -->
+          <button type="submit" class="btn bookmark_page" ng-click="vm.setBookmark(vm.currentPage)">
+            <span style="margin-left: 24%;color: #fff;">({{vm.bookmarkPage}})</span>
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- filter container -->
+  </nav>
+  <div id="c-mask" class="c-mask" ng-class="vm.isLeftNavActive()" ng-click="vm.toggleLeftNav()"></div>
+  <div id="book-wrapper">
+      <iframe id="content-frame" ng-class="iframeClass" ng-style = "vm.bookInfo.viewMode == 'LANDSCAPE' ? { 'width':'1024px','margin-left':'-17%','height':'727px' }:{ 'width': '768px' }" >
+        <p>Your browser does not support iframes.</p>
+      </iframe>
+      <!-- <div id="content-frame"></div> -->
+  </div>
+   <!--  <div class="container bookFooter">
+      <p>2016 &copy; NanHai USA, Inc. All Rights Reserved.</p>
+    </div> -->
+
+</div> <!--bookContainer-->
+
+<label hidden>{{vm.writeText}}</label>
