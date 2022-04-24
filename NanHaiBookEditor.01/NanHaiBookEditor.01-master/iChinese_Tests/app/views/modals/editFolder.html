@@ -1,0 +1,34 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px;
+	}
+}
+</style>
+<div class="custom-modal">
+		<div class="modal-header modal-header-custom">
+		  <h2 class="text-center">Edit Folder</h2>
+		</div>
+		<form class="form-horizontal" name="ctreateFolderForm" ng-submit="submitForm()" novalidate >
+		<div class="modal-body">
+				  <!-- FOLDER NAME -->
+					<div class="form-group">
+				      	<label class="control-label col-xs-4">Folder Name</label>
+				      	<div class="col-xs-8">
+					        	<input type="text" class="form-control" ng-model="folderName" name="folderName" ng-disabled="folderName=='None'" placeholder="Enter folder Name" required="" ng-minlength="3" ng-maxlength="15">
+										<div ng-show="ctreateFolderForm.$submitted || ctreateFolderForm.folderName.$touched">
+					      			<div class="error" ng-show="ctreateFolderForm.folderName.$error.required">Folder Name is required.</div>
+											<div class="error" ng-show="ctreateFolderForm.folderName.$error.minlength">Folder name is too short.</div>
+											<div class="error" ng-show="ctreateFolderForm.folderName.$error.maxlength">Folder name is too long.</div>
+										</div>
+								</div>
+			    </div>
+				<div class="modal-footer">
+					<button class="btn btn-primary modalBtnSmall" type="submit" ng-disabled="ctreateFolderForm.$invalid">Update</button>
+					<button class="btn btn-warning modalBtnSmall" type="button" ng-click="deleteFolder()">Delete</button>
+				  <button class="btn btn-warning modalBtnSmall" type="button" ng-click="closeModal()">Cancel</button>
+				</div>
+			</div>
+		</form>
+</div>

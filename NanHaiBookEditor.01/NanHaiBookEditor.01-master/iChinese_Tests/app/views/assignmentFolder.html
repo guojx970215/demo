@@ -1,0 +1,73 @@
+<style>
+  .btnAlign{
+    clear: both;
+    display: table;
+    margin-bottom: 2%;
+  }
+  @media only screen and (max-width:667px)
+  {
+  .dropdown-height-xs {
+          margin-top: 41%!important;
+  }
+  .dropdown-height-xs-1{
+      margin-top: 50%!important;
+  }
+}
+</style>
+
+<div ng-include="'views/sections/header.html'"></div>
+<div class="filterContainer">
+    <div class="col-md-4 col-xs-3">
+    	<!-- <div class="filterText">Filter</div> -->
+        <div class="dropdown-1 dropdown-height-xs-1">
+          <div class="form-group search">
+            <select required="" class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required"
+                    ng-model="vm.classPicked" ng-change="pickClass()"
+                    ng-options="class as class.className for class in vm.allclasses">
+              		<!-- <option value="">Select Class </option> -->
+            </select>
+          </div>
+      	</div>
+	</div>
+
+    <div class="col-md-3 col-xs-3">
+    	<div class="row">
+    		<div class="dropdown-1 dropdown-height-xs">
+		      <div class="form-group search">
+		          <input type="text" class="form-control" id="inputValidation"
+	          		onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'"  ng-change="removeAll()"
+	                 placeholder="Search" ng-model="searchKeyword" ng-keyup="$event.keyCode == 13 && searchQuery()">
+	                 <i class="fa fa-search left-searchIcon" ng-click="searchQuery()"></i>
+	                 <i class="fa fa-close right-closeIcon" ng-click="clearAll()"></i>
+		      </div>
+		     </div>
+	     </div>
+    </div>
+
+
+    <div class="col-md-5 col-xs-6">
+      <div ng-include="'views/sections/commonprofile.html'"></div><!-- profile info -->
+    </div>
+</div><!-- filterContainer -->
+<div class="progressReadView">
+  <div ng-include="'views/sections/leftfilterview.html'"></div><!-- filter view ends-->
+
+  <div class="col-md-10 col-xs-10 bookList">
+  	<div class="col-md-12 col-xs-12">
+		<div class="col-md-3 col-xs-6" ng-repeat="row in vm.folderList">
+			<div class="assignmentFoldersWrap" ng-click="vm.clickAssignmentFolder(row)">
+				<span ng-if="row.overallProgress !== 100">
+					<img src="images/assignment_folder.png"/>
+				</span>
+				<span ng-if="row.overallProgress === 100">
+					<img src="images/completedAssignmentFolder.png"/>
+				</span>
+				<div class="folderProgress">{{row.overallProgress}}%</div>
+			</div>
+			<div class="text-center AppColorWhite">{{row.assignment.name}}</div>
+			<div class="text-center AppColorWhite">Due by {{row.assignment.endDateUtc | date}}</div>
+		</div>
+		<div class="text-center">{{vm.NoAssignment}}</div>
+	</div>
+  </div>
+</div>

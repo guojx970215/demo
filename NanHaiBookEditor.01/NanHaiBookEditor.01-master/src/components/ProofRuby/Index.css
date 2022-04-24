@@ -1,0 +1,10 @@
+.simp-text-span {
+    display: inline-block;
+    padding: 2px;
+    border-radius: 2px;
+    transition: all 0.5s ease;
+    cursor: default;
+}
+.simp-text-span:hover {
+    background-color: #1890ff11;
+}

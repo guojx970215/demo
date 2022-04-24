@@ -1,0 +1,13 @@
+diff a/src/components/PageMenu/PageMenu.js b/src/components/PageMenu/PageMenu.js	(rejected hunks)
+@@ -130,11 +130,6 @@
+           onClickCallback={showMusicPanel}  
+         />
+       </div>
+-      <IconButton text={trans.PageMenu.save} onClickCallback={() => {
+-        setOpen()
+-      }}>
+-        <PageIcon width={36} height={36} />
+-      </IconButton>
+       <div className={styles.saveBox} style={{ display: show ? 'flex' : 'none' }}>
+         <div className={styles.saveForm}>
+           <span>工程名称：</span><input value={bookname} onChange={({ target: { value } }) => setBookName(value)} placeholder="请输入工程名称" />

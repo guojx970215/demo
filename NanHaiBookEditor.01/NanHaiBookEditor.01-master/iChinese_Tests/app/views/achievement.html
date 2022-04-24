@@ -1,0 +1,13 @@
+
+<div class="achievementContainer">
+  <h1>Achievements &amp; Badges</h1>
+  <div class="row">
+    <div class="options col-xs-2"  ng-repeat="myAchievement in achievement.achievements"
+        ng-click="achievement.viewAchievement(myAchievement)">
+      <p>{{ myAchievement.title }}</p>
+      <div class="bookIcon">
+        <i class="fa fa-trophy"></i>
+      </div>
+    </div>
+  </div>
+</div>

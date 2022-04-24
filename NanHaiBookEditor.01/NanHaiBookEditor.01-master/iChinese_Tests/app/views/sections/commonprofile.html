@@ -1,0 +1,69 @@
+<style>
+@media only screen and (max-width: 667px)
+{
+.rightCustom {
+    margin-left: 57px;
+  }
+.homeBtn span {
+    color: gray;
+    font-size: 14pt;
+    font-family: Verdana;
+    margin-left: -10px;
+  }
+}
+</style>
+<div ng-controller="commonprofileController as vm">
+  <div class="commonprofile">
+    <div class="homeBtn col-md-3 col-sm-3 col-xs-3">
+      <button ui-sref="home"><span>Home</span></button>
+    </div>
+    <div class="score col-md-9 col-sm-9 col-xs-9">
+    	<div class="col-md-3 col-sm-3 col-xs-3">
+	        <div class="profileAvatar ">
+	          <mini-avatar></mini-avatar>
+	          <!-- <a href="https://ichinesereader.com/resource/" target="_blank">
+	          	<img class="btn_faq" ng-src="images/btn_faq.png">
+	          </a> -->
+	        </div>
+      	</div>
+    	<div class="col-md-9 col-sm-9 col-xs-9 rightCustom">
+	      	<div class="row">
+		      	<div class="name">{{vm.profile.firstName}} {{vm.profile.lastName}} </div>
+	       	</div>
+	        <!-- <div class="name"
+	            uib-tooltip='{{vm.profile.firstName||vm.profile.lastName?(vm.profile.firstName + " " + vm.profile.lastName ):"No Name"}}'>
+	            {{vm.profile.nickName?(vm.profile.nickName):"No Name"}}
+	        </div> -->
+	        <div class="row">
+	          <div class="points">Points: <span class="pointsclr">{{ vm.profile.points }}</span></div>
+	          <!-- <img class="icon_points" ng-src="images/icn_points_top_right_menu.png"/> -->
+	       	</div>
+	        <div class="row levelFontSize">
+	        	<div class="col-md-4 col-sm-4 col-xs-4">
+	        	<div class="row" ng-if="vm.profile.playerLevel.intermediate === false">Level: {{ vm.profile.playerLevel.shortName.replace('level',' ') }}</div>
+	        	<div class="row" ng-if="vm.profile.playerLevel.intermediate === true">Level: {{ vm.profile.playerLevel.levelCode}}</div>
+	        	</div>
+	        	<div class="col-md-6 col-md-6 col-xs-6">
+	        		<div class="row">
+		        		<div class="progress progress-custom">
+				          <div class="progress-bar progress-bar-custom" role="progressbar"
+				               aria-valuenow="{{ vm.profile.levelPercentage }}" aria-valuemin="0" aria-valuemax="100"
+				               style="width: {{ vm.profile.levelPercentage }}%;">
+				            <span class="sr-only">{{ vm.profile.levelPercentage }}% Complete</span>
+				          </div>
+				        </div>
+		        	</div>
+		        </div>
+	        	<div class="col-xs-2 col-sm-2 col-xs-2">
+	        		<img ng-src="images/icn_points_top_right_menu.png"/>
+	        	</div>
+	        	<div class="left">
+	        		<!-- <span ng-if="pageLocation === '/progressReading'">
+	        			<span ng-if="vm.profile.assessmentShortName !== null">- {{vm.profile.assessmentShortName}}</span>
+	        		</span> -->
+	        	</div>
+	        </div>
+      </div>
+    </div>
+  </div>
+</div>

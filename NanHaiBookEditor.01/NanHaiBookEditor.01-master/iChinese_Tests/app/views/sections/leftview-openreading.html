@@ -1,0 +1,128 @@
+<div class="filterView" ng-class="{'disabled':!vm.isClickEnable}">
+  <div class=".col-xm-6 .col-sm-6 col-md-2 c-menu c-menu--slide-left" ng-class="vm.isLeftNavActive()">
+    <scrollable>
+        <div class="panel-group" id="accordion">
+          <!--Proficiency Level  -->
+          <div class="panel panel-default" ng-show="vm.pagePath != '/progressReading'">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-target="#collapseOne" data-parent="#accordion">
+                  Proficiency Level
+                </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+              </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat="proficiency in vm.proficiencies | filter:{ intermediate: false, hidden: false }"
+                    ng-class="{'active':selectedProficiency.indexOf(proficiency.name) != -1}"
+                    ng-click="!vm.isClickEnable||setProficiencyFilter(proficiency)" style="word-break: break-word;">{{ proficiency.displayName }}</li>
+              </ul>
+
+
+            </div>
+          </div><!--Proficiency Level  -->
+          <!--Text type  -->
+          <div class="panel panel-default" ng-repeat="category in vm.textCategories" ng-show="checkSubcategoryExist(category)">
+            <div class="panel-heading" >
+              <h4 class="panel-title" >
+                <a class="accordion-toggle" data-toggle="collapse" href="javascript:void(0);" data-target="#{{$index}}">
+                  {{category.filterName}}
+                </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+              </h4>
+            </div>
+            <div id="{{$index}}" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item"
+                ng-repeat="subcategory in category.subFilter"
+                ng-class="{'active':selectedTextTypes.indexOf(subcategory) != -1}"
+                ng-click="!vm.isClickEnable||setTextTypeFilter(subcategory)" style="word-break: break-word;">{{subcategory}}</li>
+              </ul>
+            </div>
+            <!-- <div id="collapseThree" class="panel-collapse collapse">
+              <ul class="list-group">
+               <li class="list-group-item" ng-repeat="category in vm.textCategories"> {{category.filterName}}
+                 <ul>
+                    <li ng-repeat="subcategory in category.subFilter">{{subcategory}}</li>
+                 </ul>
+               </li>
+             </ul>
+          </div> -->
+          </div><!--Text Type  -->
+          <!--Topic-->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" href="javascript:void(0);" data-target="#collapseFive">
+                  Topic
+                </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+              </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat="topic in vm.topics"
+                    ng-class="{'active':selectedTopics.indexOf(topic) != -1}"
+                    ng-click="!vm.isClickEnable||setTopicsFilter(topic)" style="word-break: break-word;">{{ topic }}</li>
+              </ul>
+            </div>
+          </div><!--Topic-->
+          <!--Series  -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" href="javascript:void(0);" data-target="#collapseFour">
+                  Series
+                </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+              </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat="series in vm.serieses"
+                    ng-class="{'active':selectedSeries.indexOf(series.id) != -1}"
+                    ng-click="!vm.isClickEnable||setSeriesFilter(series)" style="word-break: break-word;">{{ series.mainCategory }}</li>
+              </ul>
+            </div>
+          </div><!--series-->
+          <!--Interest Level  -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" href="javascript:void(0);" data-target="#collapseTwo">
+                  Interest Level
+                </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat="interest in vm.interests"
+                    ng-class="{'active':selectedInterestLevel.indexOf(interest.displayName) != -1}"
+                    ng-click="!vm.isClickEnable||setInterestsFilter(interest)" style="word-break: break-word;">{{ interest.displayName }}</li>
+              </ul>
+            </div>
+          </div><!--Interest Level  -->
+
+          <!--Program type  -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" href="javascript:void(0);" data-target="#collapseSix">
+                  Program Type
+                </a><i class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+              </h4>
+            </div>
+            <div id="collapseSix" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat="programype in vm.programypes"
+                    ng-class="{'active':selectedProgram.indexOf(programype.displayName) != -1}"
+                    ng-click="!vm.isClickEnable||setProgramFilter(programype)" style="word-break: break-word;">{{ programype.displayName }}</li>
+              </ul>
+            </div>
+          </div><!--Program type -->
+        </div>
+    </scrollable>
+  </div>
+</div>

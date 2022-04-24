@@ -1,0 +1,85 @@
+// Add font
+@font-face {
+  font-family: 'FuturaStd-Medium';
+  src: url('/fonts/FuturaStd-Medium.otf');
+}
+@font-face {
+  font-family: 'FuturaStd-Medium';
+  src: url('/fonts/FuturaStd-Medium.otf');
+}
+@font-face {
+  font-family: 'FuturaStd-Heavy';
+  src: url('/fonts/FuturaStd-Heavy.otf');
+}
+// @font-face {
+  // font-family: 'FuturaStd-Medium';
+  // src: url('//fonts/FuturaStd-Medium.otf');
+// }
+
+// @font-face {
+//   font-family: 'Verdana';
+//   src: url('//fonts/Verdana.ttf');
+// }
+
+@font-face {
+  font-family: 'CTZhongYuanS';
+  src: url('/fonts/CTZhongYuanSJ.ttf') format("truetype");
+  src: url('/fonts/HYe3gj.ttf') format("truetype");
+  src: url('/fonts/CTZhongYuanSJ.woff2') format('woff2'); /* Super Modern Browsers */
+  src: url('/fonts/HYe3gj.woff') format('woff'); /* Pretty Modern Browsers */
+}
+$fontfamily_book: CTZhongYuanS;
+
+$futuraStd-Bold: FuturaStd-Bold;
+//$futuraStd-Medium:FuturaStd-Medium;
+$futuraStd-Light:FuturaStd-Light;
+$verdana: Verdana;
+
+
+//font color light
+$font-color-light:#c3d2d9;
+//font color light
+$font-color-white:#fff;
+//fontcolor dark
+$font-color-dark:#212929;
+
+//background color
+$bg_light:#e4eaef;
+$font-light:#e4eaef;
+// $font-family: "FuturaStd-Medium",cursive;
+$font-family: 'FuturaStd-Medium';
+
+$error-text:red;
+$background_grey :#3e515c;
+$background_blue: #1E7DA2;
+
+$table_bg_odd: #aad7e2;
+$table_bg_even: #e4eaef;
+
+body{
+  font-family: $font-family;
+  overflow-x: hidden;
+}
+.error{
+  color: error-text;
+}
+// $border : 2px solid $appHorizontal-Color;
+// @mixin hr{
+//   border: $border;
+// }
+//
+// @mixin appButton{
+// 	background-Color: $appHighlightLabel-Color;
+// 	color: $appLabelFont-Color;
+// 	border: none;
+// 	border-radius: 5px;
+// 	padding: 5px 10px;
+// 	font-weight: 300;
+// }
+// .tab{
+// 	  background: -webkit-linear-gradient(#AAC3D2, #5C6876); /* For Safari 5.1 to 6.0 */
+//     background: -o-linear-gradient(#AAC3D2, #5C6876); /* For Opera 11.1 to 12.0 */
+//     background: -moz-linear-gradient(#AAC3D2, #5C6876); /* For Firefox 3.6 to 15 */
+//     background: linear-gradient(#AAC3D2, #5C6876); /* Standard syntax (must be last)*/
+//     color: $appLabelFont-Color;
+// }

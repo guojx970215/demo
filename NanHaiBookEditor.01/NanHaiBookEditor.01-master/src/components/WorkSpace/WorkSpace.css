@@ -1,0 +1,209 @@
+.rndWorkSpace {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: relative;
+  z-index: 10;
+  /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.26); */
+}
+
+#workspaceCont {
+  background-color: #ffffff;
+  /* border: solid 1px #c6c6c6; */
+  position: absolute;
+}
+
+.new-svg-div {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+.svgContainer svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* .rndWorkSpace ruby {
+  font-family: 'HYKaiTiJ W00 Regular', 'STSongti-SC', 'NSimSun',
+    'Source Han Sans', serif;
+} */
+
+.rndWorkSpaceBackground {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  position: absolute;
+  z-index: 10;
+}
+
+.rndWorkSpaceBackground .shude,
+.rndWorkSpace .shude {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  /* background: #ffffff; */
+}
+
+#templateCard p[id^='placeholder']:hover {
+  position: relative;
+  outline: 1px dashed #c95e57;
+}
+
+#templateCard p[id^='placeholder']:hover::after {
+  content: '';
+  width: 30px;
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  height: 30px;
+  color: red;
+  background-color: brown;
+  background: url(./images/editor.png);
+  background-size: 100% 100%;
+}
+
+.noteSpan {
+  position: relative;
+  color: #333333;
+  border-bottom: 1px dashed #000;
+  color: #333333;
+}
+.noteSpan:hover .distioncontent {
+  display: block;
+}
+.noteSpan:hover .arrow {
+  display: block;
+}
+.noteSpan .distioncontent {
+  width: 100px;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  margin-left: -50px;
+  border: 2px solid #333333;
+  display: none;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #ffffff;
+}
+.noteSpan .arrow {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 4px solid #333333;
+  left: 50%;
+  margin-left: -3px;
+  top: -100%;
+  display: none;
+}
+.trigger-pic-container {
+  border: 1px solid #1890ff;
+  z-index: 99;
+  cursor: move;
+  background-color: rgba(24, 144, 255, 0.1);
+}
+.trigger-pic-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+.pic-resize-handle::after {
+  position: absolute;
+  content: '';
+  width: 12px;
+  height: 12px;
+  top: 3px;
+  left: 3px;
+  border-radius: 6px;
+  border: 1px #1890ff solid;
+  background-color: #ffffff;
+}
+
+.paginatcenter {
+  display: block;
+  width: 100%;
+}
+
+.edit-timer,
+.delete-timer {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 26px);
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+.delete-timer {
+  left: 50%;
+  transform: translate(8px, -50%);
+}
+.move-group-cover {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 997;
+}
+.esc-tip {
+  position: fixed;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.45);  
+  z-index: 999;
+  padding: 12px 16px;
+}
+.esc-tip span {
+  border-radius: 2px;
+  border: 1px #fff solid;
+  padding: 4px 8px;
+}
+.group-grid-line {
+  position: absolute;
+  border: 1px red solid;
+  top: -1px;
+  left: -1px;
+  pointer-events: none;
+  box-sizing: content-box;
+}
+.group-set-ani {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  z-index: 99;
+  display: none;
+}

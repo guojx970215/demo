@@ -1,0 +1,146 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.header-text {
+  white-space: nowrap;
+  font-size: 14px;
+  padding-right: 10px;
+  color: rgba(0, 0, 0, 0.65);
+}
+.header-inputLink {
+  height: 18px;
+  width: 300px;
+  box-sizing: content-box;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+  padding: 1px 3px;
+  margin: 0px 10px;
+}
+.header-addBtn {
+  height: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0px 15px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgb(217, 217, 217);
+  margin-left: 10px;
+}
+.link-box {
+  margin: 10px 10px 10px 0px;
+  border: 1px dashed rgb(217, 217, 217);
+  border-radius: 4px;
+}
+.link-item {
+  display: inline-block;
+  line-height: 22px;
+  height: 22px;
+  padding: 0px 0px 0px 8px;
+  border-radius: 4px;
+  border: 1px solid rgb(233, 233, 233);
+  background-color: rgb(243, 243, 243);
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.65);
+  margin: 5px;
+}
+
+.link-item .text {
+  display: inline-block;
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.link-item .cancel {
+  display: inline-block;
+  width: 25px;
+  text-align: center;
+  float: right;
+  cursor: pointer;
+}
+.config-title {
+  display: block;
+  font-size: 14px;
+  margin: 10px 0px;
+  padding-right: 10px;
+  color: rgba(0, 0, 0, 0.65);
+}
+.config-form {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(217, 217, 217);
+  display: flex;
+  flex-wrap: wrap;
+}
+.config-label {
+  display: block;
+  width: 165px;
+  color: rgba(0, 0, 0, 0.65);
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.label-name {
+  display: inline-block;
+  width: 60px;
+}
+.label-input {
+  height: 18px;
+  width: 72px;
+  box-sizing: content-box;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+  padding: 1px 3px;
+  margin: 0px 10px;
+}
+.label-select {
+  width: 80px!important;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+  margin-left: 10px;
+  z-index: 999999;
+}
+.preview {
+  text-align: center;
+  padding: 20px 10px 0px;
+}
+.no-link {
+  margin: 10px 10px 10px 0px;
+  border: 1px dashed rgb(217, 217, 217);
+  border-radius: 4px;
+}
+.no-link .text {
+  display: inline-block;
+  width: 100%;
+  margin: 5px;
+  text-align: center;
+  font-size: 12px;
+  color: rgb(240, 65, 52);
+}
+.upload-btn {
+  height: 26px;
+  width: 80px;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  background-color: rgb(16, 142, 233);
+  cursor: pointer;
+  margin-left: 10px;
+}

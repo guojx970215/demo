@@ -1,0 +1,67 @@
+/*可以在这里添加你自己的css*/
+/*可以在这里添加你自己的css*/
+.noteSpan{
+  position: relative;
+  color: #333333;
+  border-bottom:1px dashed #000;
+  color: #333333;
+}
+.noteSpan:hover .distioncontent{
+  display: block;
+}
+.noteSpan:hover .arrow{
+  display: block;
+}
+.noteSpan .distioncontent{
+  width: 100px;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  top: 100%;
+  left:100%;
+  margin-left: -50px;
+  border:2px solid #333333;
+  display: none;
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select:none;
+  -khtml-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  background-color: #ffffff;
+}
+.noteSpan .arrow{
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 4px solid #333333;
+  left: 50%;
+  margin-left: -3px;
+  top: -100%;
+  display: none;
+}
+
+/* table {
+  width: 100% !important;
+} */
+table .music-pause {
+  background-image: url(../../assets/audio.png);
+  background-position: center;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border-radius: 18px;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+table .music-play {
+  background-image: url(../../assets/audio.gif);
+}

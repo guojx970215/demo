@@ -1,0 +1,31 @@
+.outerContainer {
+	position: relative;
+	width: calc(100vw - 254px);
+	height: calc(100vh - 140px);
+	overflow-x: hidden;
+	overflow-y: auto;
+	outline: none;
+	padding-top: 40px;
+}
+
+.dragItem {
+	border: 1px solid #CCC;
+}
+.elementsSelect{
+	border: 2px dashed  #d24726;
+}
+
+.paginatHeader,
+.paginatBottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	position: absolute;
+	/* height: 40px; */
+}
+
+.paginatcenter {
+	display: block;
+	width: 100%;
+}

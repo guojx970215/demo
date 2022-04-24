@@ -1,0 +1,58 @@
+<style>
+.modal-content{
+	width: 798px!important;
+}
+.modal-dialog{
+	width: 816px!important;
+}
+@media only screen and (max-width:667px)
+{
+/*.modal-dialog {
+		width:79%;
+  }*/
+	.width-xs{
+		width:79%;
+	}
+}
+</style>
+
+<div class="modal-body text-center width-xs">
+	<!-- {{items}} {{bookUrl}} -->
+	<div class="col-md-3 col-md-push-10 col-xs-3">
+		<img src ="/student/images/btn_x.png" ng-click="cancel()" style="width: 12px;" />
+	</div>
+	<div class="modal-header">
+		<div class="col-md-6 col-xs-6" style="font-size: medium;">
+		{{bookTitle}}
+	</div>
+	</div>
+	<div class="row">
+
+		<!-- <span ng-if="bookTitle === 'Landscape Sample'">
+			<iframe ng-src="{{bookUrl}}" style="width: 795px !important;height: 553px !important;border: none;">
+				<p>Your browser does not support iframes.</p>
+			</iframe>
+		</span>
+		<span ng-if="bookTitle !== 'Landscape Sample'">
+			<iframe ng-src="{{bookUrl}}" style="width: 629px !important;height: 768px !important;border: none;">
+				<p>Your browser does not support iframes.</p>
+			</iframe>
+		</span> -->
+
+		<span ng-if="viewMode === 'LANDSCAPE'">
+			<iframe ng-src="{{bookUrl}}" style="width: 795px !important;height: 553px !important;border: none;">
+				<p>Your browser does not support iframes.</p>
+			</iframe>
+		</span>
+		<span ng-if="viewMode === 'PORTRAIT'">
+			<iframe ng-src="{{bookUrl}}" style="width: 629px !important;height: 768px !important;border: none;">
+				<p>Your browser does not support iframes.</p>
+			</iframe>
+		</span>
+	</div>
+</div><!--modal-body-->
+
+
+<!-- <div class="modal-footer okFooter">
+  	<button class="okButton" type="button" ng-click="ok()">Ok</button>
+</div>-->

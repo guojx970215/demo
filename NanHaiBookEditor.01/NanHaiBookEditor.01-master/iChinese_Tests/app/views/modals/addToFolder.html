@@ -1,0 +1,48 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px;
+  }
+}
+</style>
+<div class="custom-modal">
+  <div class="modal-header modal-header-custom">
+    <h2 class="text-center font22">Choose Folder</h2>
+  </div>
+  <form class="form-horizontal" name="addBookToLibraryForm" ng-submit="submitForm()" novalidate>
+    <div class="">
+
+
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- <select ng-model="folderId" ng-options="folder.id as folder.id for folder in folders"></select> -->
+
+          <!-- <select ng-model="folderId" class="form-control" required="" size="10">
+                                                <option ng-repeat="folder in folders" value="{{folder.id}}">{{folder.folderName}}</option>
+                                     </select> -->
+          <ul class="list-group">
+            <li class="list-group-item" ng-model="folderId"
+                ng-repeat="folder in folders"
+                ng-click="setSelected(folder)"
+                ng-class="{active: folder.id === idSelectedFolder.id}">
+              	<span ng-if="selectedFolderInModal !== folder.id">
+              		{{folder.folderName}}  ({{folder.bookCount}})
+              	</span>
+            </li>
+          </ul>
+          <!-- Selected: <b>{{folderId}}</b> -->
+          <!-- <div ng-show="addBookToLibraryForm.$submitted || addBookToLibraryForm.folderName.$touched">
+                                                <div class="error" ng-show="addBookToLibraryForm.folderId.$error.required">Please select any folder.</div>
+                                            </div> -->
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary modalBtnSmall" type="submit" ng-disabled="idSelectedFolder == null">Submit
+      </button>
+      <button class="btn btn-warning modalBtnSmall" type="button" ng-click="closeModal()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,444 @@
+<div ng-include="'views/sections/header.html'"></div>
+<!-- user profile main container -->
+<div class="profileContainer">
+  <div class="col-md-12 col-sm-12 margin-bottom-forty">
+    <div class="">
+      <div class="col-xs-4 col-sm-3 col-md-2 avatar">
+        <mini-avatar></mini-avatar>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-4">
+        <h3 class="h3Heading">{{ vm.profile.firstName }} {{ vm.profile.lastName }} ({{ vm.profile.nickName | limitTo:8 }})</h3>
+        <!-- <h3 class="rank">World Rank:&nbsp;&nbsp;{{vm.profile.worldRank}}</h3> -->
+      </div>
+    </div>
+    <!-- row -->
+    <div class="col-xs-12 col-sm-4 col-md-4">
+      <h3 class="h3Heading">Total Points Earned:&nbsp;&nbsp;{{vm.profile.pointsCollected}}</h3>
+    </div>
+    <!-- row-->
+
+  </div>
+  <!-- user detail container -->
+  <!-- TAB  -->
+  <div class="">
+    <uib-tabset>
+      <!-- profile tab -->
+      <uib-tab heading="Profile">
+        <form class="form-horizontal" role="form">
+          <fieldset class="lg_height">
+            <div class="">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <h3 class="profileSize">Profile</h3></div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <button type="submit" class="btn btn-primary btnSmall pull-right" ng-click="vm.updateSettings()">Update</button>
+              </div>
+            </div>
+            <div class="col-xs-offset-1 col-sm-offset-4 col-md-offset-4 col-xs-10 col-sm-4 col-md-4">
+              <!-- <legend>Profile</legend> -->
+              <div class="form-group form-group-sm">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">User Name</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                  <span>{{vm.userName}}</span>
+                  <!-- <input type="text" class="form-control"  ng-model="vm.userName"> -->
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Access Code</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                  <span>{{vm.UniqueAccessCode}}</span>
+                  <!--<input type="text" class="form-control" ng-model="vm.UniqueAccessCode" ng-disabled="true">-->
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">First Name</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                  <span ng-show="vm.role !=='INDIVIDUAL'">{{vm.firstName}}</span>
+                  <span ng-show="vm.role ==='INDIVIDUAL'">
+                    <input type="text" class="form-control" ng-model="vm.firstName">
+                  </span>
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Last Name</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                  <span ng-show="vm.role !=='INDIVIDUAL'">{{vm.lastName}}</span>
+                  <span ng-show="vm.role ==='INDIVIDUAL'">
+                    <input type="text" class="form-control" ng-model="vm.lastName">
+                  </span>
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label for="inputEmail" class="col-xs-4 col-sm-4 col-md-4 control-label">Email</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                  <span ng-show="vm.role !=='INDIVIDUAL'">{{vm.email}}</span>
+                  <span ng-show="vm.role ==='INDIVIDUAL'">
+                    <input type="text" class="form-control" ng-model="vm.email">
+                  </span>
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Gender</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                  <div class="radio radio-primary" ng-show="vm.role ==='INDIVIDUAL'">
+                    <label>
+                      <input type="radio" ng-model="vm.gender" ng-value="'male'">Male</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>
+                      <input type="radio" ng-model="vm.gender" ng-value="'female'">Female</label>
+                  </div>
+                  <span ng-hide="vm.role ==='INDIVIDUAL'">{{vm.gender}}</span>
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Birthday</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                  <span ng-hide="vm.role ==='INDIVIDUAL'">{{vm.birthDay | date}}</span>
+                  <div ng-show="vm.role ==='INDIVIDUAL'">
+                    <div ng-if="vm.bDate == null">
+                      <input type="text" class="form-control relative" uib-datepicker-popup="MM/dd/yyyy"
+                        ng-model="vm.birthDay" is-open="status.opened" datepicker-options="dateOptions"
+                        close-text="Close" />
+                      <span class="datepicker">
+                        <button type="button" class="btn" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                      <div class="smallerFont">MM/dd/yyyy</div>
+                    </div>
+                    <div ng-if="vm.bDate != null">
+                      <input type="text" class="form-control relative" uib-datepicker-popup="MM/dd/yyyy"
+                        ng-model="vm.birthDay" is-open="status.opened" datepicker-options="dateOptions"
+                        close-text="Close" />
+                      <span class="datepicker">
+                        <button type="button" class="btn" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                      <div class="smallerFont">MM/dd/yyyy</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group form-group-sm">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Nick Name</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                <input type="text" class="form-control" placeholder="Nick Name" ng-model="vm.nickName" maxlength="25">
+                </div>
+              </div>
+              <div class="form-group form-group-sm" ng-show="vm.role ==='INDIVIDUAL'">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Level</label>
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                  <select class="form-control" ng-model="vm.proficiencyLevel" ng-options="level.name as level.displayName for level in vm.progressLevelValue">
+                  </select>
+                </div>
+              </div>
+              <!-- <div class="form-group form-group-sm" ng-show="vm.role !=='INDIVIDUAL'">
+	              <label class="col-xs-4 col-sm-4 col-md-4 control-label">Level</label>
+	              <div class="col-xs-8 col-sm-8 col-md-8">
+	              	<span>{{vm.level}}</span>
+	              </div>
+	            </div> -->
+              <div class="form-group form-group-sm rightInfoContainer">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Text</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                  <label class="control-label">
+                    <input type="radio" ng-model="vm.languageSetting" ng-value="'Simplified'"> Simplified</label>&nbsp;&nbsp;
+                  <label class="control-label">
+                    <input type="radio" ng-model="vm.languageSetting" ng-value="'Traditional'"> Traditional</label>&nbsp;&nbsp;
+                  <label class="control-label">
+                    <input type="radio" ng-model="vm.languageSetting" ng-value="'No text'"> No Text</label>&nbsp;&nbsp;
+                </div>
+              </div>
+              <div class="form-group form-group-sm rightInfoContainer">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Audio</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                  <label class="control-label">
+                    <input type="radio" ng-model="vm.bilingualSetting" ng-value="'Mandarin'"> Mandarin</label>&nbsp;&nbsp;
+                  <label class="control-label">
+                    <input type="radio" ng-model="vm.bilingualSetting" ng-value="'Cantonese'"> Cantonese</label>&nbsp;&nbsp;
+                  <label class="control-label">
+                    <input type="radio" ng-model="vm.bilingualSetting" ng-value="'No_audio'"> No Audio</label>&nbsp;&nbsp;
+                </div>
+              </div>
+              <div class="form-group form-group-sm rightInfoContainer bookSettings">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Pinyin</label>
+                <div class="col-xs-8 col-sm-8 col-md-8 rightInfoContainer bookSettings">
+                  <button class="btn custom-btn" ng-click="vm.togglePinyin()">
+                    <p ng-class="vm.getToggleStatus('pinyin')"></p>
+                  </button>
+                </div>
+              </div>
+<!--//
+              <div class="form-group form-group-sm rightInfoContainer bookSettings">
+                <label class="col-xs-4 col-sm-4 col-md-4 control-label">Dictionary</label>
+                <div class="col-xs-8 col-sm-8 col-md-8 rightInfoContainer bookSettings">
+                  <button class="btn custom-btn" ng-click="vm.toggleDictionary()">
+                    <p ng-class="vm.getToggleStatus('dictionary')"></p>
+                  </button>
+                </div>
+              </div>
+//-->
+            </div>
+          </fieldset>
+        </form>
+      </uib-tab>
+      <!-- profile tab -->
+      <uib-tab heading="Subscription" ng-show="vm.role=='INDIVIDUAL'" class="second_tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-12">
+              <h3>Subscription</h3></div>
+          </div>
+        </div>
+        <div class="col-xs-offset-3 col-xs-9">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group form-group-sm">
+                <span class="fontLarge">Member Since </span> &nbsp;&nbsp;
+                <span class="fontLarge">{{vm.startDate | date}}</span>
+              </div>
+              <div class="form-group form-group-sm" ng-hide="creditInfo !== null">
+                <span class="fontLarge" >Next payment date </span> &nbsp;&nbsp;
+                <span class="fontLarge">{{vm.endDate | date}}</span>
+                <br>
+                <span>(Your Subscription will be automatically renewed unless you choose
+                  to cancel your membership)</span>
+              </div>
+            </div>
+          </div>
+          <div class="row" ng-hide="creditInfo !== null && trialAccount !== true">
+            <div class="col-md-12">
+              <div class="subscriptionForm">
+                <div class="form-group row">
+                  <div class="col-xs-3">
+                    <label>Subscription Term</label>
+                  </div>
+                  <div class="col-xs-9">
+                    <label>
+                      <input type="radio" checked="checked" ng-disabled="true">
+                      <div></div>
+                      <!-- dont delete emptyspace-->&nbsp;
+                      <span ng-if="vm.currentPlanId == 'icr-monthly-trial'">Monthly</span>
+                      <span ng-if="vm.currentPlanId == 'icr-yearly-trial'">Yearly</span>
+                      <span ng-if="vm.currentPlanId == 'icr-monthly'">Monthly (${{vm.getPaymentPlan[1].price}}/mo)</span>
+                      <span ng-if="vm.currentPlanId == 'icr-yearly'">Yearly (${{vm.getPaymentPlan[0].price}}/Yr)</span>
+                      <span ng-if="vm.currentPlanId == 'icr-3m'">3 Months (${{vm.getPaymentPlan[2].price}})</span>
+                    </label>
+                    <p>(Please contact us if you want to change your subscription term)</p>
+
+				           <div class="subscriptionForm">
+      									<ul class="list-inline">
+      									 <li ng-repeat="row in vm.getPaymentPlan">
+      									   <label>
+      										 <input type="radio" name="planId" ng-model="vm.currentPlanId"
+      												ng-if="(row.name == 'iChineseReader Monthly Subscription')||(row.name == 'iChineseReader Annually Subscription')"
+      												ng-value="'{{row.id}}'"/>
+      										 <div ng-if="creditInfo === null"></div>  &nbsp;
+      										 <span ng-if="row.name == 'iChineseReader Monthly Subscription' && creditInfo === null">Monthly (${{row.price}}/mo)</span>
+      										 <span ng-if="row.name == 'iChineseReader Annually Subscription' && creditInfo === null" >Yearly (${{row.price}}/yr)</span>
+      									   </label>
+      									 </li>
+      								   </ul>
+							    </div>
+                  </div>
+                  <!-- 				       		<div class="col-xs-3"><label>Promo Code</label></div>
+				       		<div class="col-xs-6">
+				              	<input type="text" class="form-control" name="couponCode" ng-model="vm.couponCode"/>
+				       		</div>
+				    	</div>
+	          		<button type="button" class="btn btn-primary update-btn" ng-click="vm.updateSubscription()">Update Subscription</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr ng-hide="creditInfo !== null">
+            <div class="row" ng-hide="trialAccount == false && (vm.creditCard !== null && customerId == null)">
+              <div class="col-md-12" ng-hide="trialAccount == false && (vm.creditCard !== null && customerId == null)">
+                <h3>Payment Info</h3>
+                <form>
+                  <div class="form-group form-group-sm">
+                    <span class="fontLarge">Payment Mode </span> &nbsp;&nbsp;
+                    <span class="fontLarge">{{vm.creditCard}}</span>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-xs-9" id="paymentWidget"></div>
+                  </div>
+                  	<!-- <button type="button" class="btn btn-primary update-btn" ng-click="vm.createSubcription()" ng-if="vm.getProfileInfo.trial === true">Create Subscription</button> -->
+                  <!-- <input type="button"  ng-click ="vm.temp()" class="btn btn-primary update-btn" value="Update Payment Method"></input> -->
+                  <button type="submit" class="btn btn-primary update-btn" ng-if="vm.getProfileInfo.trial === true"> Create Subscription</button>
+                  <button type="submit" class="btn btn-primary update-btn" ng-if="vm.getProfileInfo.trial !== true"> Update Payment Method</button>
+                </form>
+              </div>
+            </div>
+            <hr ng-hide="creditInfo !== null">
+            <h3>Cancel Subscription</h3>
+            <button type="button" class="btn btn-primary cancelSubscription" ng-disabled="isDisabled"
+              ng-click="vm.cancelSubscription()">Cancel Subscription</button>
+            <span ng-if="isDisabled">Your account will expire on {{vm.endDate | date :"medium"}} </span>
+          </div>
+      </uib-tab>
+      <!-- Subscription tab -->
+      <uib-tab heading="Transaction" ng-if="vm.role == 'INDIVIDUAL' && customerId !== null">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-xs-4">
+              <h3>Transactions</h3></div>
+            <div class="col-xs-offset-1 col-xs-10">
+              <div class="row currentAssignment">
+                <div class="col-md-12">
+                  <table class="table table-bordered custom-table">
+                    <thead>
+                      <tr>
+                        <th>Create Date</th>
+                        <th>Amount</th>
+                        <th>Response</th>
+                        <th>Status</th>
+                        <th>Payment Mode</th>
+                        <th>Discount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="row in vm.transactions" ng-class="($index % 2 == 0) ? 'even' : 'odd' ">
+                        <td>{{row.createdAt | date}}</td>
+                        <td>{{row.currencyIsoCode}} {{row.amount}}</td>
+                        <td>{{row.processorResponseText}}</td>
+                        <td>{{row.status}}</td>
+                        <td>
+                          <span ng-if="row.creditCard.maskedNumber !== 'null******null'">{{row.creditCard.maskedNumber}}</span>
+                          <span ng-if="row.creditCard.maskedNumber == 'null******null'">{{vm.creditCard}}</span>
+                        </td>
+                        <td>
+                          <span ng-if="row.discounts.length !== 0">
+                            {{row.discounts[0].name}}&nbsp; {{row.currencyIsoCode}}&nbsp;{{row.discounts[0].amount}}&nbsp;(Applied)
+                          </span>
+                          <span ng-if="row.discounts.length == 0" class="emptySpace"> - </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </uib-tab>
+      <!-- Transaction tab -->
+    </uib-tabset>
+    <!-- TAB -->
+    </div>
+	</div>
+    <!-- user profile main container -->
+    <!-- Billing tab -->
+    <!--
+	  <uib-tab heading="Billing" ng-show="vm.role=='INDIVIDUAL'">
+		  <form class="form-horizontal" role="form">
+			<fieldset>
+			  <div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-6"><h3>Billing</h3></div>
+				<div class="col-xs-12 col-sm-12 col-md-6"><button type="submit" class="btn btn-primary btnSmall pull-right">Update</button></div>
+			  </div>
+			  <div class="billingForm">
+				<div class="row">
+					<div class="col-md-6">
+					  <div class="firstHalf">
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">First Name</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="First Name">
+							</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">Address</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="Addresssline 1">
+							</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">&nbsp;</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="Addresssline 2">
+							</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">City</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="City">
+							</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">Country</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="Country">
+							</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">Email</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="Email">
+							</div>
+						  </div>
+					  </div>
+					</div>
+					<div class="col-md-6">
+					  <div class="secondHalf">
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">Last Name</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="Last Name">
+							</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<div class="col-xs-12 col-sm-6 col-md-12"> &nbsp;</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<div class="col-xs-12 col-sm-6 col-md-12"> &nbsp;</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">State</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="State">
+							</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<div class="col-xs-12 col-sm-6 col-md-12"> &nbsp;</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">Phone</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="Phone">
+							</div>
+						  </div>
+					  </div>
+					</div>
+				</div>
+				<hr />
+				<div class="row">
+					<div class="col-md-6">
+					  <div class="firstHalf">
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">Credit Card</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="Credit Card">
+							</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">Expiry</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="Expiry">
+							</div>
+						  </div>
+					  </div>
+					</div>
+								<div class="col-md-6">
+					  <div class="secondHalf">
+						  <div class="form-group form-group-sm">
+							<div class="col-xs-12 col-sm-6 col-md-12"> &nbsp;</div>
+						  </div>
+						  <div class="form-group form-group-sm">
+							<label class="col-xs-12 col-sm-6 col-md-4 control-label">CVV</label>
+							<div class="col-xs-12 col-sm-6 col-md-8">
+							  <input type="text" class="form-control"  placeholder="CVV">
+							</div>
+						  </div>
+						</div>
+					</div>
+				</div>
+			  </div>
+			</fieldset>
+		  </form>
+		</uib-tab>-->

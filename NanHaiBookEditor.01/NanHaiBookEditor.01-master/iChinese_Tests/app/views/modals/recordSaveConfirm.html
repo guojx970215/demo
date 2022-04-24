@@ -1,0 +1,19 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px;
+	}
+}
+</style>
+<div class="custom-modal" id="recSaveModal">
+	<div class="modal-header"><h4 class="text-center">Complete Recording</h4></div>
+	<div class="modal-body">
+		<p class="text-center">Would you like to save audio? (Unsaved audio will be lost)</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary modalBtnSmall" type="submit" ng-click="ok()">Send</button>
+	    <button class="btn btn-warning modalBtnSmall" type="button" ng-click="cancel()">Don't Send</button>
+	</div>
+
+</div>

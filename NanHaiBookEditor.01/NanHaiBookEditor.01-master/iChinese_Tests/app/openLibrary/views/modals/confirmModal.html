@@ -1,0 +1,23 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px;
+  }
+}
+</style>
+<div class="custom-modal">
+		<div class="modal-header modal-header-custom">
+		  <h2 class="text-center font22">Alert</h2>
+		</div>
+		<form class="form-horizontal" name="addBookToLibraryForm" ng-submit="submitForm()" novalidate>
+		<div class="modal-body">
+
+					<h4 class="font16">Are you sure you want to delete selected book(s) from the folder? </h4>
+				<div class="modal-footer">
+					<button class="btn btn-primary modalBtnSmall" type="submit" >Yes</button>
+				    <button class="btn btn-warning modalBtnSmall" type="button" ng-click="closeModal()">No</button>
+				</div>
+			</div>
+		</form>
+</div>

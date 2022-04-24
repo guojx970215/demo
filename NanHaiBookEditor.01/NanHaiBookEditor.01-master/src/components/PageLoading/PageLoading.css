@@ -1,0 +1,12 @@
+.PageLoading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  color:#fff;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

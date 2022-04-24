@@ -1,0 +1,74 @@
+.selectTdClass {
+  background-color: #edf5fa !important;
+}
+.text-block table.noBorderTable td,
+.text-block table.noBorderTable th,
+.text-block table.noBorderTable caption {
+  border: 1px dashed #ddd !important;
+}
+.text-block table {
+  margin-bottom: 10px;
+  border-collapse: collapse;
+  display: table;
+}
+.text-block td,
+.text-block th {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+}
+.text-block caption {
+  border: 1px dashed #ddd;
+  border-bottom: 0;
+  padding: 3px;
+  text-align: center;
+}
+.text-block th {
+  border-top: 1px solid #bbb;
+  background-color: #f7f7f7;
+}
+.text-block table tr.firstRow th {
+  border-top-width: 2px;
+}
+.ue-table-interlace-color-single {
+  background-color: #ffffff;
+}
+.ue-table-interlace-color-double {
+  background-color: #f7faff;
+}
+.text-block td p {
+  margin: 0;
+  padding: 0;
+}
+table .music-pause {
+  background-image: url(./img/audio.png);
+  background-position: center;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  border-radius: 18px;
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+table .music-play {
+  background-image: url(./img/audio.gif);
+}
+
+.music-pause {
+  background-image: url(./img/audio.png);
+  background-position: 5px 4px;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  margin: 0 8px;
+  cursor: pointer;
+}
+.music-play {
+  background-image: url(./img/audio.gif);
+}

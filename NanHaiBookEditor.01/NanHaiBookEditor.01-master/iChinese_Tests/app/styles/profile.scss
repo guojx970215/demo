@@ -1,0 +1,373 @@
+@import "_config";
+// background: transparent url("../images/bg_library.png") repeat scroll 0px 0px;
+// width: 100%;
+// min-height: 506px;
+.profileContainer{
+  float:left;
+  background-image: url('/images/bg_library.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: $background_blue;
+  background-size: cover;
+  width: 100%;
+  color: $font-light;
+  //background-size: 100%;
+  min-height: 630px;
+  .profileInfo {
+    left: 20px;
+    position: relative;
+    top: -4px;
+    .rank{
+      padding-top: 18px;
+    }
+  }
+  .datepicker { }
+  .datepicker .btn { position: absolute; right: 10px; top:-1px; border:none; background: transparent; color:#000}
+
+  .datepicker .btn:focus, .datepicker .btn:active:focus, .datepicker .btn.active:focus,
+  .datepicker .btn.focus, .datepicker .btn:active.focus, .datepicker .btn.active.focus {outline: none}
+  .relative {position: relative}
+  .smallerFont{ font-size: smaller; }
+  .margin-bottom-forty {margin-bottom:40px}
+  .profileImgContainer {
+    background-image: url("/images/login/bg_avatar_report.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    height: 140px;
+    left: 0;
+    position: relative;
+    top: 14px;
+    width: 120px;
+    text-align: center;
+      img{
+        display: inline-block;
+        left: 15px;
+        margin: 0 auto;
+        position: absolute;
+        top: 15px;
+        vertical-align: middle;
+        max-height: 90px;
+        max-width: 90px;
+      }
+      div{
+        position: absolute;
+        width: 50%;
+        height: 30%;
+        text-align: center;
+        img{
+          /*position: absolute;*/
+          width: 65%;
+        }
+      }
+
+      .head{
+        left: 18%;
+        top: 5%;
+        //img{
+        //}
+      }
+      .body{
+        top:28.5%;
+        left:22%;
+        img{
+          width: 50%;
+        }
+      }
+      .leftArm{
+          left: -7.5%;
+          top: 32%;
+          .left-arm{
+            width: 60%;
+          }
+      }
+
+      .rightArm{
+        right: 3.5%;
+        top: 32%;
+        .right-arm{
+            width: 60%;
+            transform: scaleX(-1);
+            -webkit-filter: FlipH;
+            filter: FlipH;
+            -ms-filter: "FlipH";
+            }
+      }
+      .legs{
+          top: 46.7%;
+          left: 20%;
+        //img{
+        //}
+      }
+      .hat{
+        left: 17.5%;
+        top:-15%;
+      }
+      .eyeWear{
+        top: 1.7%;
+        left: 22.3%;
+        img{
+          width: 48%;
+        }
+      }
+      .mustache{
+        left: 22%;
+        top:27.5%;
+      }
+      .tie{
+        top: 33%;
+        left: 25.5%;
+        img{
+          width: 42%;
+        }
+      }
+  }
+  .rightInfoContainer{
+    h3{
+      margin-top: 15px;
+    }
+    .list-inline{
+
+        li{
+          padding:0
+        }
+    }
+    .bookSettings {
+       /* margin-left: -26px;*/
+        .switch-on{
+          background-image: url('/images/login/btn_switch_selected.png');
+          width: 48px;
+          height: 28px;
+        }
+        .switch-off{
+          background-image: url('/images/login/btn_switch_off.png');
+          width: 48px;
+          height: 28px;
+        }
+        .custom-btn{
+          -moz-user-select: none;
+          background: transparent none repeat scroll 0 0;
+          border: medium none;;
+          cursor: pointer;
+          //display: inline-block;
+          font-weight: normal;
+          line-height: 1.42857;
+          margin-bottom: 0;
+          padding: 0;
+          text-align: center;
+          vertical-align: top;
+          white-space: nowrap;
+        }
+        .btn:focus, .btn:active:focus, .btn.focus, .btn.focus:active,.btn.active.focus{
+          outline: none;
+          box-shadow: none;
+        }
+        .btnSmall{
+          background: no-repeat url("/images/btn_bluegradient_small.png") 0 0;
+          border:none;
+          border: medium none;
+          border-radius: 4px;
+          height: 36px;
+          width: 80px;
+          position: relative;
+          right: 20px;
+          top: 12px;
+        }
+    }
+  }
+
+  //tab
+    .nav-tabs {
+        border-bottom: 3px solid #2c4148;
+        margin-left: 0;
+    }
+    .nav-tabs > li {
+        margin-bottom: 0;
+    }
+    .nav-tabs > li:first-child {
+        margin-left: 10px;
+    }
+    .nav-tabs > li > a {
+        color: $font-light;
+        padding: 14px 34px;
+      }
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background-image: url("/images/login/btn_tab_selected.png");
+        background-color: transparent;
+        border: medium none;
+        background-repeat: no-repeat;
+        color: $font-light;
+        cursor: default;
+        height: 48px;
+        padding: 14px 34px;
+        width: 120px;
+    }
+    .nav-tabs > li > a,.nav-tabs > li > a:hover{
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        background-image: url("/images/login/btn_tab_unselected.png");
+        background-color: transparent;
+        border: medium none;
+        background-repeat: no-repeat;
+        color: $font-light;
+        float: left;
+        height: 48px;
+        margin-bottom: 0;
+        margin-left: 5px;
+        width: 120px;
+    }
+
+    .profileForm {
+      margin: 0 auto;
+      position: relative;
+      width: 42%;
+      top: 10px;
+      padding-bottom: 30px;
+    }
+    input[type="text"], input[type="email"], input[type="password"],input[type="date"], select{
+      background-color: $bg_light;
+      border: 1px solid $font-color-dark;
+      border-radius: 16px !important;
+      padding: 1px 9px 2px;
+      width: 100%;
+      height: 25px;
+    }
+    .form-horizontal .form-group-sm .control-label {
+      // font-size: 1.1em;
+      font-size: 1em;
+      font-weight: normal;
+      padding-top: 0;
+    }
+    .form-horizontal{
+      h3{
+        margin-left: 15px;
+      }
+      .btnSmall{
+        background: no-repeat url("/images/btn_bluegradient_small.png") 0 0;
+        border:none;
+        border: medium none;
+        border-radius: 4px;
+        height: 36px;
+        width: 80px;
+        position: relative;
+        right: 20px;
+        top: 12px;
+        background-color: #f58b71;
+      }
+    }
+    .billingForm{
+        .firstHalf, .secondHalf {
+            margin: 0 auto;
+            position: relative;
+            width: 80%;
+        }
+        hr{
+          width: 80%;
+        }
+    }
+    .subscriptionForm {
+        margin: 0 auto;
+        padding-bottom: 10px;
+        padding-top: 20px;
+        /*text-align: center;*/
+
+        input[type="radio"], input[type="checkbox"] {
+           display: none;
+        }
+        input[type="radio"] + div, input[type="checkbox"] + div {
+           height: 39px;
+           width: 39px;
+           display: inline-block;
+           /*cursor: pointer;*/
+           vertical-align: middle;
+           border: 2px solid white;
+           border-radius: 100%;
+        }
+
+        /*
+        input[type="radio"] + div:hover, input[type="checkbox"] + div:hover {
+          border-color: #c2c2c2;
+        }*/
+
+        input[type="radio"]:checked + div, input[type="checkbox"]:checked + div {
+          background:$bg_light;
+        }
+        label{
+          font-size: 1.25em;
+          font-weight: normal;
+        }
+        .cursorDefault {cursor: default;}
+    }
+  .update-btn {
+    margin: 13px 40px 5px 5px;
+    background: #002A6A;
+    border-radius: 7px;
+    height: 36px
+  }
+  .cancelSubscription{
+   margin: 13px 40px 5px 5px;
+    background: #AF1C1C;
+    border-radius: 7px;
+    height: 36px
+  }
+   .custom-table {
+      font-size: 1em;
+      color: $font-color-dark;
+      border-top: 1px solid;
+    }
+    .odd{
+      background-color: $table_bg_odd;
+      height: 30px;
+    }
+    .even{
+      background-color: $table_bg_even;
+      height: 30px;
+    }
+    .table > tbody > tr > th, .table > tfoot > tr > th, .table > tbody > tr > td, .table > tfoot > tr > td {
+      vertical-align: middle;
+      padding: 0 0 0 20px;
+      border: 1px solid $font-color-dark;
+    }
+    .table > thead > tr > th, , .table > thead > tr > td{
+      border: 1px solid $font-color-dark;
+      padding: 10px 10px 10px 20px;
+    }
+  .fontSmaller {font-size: smaller;}
+  .fontLarge {font-size: large;}
+  // .font_family_cursive{font-family: cursive;}
+  .updateToggleButton { display:none}
+  .paddingTop { padding-top:20px}
+  .right {float:right}
+
+  #paymentWidget{
+    background-color: #fff;
+  }
+  .emptySpace {
+    float: left;
+    width: 83%;
+    text-align: center;
+    }
+
+
+}
+
+.h3Heading{
+  font-size: 22px!important;
+}
+.profileSize{
+  font-size: 20px!important;
+}
+
+.errorPromocode { color:#af2e2e}
+.error {color:#4b4343}
+@media only screen and (min-width:2880px){
+  .lg_height{
+    height: 1750px;
+  }
+}

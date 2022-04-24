@@ -1,0 +1,134 @@
+  <div ng-include="'views/sections/header.html'"></div>
+  <div class="filterContainer">
+  	<div class="col-md-4 col-xs-3">
+        	<div class="hamburgerImg"><a ng-click="vm.toggleLeftNav()">
+        		<img src="images/btn_hamburger_menu.png"></a>
+        	</div>
+        	<div class="filterText">Filter</div>
+          <div class="dropdown-1">
+            <div class="form-group search">
+            	  <input type="text" class="form-control ng-pristine ng-untouched ng-valid" id="inputValidation"
+                   placeholder="Search" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'"
+                   ng-model="searchKeyword" ng-change="removeAll()" ng-keyup="$event.keyCode == 13 && progressReadingSearchQuery()"  >
+                	<i class="fa fa-search" ng-click="progressReadingSearchQuery()"></i>
+                	<i class="fa fa-close right-closeIcon" ng-click="clearAll()"></i>
+            </div>
+          </div>
+     	</div>
+      <div class="col-md-3 col-xs-3">
+      	<div class="row" ng-show="vm.profile.assessmentLevel === null">
+            <span class="selectAll">
+              <input type="checkbox" name="option" id="selectAllBooks" ng-model="selectedAll" ng-click="checkAll()"/>
+              <label for="selectAllBooks">Select All</label>
+            </span>
+      	</div>
+  
+  
+        	<div class="row" ng-if="vm.profile.assessmentLevel === null">
+            <button type="submit" class="btn addtomylibrary" ng-click="showModalAddFolder()"
+                    ng-disabled="bookSelected() == 0">
+            </button>
+          </div>
+   	</div>
+  
+      <div class="col-md-5 col-xs-6">
+        <div ng-include="'views/sections/commonprofile.html'"></div><!-- profile info -->
+      </div>
+  </div><!-- filterContainer -->
+  
+  
+  <div class="progressReadView">
+    <!-- filter view -->
+    <div ng-include="'views/sections/leftfilterview.html'"></div>
+  
+    <ul class="list-inline filter-breadcrumbs">
+      <div ng-repeat="(key,filter) in vm.filterData" ng-show="filter.length > 0" ng-if="key !='query'">
+        <span ng-if=" key =='interestLevel' ">Interest Level</span>
+        <span ng-if=" key =='textType'">Text type</span>
+        <span ng-if=" key =='topics'">Topics</span>
+        <span ng-if=" key =='seriesId'">Series</span>
+        <span ng-if=" key =='programType'">Program Type</span>
+          <li class="list-inline" ng-repeat="item in filter" ng-if=" key !='seriesId' &&  key !='query' ">
+            {{item}} <a href="" ng-click="clearFilter(filter, item,'others',key)"><i class="fa fa-times"></i></a>
+          </li>
+          <li class="list-inline" ng-repeat="item in selectedSeriesArr" ng-if=" key =='seriesId' ">
+            {{item.mainCategory}} <a href="" ng-click="clearFilter(selectedSeriesArr, item, 'series')"><i class="fa fa-times"></i></a>
+          </li>
+      </div>
+    </ul>
+    <div class="bookList">
+      <div class="progressContiner">
+      	<div ng-swipe-left="readBooknp(vm.page+1)" ng-swipe-right="readBookpp(vm.page-1)" class="booklistContainer">
+  	        <div class="col-xs-5 levelText">
+  	        	<div class="col-xs-12">
+  		        	<span ng-if="vm.profile.assessmentLevel === null">
+                <span ng-if="vm.profile.playerLevel.intermediate === false">Level {{vm.profile.playerLevel.shortName.replace('level',' ')  }}</span>
+                <span ng-if="vm.profile.playerLevel.intermediate === true">Level {{vm.profile.playerLevel.levelCode}}</span>
+                </span>
+  							<!-- As discussed with vinod, will display only player Short name. no Assesment page>
+  		        	<span ng-if="vm.profile.assessmentLevel !== null">{{ vm.profile.assessmentLevel }} </span> -->
+  							<span ng-if="vm.profile.assessmentLevel !== null">
+                <span ng-if="vm.profile.playerLevel.intermediate === false">Level {{vm.profile.playerLevel.shortName.replace('level',' ')  }}</span>
+                <span ng-if="vm.profile.playerLevel.intermediate === true">Level {{vm.profile.playerLevel.levelCode}}</span>
+                </span>
+  
+  		        </div>
+  		   	</div>
+  	        <div class="col-xs-6">
+  		        <!-- <div class="progressView"> -->
+  		        	<div class="left">
+  			          <div class="progress progress-custom">
+  			            <div class="progress-bar progress-bar-custom" aria-valuemax="100" aria-valuemin="0"
+  			                 aria-valuenow="{{ vm.profile.levelPercentage }}" role="progressbar"
+  			                 style="width: {{ vm.profile.levelPercentage }}%;">
+  			              <span class="sr-only">60% Complete</span>
+  			            </div>
+  			          </div>
+  			        </div>
+  			        <div class="left levelText progress_text">{{ vm.profile.levelPercentage }}%</div>
+  		      <!-- </div> -->
+  		   	</div>
+  		   	<div class="commmonDiv margin-top-fifty">
+  	      		<div ng-include="'views/sections/booklistview.html'"></div>
+      		</div>
+      <div class="text-center" ng-show='vm.busy'>Loading books...</div>
+          <div ng-show="vm.books.length >0 && !vm.busy" class="paginationo">
+            <a ng-click="readBookfp(1)">&laquo;</a>
+            <a ng-click="readBookpp(vm.page-1)">&lsaquo;</a>
+
+
+                    <a ng-if="vm.page>4&&vm.page===vm.booktp" ng-click="readBooknn(vm.page-4)" ng-class="vm.nubcla[vm.page-4]">{{vm.page-4}}</a>
+                    <a ng-if="vm.page>3&&vm.page===vm.booktp" ng-click="readBooknn(vm.page-3)" ng-class="vm.nubcla[vm.page-3]">{{vm.page-3}}</a>
+                    <a ng-if="vm.page>3&&vm.page===vm.booktp-1" ng-click="readBooknn(vm.page-3)" ng-class="vm.nubcla[vm.page-3]">{{vm.page-3}}</a>
+                    <a ng-if="vm.page>2" ng-click="readBooknn(vm.page-2)" ng-class="vm.nubcla[vm.page-2]">{{vm.page-2}}</a>
+                    <a ng-if="vm.page>1" ng-click="readBooknn(vm.page-1)" ng-class="vm.nubcla[vm.page-1]">{{vm.page-1}}</a>
+                    <a ng-click="readBooknn(vm.page)" ng-class="vm.nubcla[vm.page]">{{vm.page}}</a>
+                    <a ng-if="vm.page<vm.booktp" ng-click="readBooknn(vm.page+1)" ng-class="vm.nubcla[vm.page+1]">{{vm.page+1}}</a>
+                    <a ng-if="vm.page<vm.booktp-1" ng-click="readBooknn(vm.page+2)" ng-class="vm.nubcla[vm.page+2]">{{vm.page+2}}</a>
+                    <a ng-if="vm.booktp>3&&vm.page===1" ng-click="readBooknn(vm.page+3)" ng-class="vm.nubcla[vm.page+3]">{{vm.page+3}}</a>
+                    <a ng-if="vm.booktp>4&&vm.page===1" ng-click="readBooknn(vm.page+4)" ng-class="vm.nubcla[vm.page+4]">{{vm.page+4}}</a>
+                    <a ng-if="vm.booktp>4&&vm.page===2" ng-click="readBooknn(vm.page+3)" ng-class="vm.nubcla[vm.page+3]">{{vm.page+3}}</a>
+            <!-- <a ng-class="vm.nubcla[nub]" ng-repeat="nub in vm.readBookn" ng-click="readBooknn(nub)">{{nub}}</a> -->
+
+
+            <a ng-click="readBooknp(vm.page+1)">&rsaquo;</a>
+            <a ng-click="readBooklp(vm.booktp)">&raquo;</a>
+            <span style="margin:5px;"> Total:&nbsp;{{ vm.booktp }} </span>
+            <!-- <input type="text" id="pageNo"/> -->
+            <form style="display:inline;" ng-submit="readBookgp(readBooktx)">
+              <input type="number" min="1" max="{{vm.booktp}}" ng-model="readBooktx" name="readBooktx" />
+              <input type="submit" class="submit" value="Go" />
+            </form>
+          </div>
+      	</div>
+      <!-- libarary list ends-->
+      <div id="c-mask" class="c-mask" ng-class="vm.isLeftNavActive()" ng-click="vm.toggleLeftNav()"></div>
+       <!-- <a href="#" class="scrollup">Scroll</a> -->
+  
+  <div id="navhover-p" class="navhover" ng-show="vm.books.length >0 && !vm.busy && vm.page > 1" ng-click="readBookpp(vm.page-1)" style="color:white;font-size:220px;left:50px;position:fixed;top:35%;z-index:3;">‹
+  </div>
+  <div id="navhover-n" class="navhover" ng-click="readBooknp(vm.page+1)"
+  style="color:white;font-size:220px;right:50px;position:fixed;top:35%;z-index:3;" ng-show="vm.books.length >0 && !vm.busy && vm.page < vm.booktp" >›
+  </div>
+    </div>
+  </div>

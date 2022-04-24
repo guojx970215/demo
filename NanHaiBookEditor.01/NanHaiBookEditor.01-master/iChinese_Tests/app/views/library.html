@@ -1,0 +1,182 @@
+<div ng-include="'views/sections/header.html'"></div>
+<!-- filterContainer -->
+
+<div class="libFilterContainer">
+	<div class="col-md-7 col-xs-6 margin-xs-zero">
+		<div class="row">
+			<div class="col-md-12 col-xs-12 margin_bottom">
+		      	<div class="hamburgerImg"><a ng-click="vm.toggleLeftNav()">
+		      		<img src="images/btn_hamburger_menu.png"></a>
+		      	</div>
+		      	<div class="filterText">Filter</div>
+		       	<div class="lib_btnWrap">
+		      		<a ng-click="showModalCreateFolder()" type="submit" class="btn btn-default btnSmall">
+			            <i class="fa fa-folder-o"></i>
+			            <div class="btnText">Create <br> Folder</div>
+		          	</a>
+		         </div>
+		         <div class="lib_btnWrap">
+		         	<button ng-click="showModalAddFolder()" type="submit" class="btn btn-default btnlarge"
+		                  ng-disabled="bookSelected() == 0">
+		            <i class="fa fa-plus-circle"></i>
+					<div class="btnText">Add to <br> Folder</div>
+		          </button>
+		         </div>
+		         <div class="lib_btnWrap">
+		          <button ng-click="showModalRemovefromFolder()" type="submit" class="btn btn-default btnlarge"
+		                  ng-disabled="bookSelected() == 0">
+		            <i class="fa fa-minus-circle"></i>
+					<div class="btnText">Remove from <br> My Library</div>
+		          </button>
+		        </div>
+		      	</div>
+	      	</div>
+	    	<div class="row">
+	    		<div class="col-md-12 col-xs-12">
+		    		 <div class="dropdown-1">
+			          	<div class="btn-group left">
+				            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				              {{rootFolder}} 
+				              <span class="caret"></span>
+				            </button>
+				            <ul class="dropdown-menu" role="menu">
+				              <li ng-repeat="folder in vm.folders | orderBy:'folderName'">
+				                <div><a ng-click="vm.setSelectedFolder(folder)">{{folder.folderName}} ({{ folder.bookCount }})</a>
+				                  <span ng-click="editFolder(folder)" ng-hide="folder.folderName=='Main Folder'">Edit</span>
+				                </div>
+				              </li>
+				            </ul>
+				          </div>
+				      	<div class="form-group search">
+			              <input type="text" class="form-control" id="inputValidation"
+			              	onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'"
+              				ng-change="removeAll()" placeholder="Search"
+			              	placeholder="Search"
+			                ng-model="searchKeyword" ng-keyup="$event.keyCode == 13 && librarySearchKeyword()"/>
+			              	<i class="fa fa-search" ng-click="librarySearchKeyword()"></i>
+			              	<i class="fa fa-close right-closeIcon" ng-click="clearAll()"></i>
+			        	</div>
+			          	<span class="selectAll">
+			            	<input type="checkbox" name="option" id="selectAllBooks" ng-model="selectedAll" ng-click="checkAll()"/>
+			            	<label for="selectAllBooks">Select All</label>
+			          	</span>
+		          </div>
+		       </div>
+	    	</div>
+   </div>
+    <div class="col-md-5 col-xs-6">
+      <div ng-include="'views/sections/commonprofile.html'"></div><!-- profile info -->
+    </div>
+</div><!-- filterContainer -->
+
+<!--
+<div class="libFilterContainer">
+  <div class="row">
+    <div class="col-md-8"> -->
+      <!-- <div class="row">
+        <div class="col-md-3">
+          <div class="col-xs-4 hamburgerImg"><a ng-click="vm.toggleLeftNav()"><img src="images/btn_hamburger_menu.png"></a>
+          </div>
+          <div class="col-xs-8 filterText">Filter</div>
+        </div>
+        <div class="col-md-9" style="padding-top: 11px;">
+          <a ng-click="showModalCreateFolder()" type="submit" class="btn btn-default btnSmall">
+            <i class="fa fa-folder-o"></i>
+
+            <div class="buttonText1">Create</div>
+            <div class="buttonText2">Folder</div>
+          </a>
+
+          <button ng-click="showModalAddFolder()" type="submit" class="btn btn-default btnlarge"
+                  ng-disabled="bookSelected() == 0">
+            <i class="fa fa-plus-circle"></i>
+
+            <div class="buttonText">Add To Folder</div>
+          </button>
+          <button ng-click="showModalRemovefromFolder()" type="submit" class="btn btn-default btnlarge"
+                  ng-disabled="bookSelected() == 0">
+            <i class="fa fa-minus-circle"></i>
+
+            <div class="buttonText1">Remove from</div>
+            <div class="buttonText2">My Library</div>
+          </button>
+
+        </div>
+      </div> -->
+      <!-- <div class="row"> -->
+        <!-- <div class="col-md-3 dropdown-1" style="width:25%;padding-left: 3.6%;">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              {{rootFolder}}
+
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li ng-repeat="folder in vm.folders">
+                <div><a ng-click="vm.setSelectedFolder(folder)">{{folder.folderName}} ({{ folder.bookCount }})</a>
+                  <span ng-click="editFolder(folder)" ng-hide="folder.folderName=='Main Folder'">Edit</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div> -->
+        <!-- <div class="col-md-3 dropdown-2" style="padding-left:2.6%">
+          <div class="form-group search">
+            <div class="form-group has-feedback has-feedback-left">
+              <input type="text" class="form-control" id="inputValidation" placeholder="Search" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search'"
+              ng-model="searchKeyword" ng-keyup="$event.keyCode == 13 && librarySearchKeyword()" ng-change="removeAll()"
+              style="padding-left:40px !important;" />
+              <i class="fa fa-search left-searchIcon left-searchIconAssignment" ng-click="librarySearchKeyword()"></i>
+              <i class="fa fa-close right-closeIcon right-closeIconAssignment" ng-click="clearAll()"></i>
+
+
+            </div>
+          </div>
+        </div> -->
+        <!-- <div class="col-md-6">
+           <span class="selectAllBooks">
+            <input type="checkbox" name="option" id="selectAllBooks" ng-model="selectedAll" ng-click="checkAll()"/>
+            <label for="selectAllBooks">Select All Books</label>
+          </span>
+        </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="col-md-4">
+      <div ng-include="'views/sections/commonprofile.html'"></div>
+    </div>
+  </div>
+</div> -->
+
+<div class="progressReadView">
+  <!-- filter view -->
+  <div ng-include="'views/sections/leftfilterview.html'"></div>
+  <!-- filter view ends-->
+
+  <ul class="list-inline filter-breadcrumbs">
+    <div ng-repeat="(key,filter) in vm.filterData" ng-show="filter.length > 0">
+      <span ng-if=" key =='proficiencyLevel' ">Level</span>
+      <span ng-if=" key =='interestLevel' ">Interest Level</span>
+      <span ng-if=" key =='textType'">Text type</span>
+      <span ng-if=" key =='topics'">Topics</span>
+      <span ng-if=" key =='seriesId'">Series</span>
+      <span ng-if=" key =='programType'">Program Type</span>
+        <li class="list-inline" ng-repeat="item in filter" ng-if=" key !='seriesId' ">
+          {{item}} <a href="" ng-click="clearFilter(filter, item, 'others',key)"><i class="fa fa-times"></i></a>
+        </li>
+        <li class="list-inline" ng-repeat="item in selectedSeriesArr" ng-if=" key =='seriesId' ">
+          {{item.mainCategory}} <a href="" ng-click="clearFilter(selectedSeriesArr, item, 'series')"><i class="fa fa-times"></i></a>
+        </li>
+    </div>
+  </ul>
+  <div class="bookList">
+  		<div class="progressContiner">
+		  	<div class="booklistContainer">
+		    	<div ng-include="'views/sections/booklistview.html'"></div>
+		    </div>
+		</div>
+	</div>
+    <!-- libarary list ends-->
+    <div id="c-mask" class="c-mask" ng-class="vm.isLeftNavActive()" ng-click="vm.toggleLeftNav()"></div>
+  </div>
+</div>

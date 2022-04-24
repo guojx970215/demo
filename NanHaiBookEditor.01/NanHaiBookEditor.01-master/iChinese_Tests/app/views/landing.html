@@ -1,0 +1,141 @@
+<div class="landingContainer">
+    <div class="button">
+      <a href="#" class="spriteBtn"></a>
+    </div>
+    <!-- 10th oct'17 -->
+    <!-- main image  -->
+    <img src="images/login/launchscreen.png" class="bgImage">
+    <!-- <img src="images/login/bg_launchpage_frame.png" class="bgImage_frame"> -->
+    <!-- image overlay -->
+    <div class="scoreBoardWrapper" ng-show="vm.score">
+      <!-- <img src="images/login/icn_landingpage_scoreboard.png" class="img-responsive scoreBoard"> -->
+
+      <div class="scoreWrapper">
+        <div class="row">
+          <!-- <div class="col-md-4 nickname">
+            <div class="scoreText">Nickname</div>
+            <div class="score1">{{ vm.profile.nickName | limitTo:7 }}</div>
+          </div> -->
+          <!-- <div class="col-md-4 currentPoints"> -->
+            <!-- <div class="scoreText text-center">Current Points</div> -->
+      <!-- <div class= "grore text-center">{{ vm.profile.points | number}}</div> -->
+          <!-- </div> -->
+          <!-- <div class="col-md-4 worldRank">
+            <div class="worldText text-center">World Ranking</div>
+            <div class="score text-center">{{vm.profile.worldRank}}</div>
+          </div> -->
+        </div>
+      </div>
+      <!--<div class="levelWrapper" ng-click="vm.toggleScoreBoard()">-->
+        <!--<p class="levelText">Level</p>-->
+
+        <!--<p class="level">{{ vm.profile.level }}</p>-->
+      <!--</div>-->
+      <!--<a class="messageBtn" ng-click="showModalAddFolder()">-->
+        <!--<div ng-class="{'gps_ring':vm.newAnnouncement}"></div>-->
+      <!--</a>-->
+    <!--</div>-->
+    <div class="scoreBoardWaves">
+      <a class="scoreBoardSpriteBtn" ng-class="{'wave': !vm.score}">
+        <div class="scoreWrapper" ng-if="vm.score">
+          <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 nickname">
+              <div class="scoreText">Name</div>
+              <div class="score1">{{ vm.profile.nickName }}</div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 currentPoints">
+              <div class="scoreText text-center">Current Points</div>
+              <div class="score1 text-center">{{ vm.profile.points}}
+              	<!-- {{ vm.profile.points | number}}-->
+              </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 worldRank" style="padding:0">
+              <div class="worldText text-center">Books Read</div>
+              <div class="score1 text-center">{{vm.profile.numBooks}}</div>
+            </div>
+          </div>
+        </div>
+<!--         <div class="levelWrapper" ng-click="vm.toggleScoreBoard()">
+          <p class="levelText">Level</p>
+
+          <p class="level">{{ vm.profile.level }}</p>
+        </div> -->
+        <div class="levelWrapper">
+          <p class="levelText">Level</p>
+
+          <p class="level" ng-if="vm.profile.playerLevel.intermediate === false">{{ vm.profile.playerLevel.shortName.replace('level',' ')  }}</p>
+          <p class="level" ng-if="vm.profile.playerLevel.intermediate === true">{{ vm.profile.playerLevel.levelCode}}</p>
+        </div>
+          <div ng-if="vm.profile.role[0] === 'STUDENT'">
+        	<div class="messageBtn" ng-click="showModalAddFolder()">
+          		<div ng-class="{'gps_ring':vm.newAnnouncement}" ng-if="vm.isNewAnnoucements === true"></div>
+        	</div>
+        </div>
+      </a>
+
+    </div>
+    <!-- <a href="#/assignment"><img src="images/login/btn_landingpage_myassignment.png" class="img-responsive myAssignment"></a> -->
+    <div class="assignmentBtn" ng-if="isStudent && vm.voiceAnnouncement">
+      <a ui-sref="assignment" class="assignmentSpriteBtnIfExists"></a>
+    </div>
+    <div class="assignmentBtn" ng-if="isStudent && !vm.voiceAnnouncement">
+      <a ui-sref="assignment" class="assignmentSpriteBtn"></a>
+    </div>
+    <div class="myLibraryBtn">
+      <a ui-sref="myLibrary" class="myLibararySpriteBtn"></a>
+    </div>
+    <div class="openReadingBtn">
+      <a ui-sref="openReading" class="openReadingSpriteBtn"></a>
+    </div>
+
+    <ul class="list-group">
+      <div class="getNewAchievements">
+        <li class="list-group-item" ng-repeat="row in vm.getNewAchievements">
+          <p>
+	      				<span class="NewAchievementsImg_wrap">
+	      					<img src="images/minigame_l2_divercoin_forweb_web.png"/>
+				     		<span ng-if="row.achievement.image !== null"><img ng-src="{{row.achievement.image}}"/></span>
+	      				</span>
+            <span class="right">{{row.achievement.name}}</span>
+          </p>
+
+          <p class="">{{row.achievement.description}}</p>
+
+          <p class="text-center">Points: {{row.achievement.points}}</p>
+
+        </li>
+      </div>
+    </ul>
+
+    <!--
+    <a ui-sref="openReading">
+      <img src="images/login/btn_landingpage_openroom.png" class="img-responsive openRoom">
+    </a>
+    -->
+    <div class="progressReadingBtn">
+      <a ui-sref="progressReading" class="progressReadingSpriteBtn"></a>
+    </div>
+
+    <!--
+      <a href="#/myLibrary"><img src="images/login/LandingPage_MyLibrary_2732x1536_spritesheet.png" class="img-responsive myLibrary"></a>
+    -->
+    <!-- <a href="#/openReading"><img src="images/login/btn_landingpage_openroom.png" class="img-responsive openRoom"></a> -->
+    <!-- <a href="#/progressReading"><img src="images/login/btn_landingpage_levelreading.png" class="img-responsive levelReading"></a> -->
+    <!-- <a href="#"><img src="images/login/btn_landingpage_logout.png" class="img-responsive logout"></a> -->
+    <div class="logoutBtn">
+      <a ng-click="vm.logout()" class="logoutSpriteBtn"></a>
+    </div>
+      <a ui-sref="report" class="reportspriteBtn"></a>
+    <!-- <a href="#"><img src="images/login/btn_landingpage_game.png" class="img-responsive game"></a> -->
+    <div class="startBtn" ng-if="vm.profile.gameDisable==false" >
+      <a ng-click="vm.launchGame()" class="startSpriteBtn"></a>
+    </div>
+    <div class="startBtn" ng-if="vm.profile.gameDisable==true" >
+      <a ng-click="vm.disabledPopup()" class="stopSpriteBtn"></a>
+    </div>
+
+    <a ui-sref="profile" class="profilespriteBtn"></a>
+    <!-- <a ui-sref="profile"><img src="images/login/btn_landingpage_profile.png" class="img-responsive profile"></a> -->
+    <a href="http://cms.ichinesereader.com/resource/" target="_blank"><img src="images/login/btn_landingpage_faq.png" class="img-responsive faq"></a>
+    <!-- <a href="#"><img src="images/login/btn_landingpage_audioplaylist.png" class="img-responsive playList"></a> -->
+</div>

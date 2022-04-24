@@ -1,0 +1,35 @@
+<div ng-controller="headerController as vm">
+	<div class="headerContainer">
+	    <div class="col-xs-5">
+	        <span ng-if="vm.assignmentId === undefined">
+	        	<a ui-sref="home"><img src="images/back-button.png"></a>
+	        </span>
+	        <span ng-if="vm.assignmentId !== undefined">
+	        	<a ui-sref="assignment"><img src="images/back-button.png"></a>
+	        </span>
+	    </div>
+	    <div class="col-xs-7"><span class="page_title"> {{ vm.pageTitle }} </span></div>
+			<!-- <div class="col-xs-7"><span class="page_title"> Report </span></div> -->
+	</div>
+</div>
+
+<!-- <div class="col-xs-12 col-sm-6 col-md-4">
+			         <div class="exit col-xs-4">
+			           <button ng-click="vm.exitToMain()"><span>Exit</span></button>
+			        </div>
+			        <div class="score col-xs-8">
+			            <div class="col-sm-7">
+			                <div class="name">Billy</div>
+			                <div>72,000,000 </div>
+			                <div class="progress">
+			                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+			                        <span class="sr-only">60% Complete</span>
+			                    </div>
+			                </div>
+			                <div class="levelText">Level 8</div>
+			            </div>
+			            <div class="col-sm-5">
+			              <div><img width="90px" src="images/yeoman.png"></div>
+			            </div>
+			        </div>
+			  </div> -->

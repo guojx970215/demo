@@ -1,0 +1,321 @@
+<style>
+	.body-wrapper { background: #51c2e4;}
+</style>
+
+<div class="quizContainer">
+  <div class="book_quiz_navbar">
+    <div class="exit">
+    	<button class="btn btn-default btnclose pull-right" ng-click="vm.exit()"></button>
+    </div>
+    <button class="book_page_title">{{vm.quiz.book.bookTitle}}</button>
+  </div>
+
+
+  <!--<p>{{quiz.quiz.description}}</p>-->
+
+<div class="quizItemContainer">
+	  <!-- questions -->
+	 <div class="questions">
+	  	<div class="col-xs-offset-2 col-sm-offset-3 col-md-offset-3 col-xs-8 col-sm-6 col-md-6">
+	      <form class="quizItem" ng-submit="vm.submitAnswer()" ng-if="!vm.quizDone">
+	        <h2 class="quizHeader" ng-if="vm.simple == true">{{vm.quiz.simpname}}</h2>
+	        <h2 class="quizHeader" ng-if="vm.simple == false">{{vm.quiz.tradname}}</h2>
+
+	        <div class="questionDescription">
+	          <div class="questionBlock">
+	            <p>{{ vm.questionTypeLabel() }}</p>
+	          </div>
+	        </div>
+
+			<div class="q_container">
+				<div class="q_header">
+							<div class="left" ng-if="vm.simple == true"> <!-- Question -->
+								<b>{{ vm.questionIndex }}. </b>
+								<b ng-if="vm.quiz.questions[vm.questionIndex - 1].simp_question">
+									{{ vm.quiz.questions[vm.questionIndex - 1].simp_question}}
+								</b>
+								<div ng-if="vm.quiz.questions[vm.questionIndex - 1].question_image">
+									<div class="col-xs-9 col-sm-10 col-md-11">
+										<div><img src="{{vm.quiz.baseResourceUrl}}{{vm.quiz.questions[vm.questionIndex - 1].question_image}}" style="width:200px;"></img></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="left" ng-if="vm.simple == false"> <!-- Question -->
+								<b>{{ vm.questionIndex }}. </b>
+								<b ng-if="vm.quiz.questions[vm.questionIndex - 1].trad_question ">
+									{{ vm.quiz.questions[vm.questionIndex - 1].trad_question}}
+								</b>
+								<div ng-if="vm.quiz.questions[vm.questionIndex - 1].question_image">
+									<div class="col-xs-9 col-sm-10 col-md-11">
+										<div><img src="{{vm.quiz.baseResourceUrl}}{{vm.quiz.questions[vm.questionIndex - 1].question_image}}" style="width:200px;"></img>
+									</div>
+								</div>
+							</div>
+								</div>
+
+	              	<!-- <div class="left" ng-if="vm.simple == false"> <!-- Question -->
+	              		<!-- <b>{{ vm.questionIndex }}. </b> {{ vm.quiz.questions[vm.questionIndex - 1].trad_question}}</div> -->
+
+		          	<div class="audioIcon left" ng-if="vm.assignmentMode !== false"><!--ng-if="vm.quiz.book.audio !== null"-->
+		            	<img src="images/audioIcon.png" style="width:25px"
+		                 ng-click="vm.playQuestion(vm.quiz.questions[vm.questionIndex - 1])" ng-if="vm.quiz.questions[vm.questionIndex - 1].question_audio">
+		          	</div>
+	          	</div>
+		        <div ng-switch="vm.quiz.questions[vm.questionIndex - 1].type" class="choices">
+		          <div ng-switch-when="multiple_choice">
+		            <ul class="list-unstyled two-col-special" style="height: 300px !important;overflow-y: scroll;">
+		              <li ng-repeat="choice in vm.quiz.questions[vm.questionIndex - 1].answers">
+		                <div class="col-xs-9 col-sm-10 col-md-11">
+							<!-- If user taking the quiz first time load this div -->
+		                	<div class="questionWrap" ng-if="vm.quiz.firstAttempt !== false">
+		                		<label>
+										<input type="radio" ng-change="vm.ansChanged()"
+										ng-model="vm.quiz.questions[vm.questionIndex - 1].userAnswer"
+										value="{{vm.simple && choice.simp_answer || choice.trad_answer || choice.answer_image}}">
+										<!-- {{vm.simpAnswer}} -->
+
+										<!-- only images as answers simple-->
+										<div ng-if=" !choice.simp_answer && !choice.trad_answer  && choice.answer_image && vm.simple == true" >
+										
+												<img src="{{vm.quiz.baseResourceUrl}}{{choice.answer_image}}" style="width:300px;"></img>
+										</div>
+
+										<!-- only images as answers Traditional-->
+										<div ng-if=" !choice.simp_answer && !choice.trad_answer  && choice.answer_image && vm.simple == false" >
+										
+												<img src="{{vm.quiz.baseResourceUrl}}{{choice.answer_image}}" style="width:300px;"></img>
+										</div>
+
+										<!-- images and text answers simple-->
+									 <div ng-if="choice.simp_answer  && choice.trad_answer  && choice.answer_image  && vm.simple == true " >
+									 		
+											 <img src="{{vm.quiz.baseResourceUrl}}{{choice.answer_image}}" style="width:300px;"></img>
+											 <span class="imageAnswers" ng-if="vm.simple == true" >{{choice.simp_answer}}</span>
+											 <span class="imageAnswers" ng-if="vm.simple == false">{{choice.trad_answer}}</span>
+									 </div>
+									 <!-- images and text answers traditional -->
+									<div ng-if="choice.simp_answer && choice.trad_answer && choice.answer_image  && vm.simple == false " >
+									
+											<img src="{{vm.quiz.baseResourceUrl}}{{choice.answer_image}}" style="width:300px;"></img>
+											<span class="imageAnswers" ng-if="vm.simple == true" >{{choice.simp_answer}}</span>
+											<span class="imageAnswers" ng-if="vm.simple == false">{{choice.trad_answer}}</span>
+									</div>
+									 <!-- only text  with simple-->
+									 <!-- <div ng-if="choice.simp_answer != '' && choice.trad_answer != '' && choice.answer_image =='' " style="height:36px !important"></div> -->
+									 <div  style="height:36px !important" ng-if="choice.simp_answer && choice.trad_answer  && !choice.answer_image  && vm.simple == true " >
+									 
+											 <span  ng-if="vm.simple == true" >{{choice.simp_answer}} </span>
+									 </div>
+									  <!-- only text  with traditional-->
+									 <div  style="height:36px !important" ng-if="choice.simp_answer  && choice.trad_answer  && !choice.answer_image && vm.simple == false " >
+									
+											 <span ng-if="vm.simple == false">{{choice.trad_answer}}</span>
+									 </div>
+
+								</label>
+			                </div>
+
+							<!-- If user taking the quiz second time load this div -->
+							<div class="questionWrap" ng-if="vm.quiz.firstAttempt !== true">
+								<label>
+										<input type="radio" ng-change="vm.ansChanged()"
+										ng-model="vm.quiz.questions[vm.questionIndex - 1].userAnswer"
+										value="{{vm.simple && choice.simp_answer || choice.trad_answer || choice.answer_image}}">
+										<!-- {{vm.simpAnswer}} -->
+
+										<!-- only images as answers simple-->
+										<div ng-if=" !choice.simp_answer && !choice.trad_answer  && choice.answer_image && vm.simple == true" ng-class="{'optionsActivated': choice.simp_answer==vm.simpAnswer || choice.answer_image == vm.simpAnswer}">
+												<img src="{{vm.quiz.baseResourceUrl}}{{choice.answer_image}}" style="width:300px;"></img>
+										</div>
+
+										<!-- only images as answers Traditional-->
+										<div ng-if=" !choice.simp_answer && !choice.trad_answer  && choice.answer_image && vm.simple == false" ng-class="{'optionsActivated': choice.simp_answer==vm.simpAnswer || choice.answer_image == vm.simpAnswer}">
+												<img src="{{vm.quiz.baseResourceUrl}}{{choice.answer_image}}" style="width:300px;"></img>
+										</div>
+
+										<!-- images and text answers simple-->
+									 <div ng-if="choice.simp_answer  && choice.trad_answer  && choice.answer_image  && vm.simple == true " ng-class="{'optionsActivated': choice.simp_answer==vm.simpAnswer || choice.answer_image == vm.simpAnswer}">
+											 <img src="{{vm.quiz.baseResourceUrl}}{{choice.answer_image}}" style="width:300px;"></img>
+											 <span class="imageAnswers" ng-if="vm.simple == true" >{{choice.simp_answer}}</span>
+											 <span class="imageAnswers" ng-if="vm.simple == false">{{choice.trad_answer}}</span>
+									 </div>
+									 <!-- images and text answers traditional -->
+									<div ng-if="choice.simp_answer && choice.trad_answer && choice.answer_image  && vm.simple == false " ng-class="{'optionsActivated': choice.trad_answer==vm.tradAnswer || choice.answer_image == vm.tradAnswer}">
+											<img src="{{vm.quiz.baseResourceUrl}}{{choice.answer_image}}" style="width:300px;"></img>
+											<span class="imageAnswers" ng-if="vm.simple == true" >{{choice.simp_answer}}</span>
+											<span class="imageAnswers" ng-if="vm.simple == false">{{choice.trad_answer}}</span>
+									</div>
+									 <!-- only text  with simple-->
+									 <!-- <div ng-if="choice.simp_answer != '' && choice.trad_answer != '' && choice.answer_image =='' " style="height:36px !important"></div> -->
+									 <div  style="height:36px !important" ng-if="choice.simp_answer && choice.trad_answer  && !choice.answer_image  && vm.simple == true " ng-class="{'optionsActivated': choice.simp_answer==vm.simpAnswer || choice.answer_image == vm.simpAnswer && vm.mode !== 'teacherMode'}">
+									 
+											 <span  ng-if="vm.simple == true" >{{choice.simp_answer}} </span>
+									 </div>
+									  <!-- only text  with traditional-->
+									 <div  style="height:36px !important" ng-if="choice.simp_answer  && choice.trad_answer  && !choice.answer_image && vm.simple == false " ng-class="{'optionsActivated': choice.trad_answer==vm.tradAnswer || choice.answer_image == vm.tradAnswer && vm.mode !== 'teacherMode'}">
+									 
+											 <span ng-if="vm.simple == false">{{choice.trad_answer}}</span>
+									 </div>
+
+								</label>
+							</div>
+			            </div>
+		                <div class="col-xs-3 col-sm-2 col-md-1">
+		                	<div class="row">
+			                	<span ng-if="vm.assignmentMode !== false"> <!--ng-if="vm.quiz.book.audio !== null"-->
+			                  		<img class="answerAudio" ng-click="vm.playAnswer(choice)" ng-if="choice.answer_audio"
+			                     		src="images/audioIcon.png">
+			                  	</span>
+			                </div>
+			            </div>
+		              </li>
+		            </ul>
+		          </div>
+
+		          <div ng-switch-when="true_or_false">
+		            <ul class="list-unstyled two-col-special">
+		              <li ng-repeat="choice in vm.quiz.questions[vm.questionIndex - 1].answers">
+		              	<div class="col-xs-9 col-sm-10 col-md-11">
+		                	<div class="questionWrap"  ng-if="vm.quiz.firstAttempt !== false">
+				                <label>
+				                  <input type="radio" ng-change="vm.ansChanged()" ng-model="vm.quiz.questions[vm.questionIndex - 1].userAnswer" value="{{vm.simple && choice.simp_answer || choice.trad_answer}}">
+				                  <!-- <div></div> don't delete  -->
+													<div  style="height:36px !important" ng-if="choice.simp_answer && choice.trad_answer  && !choice.answer_image  && vm.simple == true " >
+															<span ng-if="vm.simple == true">{{choice.simp_answer}}</span>
+													</div>
+													<div  style="height:36px !important" ng-if="choice.simp_answer  && choice.trad_answer  && !choice.answer_image && vm.simple == false ">
+															<span ng-if="vm.simple == false">{{choice.trad_answer}}</span>
+													</div>
+				                </label>
+											</div>
+											<div class="questionWrap"  ng-if="vm.quiz.firstAttempt !== true">
+													<label>
+														<input type="radio" ng-change="vm.ansChanged()" ng-model="vm.quiz.questions[vm.questionIndex - 1].userAnswer" value="{{vm.simple && choice.simp_answer || choice.trad_answer}}">
+														<!-- <div></div> don't delete  -->
+														<div  style="height:36px !important" ng-if="choice.simp_answer && choice.trad_answer  && !choice.answer_image  && vm.simple == true " ng-class="{'optionsActivated': choice.simp_answer==vm.simpAnswer || choice.answer_image == vm.simpAnswer && vm.mode !== 'teacherMode'}">
+																<span ng-if="vm.simple == true">{{choice.simp_answer}}</span>
+														</div>
+														<div  style="height:36px !important" ng-if="choice.simp_answer  && choice.trad_answer  && !choice.answer_image && vm.simple == false " ng-class="{'optionsActivated': choice.simp_answer==vm.simpAnswer || choice.answer_image == vm.simpAnswer && vm.mode !== 'teacherMode'}">
+																<span ng-if="vm.simple == false">{{choice.trad_answer}}</span>
+														</div>
+													</label>
+												</div>
+									</div>
+									<div class="col-xs-3 col-sm-2 col-md-1">
+		                	<div class="row">
+				                  <span ng-if="vm.assignmentMode !== false"><!--ng-if="vm.quiz.book.audio !== null"-->
+				                  	<img class="answerAudio" ng-click="vm.playAnswer(choice)" ng-if="choice.answer_audio"
+				                     	src="images/audioIcon.png">
+													</span>
+			                </div>
+			            </div>
+		              </li>
+		            </ul>
+		          </div>
+		          <div ng-switch-when="multiple_answer">
+		            <ul class="list-unstyled two-col-special">
+		              <li ng-repeat="choice in vm.quiz.questions[vm.questionIndex - 1].answers">
+		              	<div class="col-xs-9 col-sm-10 col-md-11">
+		                	<div class="questionWrap">
+				                <label>
+				                  <input type="checkbox" ng-change="vm.ansChanged()" ng-model="choice.userPicked" value="{{vm.simple && choice.simp_answer || choice.trad_answer}}">
+				                  <div></div> <!--don't delete  -->
+				                  <span ng-if="vm.assignmentMode.enableAudio !== 'false'"><!--ng-if="vm.quiz.book.audio !== null"-->
+				                  	<img class="answerAudio" ng-click="vm.playAnswer(choice)" ng-if="choice.answer_audio"
+				                     src="images/audioIcon.png">
+				                  </span>
+				                  <span ng-if="vm.simple == true">{{choice.simp_answer}}</span>
+				                  <span ng-if="vm.simple == false">{{choice.trad_answer}}</span>
+				                </label>
+				               </div>
+				        	</div>
+		              </li>
+		            </ul>
+		          </div>
+		          <div ng-switch-when="fill_in_blank" class="fill_in_blank">
+		            <input type="text" ng-blur="vm.ansChanged()" ng-model="vm.quiz.questions[vm.questionIndex - 1].userAnswer" class="fillText">
+		          </div>
+		        </div>
+	        </div>
+	        <div class="pagingContainer">
+	          	<div class="paging_wrap">
+		          	<div class="paging">
+				            <!--
+				            <uib-pagination total-items="vm.questionLength" ng-model="vm.questionIndex" items-per-page="1"
+				                            ng-change="vm.pageChanged()"></uib-pagination>
+				            -->
+			            <ul class="pagination">
+			              <li class="pagination-page ng-scope"
+			                  ng-class="vm.getQuestionState(question,vm.quiz)" ng-repeat="question in vm.quiz.questions">
+			                <a ng-click="vm.selectQuestion(question)" href="" ng-class="ng-binding" style="border-radius:5px!important;">{{question.id}}</a>
+			              </li>
+			            </ul>
+		          	</div>
+	          	</div>
+	            <div class="col-md-12 submitAnswer">
+	              	<button type="submit" ng-show="vm.answeredAllQuestions()" class="btnSubmit">Submit</button>
+				</div>
+	        </div>
+	      </form>
+	    </div><!-- questions -->
+	    <div class="col-xs-2 col-sm-3 col-md-3" ng-if="!vm.quizDone && vm.mode !== 'teacherMode'">
+				<span ></span>
+			<img src="images/book-icon.png" class="bookIcon" ng-click="vm.openBook()">
+		</div>
+	   </div>
+
+	    <!-- quiz result -->
+	   <div class="col-xs-offset-2 col-sm-offset-3 col-md-offset-3 col-xs-8 col-sm-6 col-md-6">
+	    <div class="resultsContainer" ng-if="vm.quizDone">
+	      <p class="quiz_header">Quiz Results</p>
+	      <!-- results section -->
+	      <div class="results">
+	      	<div class="col-xs-12">
+	      		<div class="point-icon">
+	      			<img src="images/quiz/icn_quiz.png">
+	      		</div>
+	      	</div>
+	        <section class="questionList col-xs-12 col-sm-6 col-md-6">
+	          <ul class="list-unstyled">
+	            <!--
+	            <li>Question 1 <i class="fa fa-check"></i></li>
+	            <li>Question 2 <i class="fa fa-times"></i></li>
+	            -->
+	            <li ng-repeat="(key, value) in vm.quizResults.results">
+	                Question #{{key}} <!--<i class="fa" ng-class="vm.getQuizIcon(value)"></i>-->
+	                <img class="icn_answer" ng-src="{{value && 'images/quiz/icn_correctanswer.png' || 'images/quiz/icn_incorrectanswer.png'}}"/>
+	            </li>
+	          </ul>
+	        </section>
+	        <section class="questionStats col-xs-12 col-sm-6 col-md-6">
+	        	<div class="rightAnswer">
+	        		<span class="spancls">Correct Answers <br><span class="scoreClr">{{vm.quizResults.score}} </span>/ {{vm.resultCount(vm.quizResults.results)}}</span>
+	        	</div>
+	          <div class="pointsEarned">
+	          	<span class="spanPoints">Points Earned <br><span class="PointsClr">{{vm.quizResults.points}}</span> </span>
+	          </div>
+	        </section>
+
+	        <!--
+	        <p>Thank you for taking the quiz. Here your quiz answers to be submitted:</p>
+	        <div>{{ quiz.userAnswers }}</div>
+	        -->
+	      </div><!-- results section ends-->
+	      <div class="backTo">
+		      <div class="col-xs-12 col-sm-6 col-md-6">
+		        	<button ng-click="vm.readBook()" class="btn btnBig">Re-read Book<!-- Back to {{vm.page}} --></button>
+		      </div>
+		       <div class="col-xs-12 col-sm-6 col-md-6">
+		      		<button ng-click="vm.redoQuiz()" class="btn btnNormal">Redo Quiz</button>
+		      </div>
+		</div>
+	    </div>  <!-- quiz result -->
+	  	</div>
+
+	</div>
+
+  <audio id="playAudioFile" src=""></audio>
+
+
+</div>

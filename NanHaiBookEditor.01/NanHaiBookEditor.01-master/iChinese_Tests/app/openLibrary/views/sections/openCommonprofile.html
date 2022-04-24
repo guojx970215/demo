@@ -1,0 +1,51 @@
+<style>
+@media only screen and (max-width: 667px)
+{
+.rightCustom {
+    margin-left: 57px;
+  }
+.homeBtn span {
+    color: gray;
+    font-size: 14pt;
+    font-family: Verdana;
+    margin-left: -10px;
+  }
+}
+</style>
+<div ng-controller="openCommonProfileController as vm">
+  <div class="commonprofile openLibraryProfile">
+      <div class="score" id="openLibrary_spec">
+          <div class="form-group" id="openFilter">
+             <label class="col-md-1 col-sm-2 col-xs-12 library_text">Text</label>
+              <div class="col-md-8 col-sm-6 col-xs-12 pinyin_space">
+                <div class="col-sm-12 col-xs-12">
+                 <div class="btn-group">
+                   <label class="btn btn-primary1" ng-model="languageSetting" uib-btn-radio="'Simplified'" ng-change="updatingSettingResponse()">Simplified</label>
+                   <label class="btn btn-primary1" ng-model="languageSetting" uib-btn-radio="'Traditional'" ng-change="updatingSettingResponse()">Traditional</label>
+                   <label class="btn btn-primary1" ng-model="languageSetting" uib-btn-radio="'No text'" ng-change="updatingSettingResponse()">No text</label>
+                 </div>
+               </div>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <label class="col-md-1 col-sm-2 col-xs-12 library_text">Pinyin</label>
+                <div class="col-md-2">
+                  <div class="col-xs-12 col-sm-8 col-md-2">
+                   <i class="fa fa-2x" ng-model="Pinyin" ng-click="changeStatus();" ng-class="Pinyin?'fa-toggle-on': 'fa-toggle-off'"></i>
+                 </div>
+               </div>
+              </div>
+         </div>
+         <div class="form-group">
+            <label class="col-md-1 col-sm-2 col-xs-12 library_text">Audio</label>
+             <div class="col-md-8 col-sm-6 col-xs-12">
+               <div class="col-sm-12 col-xs-12">
+                 <div class="btn-group">
+                   <label class="btn btn-primary2" ng-model="bilingualSetting" uib-btn-radio="'Mandarin'" ng-change="updatingSettingResponse()">Mandarin</label>
+                  <label class="btn btn-primary2" ng-model="bilingualSetting" uib-btn-radio="'Cantonese'" ng-change="updatingSettingResponse()">Cantonese</label>
+                  <label class="btn btn-primary2" ng-model="bilingualSetting" uib-btn-radio="'No_audio'" ng-change="updatingSettingResponse()">No Audio</label>
+                 </div>
+              </div>
+             </div>
+        </div>
+  </div>
+</div>

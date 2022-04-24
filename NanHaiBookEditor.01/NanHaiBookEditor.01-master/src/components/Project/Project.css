@@ -1,0 +1,113 @@
+.ProjectBox {
+  position: absolute;
+  width: 600px;
+  height: 100%;
+  padding: 32px;
+  background: #ffffff;
+  max-height: 660px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.ProjectTitle {
+  font-size: 18px;
+}
+
+.closeProiect {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.NewProject {
+  position: absolute;
+  top:0;
+  right:0;
+}
+
+.ProjectList {
+  position: relative;
+  width: 100%;
+}
+
+.ProjectItem {
+  width: 180px;
+  padding: 10px 10px;
+  float: left;
+  margin-top: 10px;
+}
+
+.ProjectItem .Image {
+  /*border:1px solid #BFBFBF;*/
+  box-shadow: 2px 2px 2px #BFBFBF;
+  height: 120px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.ProjectItem .Image img:nth-child(2) {
+  width: 25px;
+  height: auto;
+  position: absolute;
+  right:5px;
+  top:5px;
+}
+
+.ProjectItem .Time {
+  color: #999999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.ProjectItem .Delete {
+  cursor: pointer;
+}
+
+.ProjectNone {
+  color: #999999;
+  margin-top: 20px;
+  text-align: left;
+  width: 100%;
+  float: left;
+}
+
+.ProjectPaging {
+  text-align: right;
+  margin-top: 20px;
+  position: absolute;
+  right:40px;
+  bottom: 20px;
+}
+
+.ProjectPaging span {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.ProjectPaging span.disabled {
+  color: #c9c9c9;
+  cursor: not-allowed;
+}
+
+.ProjectPaging span.active {
+  color: #ffaa3b;
+}
+
+.react-confirm-alert {
+  align-items: center;
+  display: flex;
+}
+.project-input-item > label {
+  display: inline-block;
+  width: 120px;
+  text-align: right;
+  margin-right: 8px;
+}

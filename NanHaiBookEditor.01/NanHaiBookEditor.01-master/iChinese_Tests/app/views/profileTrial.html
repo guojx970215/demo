@@ -1,0 +1,61 @@
+<div class="profileContainer ng-scope">
+	<div class="col-xs-offset-3 col-xs-9">
+		<div class="row">
+			<div class="col-md-12">					      						
+				 	<h3 class="center">Enter Billing Information</h3>						 			  
+				    <form class="form-horizontal" name="TrialPaymentForm" ng-submit="vm.trialPayment()" novalidate>					     
+				  		<div class="form-group">
+				          <div class="col-xs-3"><label>Subscription</label></div>
+				          <div class="col-xs-9">
+				            <!-- <div class="btn-group" ng-repeat="row in vm.getPaymentPlan">
+				              	<label class="btn btn-primary" ng-model="vm.subscriptionLength" uib-btn-radio="'{{row.id}}'">
+					                <span  ng-if="(row.name == 'iChineseReader Monthly Subscription')||(row.name == 'iChineseReader Annually Subscription')||(row.name == 'iChineseReader Three Month Subscription')">
+					                	<span ng-if="row.name == 'iChineseReader Monthly Subscription'">Monthly (${{row.price}})</span>
+					                	<span ng-if="row.name == 'iChineseReader Annually Subscription'">Yearly (${{row.price}})</span>
+					                	<span ng-if="row.name == 'iChineseReader Three Month Subscription'">3 Months (${{row.price}})</span>
+					              	</span>
+					              	<span ng-if="(row.name == 'iChineseReader Annually Subscription with Trial')||(row.name == 'iChineseReader Monthly Subscription with Trial')">
+					              		<span ng-if="row.name == 'iChineseReader Annually Subscription with Trial'">Yearly (${{row.price}})</span>
+					                	<span ng-if="row.name == 'iChineseReader Monthly Subscription with Trial'">Monthly (${{row.price}})</span>
+					              		<br><span>{{row.trialDuration}} {{row.trialDurationUnit}} Trial</span>
+					              	</span>
+				              	</label>
+							</div> -->
+							<div class="btn-group" ng-repeat="row in vm.getPaymentPlan" ng-if="row.id !=='icr-3m'">
+									<label class="btn btn-primary" ng-model="vm.subscriptionLength" uib-btn-radio="'{{row.id}}'">
+									  <span  ng-if="(row.name == 'iChineseReader Monthly Subscription')||(row.name == 'iChineseReader Annually Subscription')">
+										  <span ng-if="row.name == 'iChineseReader Monthly Subscription'">Monthly (${{row.price}})</span>
+										  <span ng-if="row.name == 'iChineseReader Annually Subscription'">Yearly (${{row.price}})</span>
+										  <!-- <span ng-if="row.name == 'iChineseReader Three Month Subscription'">3 Months (${{row.price}})</span> -->
+										</span>
+										<span ng-if="(row.name == 'iChineseReader Annually Subscription with Trial')||(row.name == 'iChineseReader Monthly Subscription with Trial')">
+											<span ng-if="row.name == 'iChineseReader Annually Subscription with Trial'">Yearly (${{row.price}})</span>
+										  <span ng-if="row.name == 'iChineseReader Monthly Subscription with Trial'">Monthly (${{row.price}})</span>
+											<br><span>{{row.trialDuration}} {{row.trialDurationUnit}} Trial</span>
+										</span>
+									</label>
+							  </div>
+				          	</div>
+				      	</div><!-- form group -->
+				    	<div class="form-group" ng-if="vm.subscriptionLength !== 'icr-monthly'">
+				          	<label class="col-xs-3"><label>Promo Code</label></label>			
+				          	<div class="col-xs-6">
+				            	<input type="text" class="form-control" name="couponCode" ng-model="vm.couponCode"/>
+				          	</div>
+						</div>
+						<!-- form group -->
+				        <div class="form-group">
+				          	<div class="col-xs-9" id="trialPaymentWidget"></div>
+				        </div><!-- form group -->					     					      	
+				        <div class="form-group">
+				          	<div class="col-xs-9">
+				            	<div class="right row">
+				              		<button type="submit" class="btn btn-primary btnSmall">Submit</button>              		
+				            	</div>
+				          </div>
+				        </div>						       			   
+				    </form>
+		    </div><!-- col -->
+		</div><!-- row -->				    	
+	</div>
+</div>

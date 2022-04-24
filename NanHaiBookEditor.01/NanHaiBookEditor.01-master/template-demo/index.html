@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>模板</title>
+  <style>
+    body {
+      background-color: rgb(245, 245, 245);
+    }
+
+    .wjContent {
+      background-color: rgba(255, 255, 255, 1);
+      width: 814px;
+      margin: 0px auto 10px auto;
+    }
+
+    .wjContent,
+    .wj-content-padding {
+      min-height: 200px;
+      background: #fff;
+      word-break: normal;
+      z-index: 99;
+      position: relative;
+    }
+
+    .wjContent .content_box.content_top {
+      padding-top: 30px;
+    }
+
+    .wjContent .content_box {
+      padding: 10px 40px 66px;
+    }
+
+    #begin_content {
+      clear: both;
+      overflow: hidden;
+    }
+
+    .wjtitle {
+      float: left;
+      width: 100%;
+    }
+
+    .mtop {
+      margin-top: 20px;
+    }
+
+    .wjintro {
+      float: left;
+      width: 100%;
+    }
+
+    .wjintro,
+    .wjintro {
+      font-size: 16px;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
+    .wjhr {
+      float: left;
+      width: 100%;
+      height: 3px;
+      background-color: #f29400;
+    }
+
+    .wjques {
+      padding-left: 15px;
+    }
+
+    .maxtop {
+      width: 734px;
+      margin-top: 30px;
+    }
+
+    .title {
+      width: 100%;
+      font-size: 16px;
+      margin-left: -15px;
+      padding-bottom: 8px;
+      position: relative;
+      padding-left: 5px;
+    }
+
+    .matrix {
+      overflow-x: auto;
+      overflow-y: hidden;
+      width: 100%;
+    }
+
+    .options {
+      list-style: none;
+      padding: 0;
+    }
+
+    .options>li {
+      padding: 10px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px 0;
+      background: #f5f5f5;
+    }
+
+    .selected {
+      color: blue;
+    }
+  </style>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".options >li").click(function (e) {
+       $(this).addClass('selected')
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="wjContent">
+    <div class="content" id="begin_content">
+
+      <div class="wjtitle mtop project_title">
+        <h1>
+          <p style="text-align: center;">答题</p>
+        </h1>
+      </div>
+      <div class="wjintro mtop desc_begin">您好,请完成题目</div>
+
+      <div class="wjhr mtop"></div>
+      <div style="width: 100%">
+        <div class="wjques maxtop question" id="question_5d6e1d093631f23eb720cee8" questiontype="2">
+          <form action="">
+              <div class="title"><span class="answer_title"><span class="Qnum">
+                  <span>1.您的年龄</span>
+                  <ul class="options">
+                    <li><input type="radio" name="sex" value="1">A:1岁</li>
+                    <li><input type="radio" name="sex" value="2">A:2岁</li>
+                    <li><input type="radio" name="sex" value="3">A:3岁</li>
+                  </ul>
+            </div>
+            <div class="title"><span class="answer_title"><span class="Qnum">
+                  <span>2.您的名字</span>
+                  <ul class="options">
+                    <li>A:小明</li>
+                    <li>B:小红</li>
+                    <li>C:小刚</li>
+                  </ul>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

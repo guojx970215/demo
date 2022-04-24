@@ -1,0 +1,75 @@
+
+.headerContainer{
+  float: left;
+  width: 100%;
+  // font-family: 'FuturaStd-Medium', cursive;
+  font-family: 'FuturaStd-Medium';
+  background: url('/images/bg_top_bar.png');
+  /*repeat-x scroll 0 0, linear-gradient(to bottom, #4e6365, #adc2c4)*/
+
+
+  .back{
+    font-size: 24pt;
+    padding-left: 2.5%;
+    a{
+      color: #202828;
+    }
+    img{
+      margin-bottom: 2px;
+    }
+  }
+  .topTitle{
+    h1{
+      font-size: 28pt;
+      margin-bottom: 0;
+      margin-top: 0;
+      //padding-left: 6%;
+
+    }
+  }
+  .exit{
+    //margin-right:15px;
+    margin: 0 auto;
+
+    button{
+      background: #3e515c none repeat scroll 0 0;
+      border: medium none;
+      border-radius: 20px;
+      -webkit-box-shadow: 7px 10px 10px 1px rgba(0, 0, 0, 0.61);
+      -moz-box-shadow: 7px 10px 10px 1px rgba(0, 0, 0, 0.61);
+      box-shadow: 7px 10px 10px 1px rgba(0, 0, 0, 0.61);
+      height: 79px;
+      width: 81px;
+    }
+    span{
+      color: #fff;
+      font-size: 24pt;
+    }
+
+  }
+  .score{
+    background:#3e515c none repeat scroll 0 0;
+    height:78px;
+    border-radius: 20px;
+    -webkit-box-shadow: 7px 10px 10px 1px rgba(0, 0, 0, 0.61);
+    -moz-box-shadow: 7px 10px 10px 1px rgba(0, 0, 0, 0.61);
+    box-shadow: 7px 10px 10px 1px rgba(0, 0, 0, 0.61);
+    width:253px;
+    margin-left:-16px;
+     div{
+       color: #fff;
+     }
+    .name{
+      font-size: 20pt;
+      margin-bottom: -4px;
+    }
+    .progress {
+      height: 10px;
+      margin-bottom: 0px;
+    }
+    .levelText{
+      font-size: 12px;
+      margin-left: 31%;
+    }
+  }
+}

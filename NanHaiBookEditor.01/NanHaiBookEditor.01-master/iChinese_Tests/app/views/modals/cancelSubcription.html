@@ -1,0 +1,16 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px;
+	}
+}
+</style>
+<div class="modal-header text-center">Are you sure you want to cancel subscription ?</div>
+<div class="modal-body">
+  {{subscription}}
+</div><!--modal-body-->
+<div class="modal-footer okFooter">
+  <button class="btn btn-danger btnSmall" type="button" ng-click="ok()">Cancel my account</button>&nbsp;&nbsp;&nbsp;
+  <button class="btn btn-primary btnSmall" type="button" ng-click="cancel()">Please keep my account</button>
+</div>

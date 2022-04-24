@@ -1,0 +1,15 @@
+.color-cubes > span{
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  margin-right: 8px;
+  cursor: pointer;
+  box-shadow: rgb(199, 193, 193) 1px 1px 3px
+}
+.picker-wrapper {
+  position: absolute;
+  bottom: 150px;
+  left: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}

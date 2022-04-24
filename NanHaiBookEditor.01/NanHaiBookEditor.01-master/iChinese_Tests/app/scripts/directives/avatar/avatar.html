@@ -1,0 +1,31 @@
+<div class="profileImgContainer">
+	
+		<div class="head">
+	        <img ng-src="{{currentAvatar.head.details.asset}}">
+	    </div>
+	    <div class="body">
+	        <img ng-src="{{currentAvatar.body.details.asset}}">
+	    </div>
+	    <div class="leftArm" >
+            <img class = "left-arm" ng-src="{{currentAvatar.arms.details.asset}}">  
+        </div>
+        <div class="rightArm">
+            <img class = "right-arm" ng-src="{{currentAvatar.arms.details.asset}}">
+        </div>
+	    <div class="legs">
+	        <img class="legs" ng-src="{{currentAvatar.legs.details.asset}}">
+	    </div>
+	    <div class="hat" ng-if="isHat">
+	        <img ng-src="{{currentAvatar.accessory.accessory_hat_hair.details.asset}}" class="hat_hair">
+	    </div>
+	    <div class="eyeWear" ng-if="isEyewear">
+	        <img ng-src="{{currentAvatar.accessory.accessory_eyewear.details.asset}}" class="eyewear">
+	    </div>
+	    <div class="mustache" ng-if="isMustache">
+	        <img ng-src="{{currentAvatar.accessory.accessory_mustache.details.asset}}" class="mustache">
+	    </div>
+	    <div class="tie" ng-if="isTie">
+	        <img ng-src="{{currentAvatar.accessory.accessory_tie.details.asset}}" class="tie">
+	    </div>
+	
+</div>

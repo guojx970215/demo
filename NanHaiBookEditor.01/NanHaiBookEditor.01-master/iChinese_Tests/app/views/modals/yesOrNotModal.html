@@ -1,0 +1,15 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px;
+	}
+}
+</style>
+<div class="modal-body text-center">
+  {{getItems}}
+</div><!--modal-body-->
+<div class="modal-footer okFooter">
+  <button class="okButton" type="button" ng-click="cancel()">No</button>&nbsp;&nbsp;
+  <button class="okButton" type="submit" ng-click="ok()">Yes</button>
+</div>

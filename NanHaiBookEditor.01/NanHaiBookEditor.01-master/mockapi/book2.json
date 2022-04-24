@@ -1,0 +1,49 @@
+{
+  "data": {
+    "count": 0,
+    "pages": [
+      {
+        "id": "mockbook1pageId1",
+        "elements": [],
+        "index": 1,
+        "thumb": "base64 images string"
+      },
+      {
+        "id": "mockbook1pageId2",
+        "elements": [],
+        "index": 1,
+        "thumb": "base64 images string"
+      }
+    ],
+    "id": "mockbookid1",
+    "name": "book name",
+    "cover": "base64imagesstring",
+    "description": "mockbookid1 discription",
+    "config": {
+      "layout": "Portrait"
+    }
+  },
+  "message": "success",
+  "messageCode": 0,
+  "success": 0
+}
+
+{
+  "id": "mockbook1pageId1",
+    "elements": [
+      {
+        "id": "elementId",
+        "type": "textbox",
+        "content": "element1 content",
+        "config": {
+          "x": 100,
+          "y": 100,
+          "width": 150,
+          "heigth": 200,
+          "template": ""
+        }
+      }
+    ],
+    "index": 1,
+    "thumb": "base64url"
+  }

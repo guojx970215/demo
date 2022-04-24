@@ -1,0 +1,114 @@
+<style>
+@media only screen and (max-width:667px)
+{
+.modal-dialog {
+    margin-left: 135px!important;
+	}
+}
+</style>
+
+<!-- <div class="modal-header">
+  <button type="button" class="close" ng-click="closeModal()" aria-label="Close"><span aria-hidden="true">×</span></button>
+  <h4 class="modal-title" id="myModalLabel">{{ items.title }}</h4>
+</div>
+<div class="modal-body">
+  <div class="bookIcon">
+    <i class="fa fa-trophy"></i>
+  </div>
+  <p>{{ items.body }}</p>
+</div>
+<div class="modal-footer">
+  <a class="btn btn-pos" ng-click="ok()">Done</a>
+</div> -->
+
+<div class="custom-modal">
+		<div class="modal-header modal-header-custom">
+      <button type="button" class="close" ng-click="closeModal()" aria-label="Close"><span aria-hidden="true"><img src="images/btn_x.png"></span></button>
+		  <h2 class="text-center">Announcements</h2>
+		</div>
+		<form class="form-horizontal" name="addBookToLibraryForm" ng-submit="submitForm()" novalidate>
+		<div class="modal-body">
+
+      <div class="announcements" ng-repeat="x in announcements">
+          <div class="row">
+						{{x}}
+						<div class="col-md-12">
+							{{x.teacherName}} gives your {{x.type}} for book {{x.bookTitle}} a grade of {{x.grade}}
+						</div>
+              <div class="col-md-4">
+                {{ x.clas.className }}
+              </div>
+              <div class="col-md-4">
+                <p><a class="btn btn-primary modalBtnSmall" data-toggle="collapse" data-target="#{{ x.id }}">Read</a></p>
+              </div>
+              <div class="col-md-4">
+                <div class="col-md-offset-12 pull-right"> {{ x.when  | date'}}</div>
+                <div class="col-md-offset-12  pull-right"><p class="time"> {{ x.when  | date:'h:mma'}}</p></div>
+              </div>
+          </div>
+          <p class="collapse message" id="{{ x.id }}" >
+            <span class="message-content">{{ x.message }}<br>
+              <img src="images/quiz/icn_pointsgained.png"><br>
+              <span>{{ x.point }} Points earned</span>
+            </span>
+          </p>
+      </div>
+
+      <!-- <div class="announcements">
+        <div class="row">
+            <div class="col-md-6">
+              <div class="col-md-offset-12 pull-right"> 29/01/16 </div>
+              <div class="col-md-offset-12 pull-right"> 12:26PM </div>
+            </div>
+            <div class="col-md-6">
+              <p><a class="btn btn-primary modalBtnSmall" data-toggle="collapse" data-target="#viewdetails">Read</a></p>
+            </div>
+
+        </div>
+        <p class="collapse message" id="viewdetails" >
+          <span class="message-content">Donec id elit non mi porta gravida at eget metus.
+            <img src="images/quiz/icn_pointsgained.png"><br>
+            <span>500 Points earned</span>
+          </span>
+        </p>
+      </div>
+      <div class="announcements">
+        <div class="row">
+            <div class="col-md-6">
+              <div class="col-md-offset-12 pull-right"> 29/01/16 </div>
+              <div class="col-md-offset-12 pull-right"> 12:26PM </div>
+            </div>
+            <div class="col-md-6">
+              <p><a class="btn btn-primary modalBtnSmall" data-toggle="collapse" data-target="#viewdetails">Read</a></p>
+            </div>
+
+        </div>
+        <p class="collapse message" id="viewdetails" >
+          <span class="message-content">Donec id elit non mi porta gravida at eget metus.
+            <img src="images/quiz/icn_pointsgained.png"><br>
+            <span>500 Points earned</span>
+          </span>
+        </p>
+      </div> -->
+      <!-- <div class="accordion" id="monogram-acc">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <div class="accordion-toggle" data-toggle="collapse" data-parent="#monogram-acc" href="#Animals"><a class="btn btn-primary modalBtnSmall" >Read</a></div>
+            </div>
+            <div class="accordion-body collapse" id="Animals">//... content</div>
+        </div>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <div class="accordion-toggle" data-toggle="collapse" data-parent="#monogram-acc" href="#Food"><a class="btn btn-primary modalBtnSmall" >Read</a></div>
+            </div>
+            <div class="accordion-body collapse" id="Food">// ... content</div>
+        </div>
+    </div> -->
+
+				<!-- <div class="modal-footer">
+					<button class="btn btn-primary modalBtnSmall" type="submit" ng-disabled="idSelectedFolder == null">Submit</button>
+				    <button class="btn btn-warning modalBtnSmall" type="button" ng-click="closeModal()">Cancel</button>
+				</div> -->
+			</div>
+		</form>
+</div>

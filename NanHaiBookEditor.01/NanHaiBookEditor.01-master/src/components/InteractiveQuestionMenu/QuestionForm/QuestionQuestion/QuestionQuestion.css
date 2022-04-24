@@ -1,0 +1,25 @@
+.sort-container {
+  display: inline-block;
+  position: relative;
+  width: 174px;
+  height: 243px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  padding: 8px;
+  vertical-align: top;
+}
+
+.sort-container .sort-name {
+  margin: 16px 0 8px 0;
+}
+
+.delete-sort {
+  position: absolute;
+  right: 8px;
+  top: 4px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.delete-sort:hover {
+  color: #1890ff;
+}

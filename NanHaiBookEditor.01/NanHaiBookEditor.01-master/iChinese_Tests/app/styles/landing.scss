@@ -1,0 +1,715 @@
+  $scoreBoard-font-solor: #53AF42;
+  body{
+    background-color: #333;
+  }
+  .landingContainer {
+    position: relative;
+    height: 600px;
+    > .row {
+      position: relative;
+    }
+    .bgImage {
+      width: 100%;
+      height:630px;
+      // height:657px;
+      @media screen and (min-width: 1400px) and (orientation: landscape) {
+      height: 145%;
+      }
+     @media screen and (min-width: 1920px) and (max-width: 2879px) and (orientation: landscape) {
+      height: 180%;
+      }
+    @media screen and (min-width: 2880px) and (orientation: landscape) {
+      height: 300%;
+    }
+    }
+    .bgImage_frame{
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      display: block;
+    }
+    .scoreBoardSpriteBtn {
+      //width: 23%;
+      width: 295px;
+      background: url("/images/login/icn_landingpage_scoreboard.png");
+      background-size: 101% auto;
+      position: absolute;
+      left: 0;
+      right:0;
+      top: 2%;
+      margin:auto;
+      cursor: default;
+  
+  
+      .scoreWrapper{
+        left: 9%;
+        position: absolute;
+        top: 9%;
+        width: 230px;
+      }
+      &.wave{
+        background: url("/images/login/LandingPage_Scoreboard_2732x1536_spritesheet.png");
+        background-size: 800% auto;
+        animation: scoreBoardPlay 1.5s steps(8) infinite;
+      }
+    }
+    // .scoreBoardSpriteBtn:hover{
+    //        animation: scoreBoardPlay 1.5s steps(8) infinite;
+    //   }
+    .scoreBoardSpriteBtn:before {
+      content: "";
+      display: block;
+      padding-top: 38%;
+    }
+  
+    @keyframes scoreBoardPlay {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: -800% 0;
+      }
+    }
+    // #myLibraryBtn{
+    //   left: 29%;
+    //   position: absolute;
+    //   top: 20%;
+    //   width: 17.86%;
+    //   height: 28.70%;
+    // }
+    /*my libarary animation*/
+    .myLibararySpriteBtn {
+      background: url("/images/login/btn_mylibrary_sprite.png");
+      background-size: 1000% auto;
+      position: absolute;
+      // width: 18%;
+      width:16%;
+      left: 16%;
+      top: 29%;
+      @media only screen and (min-width:1440px){
+        top: 58%;
+      }
+      @media screen and (min-width: 2880px) and (orientation: landscape) {
+        top: 84%;
+      }
+    }
+  
+    .myLibararySpriteBtn:before {
+      content: "";
+      display: block;
+      padding-top: 90%;
+    }
+    .myLibararySpriteBtn:hover {
+      animation: libraryPlay 1.5s steps(10) infinite;
+    }
+  
+      @keyframes libraryPlay {
+        from {
+          background-position: 0% 0;
+        }
+        to {
+          background-position: -1000% 0;
+        }
+      }
+  
+    .reportspriteBtn {
+      background: url("/images/login/btn_report_sprite.png");
+      background-size: 1301% auto;
+      position: absolute;
+      width:9%;
+      left: 33%;
+      top: 90.5%;
+      bottom: -21px;
+      right:10%;
+  @media only screen and (max-width: 667px) and (orientation: landscape)
+  {
+    bottom: 7px;
+  }
+  @media only screen and (min-width: 1366px) and (orientation: landscape){
+      bottom: -26px;
+  }
+  @media screen and (min-width: 1400px) and (orientation: landscape) {
+        top: 125%;
+        height: 14.5%;
+  }
+  @media screen and (min-width: 1920px) and (max-width: 2870px) and (orientation: landscape) {
+        top: 155%;
+        height: 19.5%;
+  }
+  @media screen and (min-width: 2880px) and (orientation: landscape) {
+        top: 264%;
+        height: 29%;
+  }
+  }
+    .reportspriteBtn:before {
+      content: "";
+      display: block;
+      padding-top: 52%;
+    }
+    .reportspriteBtn:hover {
+      animation: libraryPlay 1.5s steps(10) infinite;
+    }
+  
+  
+    .profilespriteBtn {
+      background: url("/images/login/btn_profile_sprite.png");
+      background-size: 1303% auto;
+      position: absolute;
+      width: 10%;
+      left: 58%;
+      top: 91.2%;
+      bottom: -23px;
+      right: 10%;
+      @media only screen and (max-width: 667px) and (orientation: landscape)
+      {
+        bottom: 9px;
+      }
+      @media only screen and (min-width: 1366px) and (orientation: landscape){
+      bottom: -26px;
+      }
+      @media screen and (min-width: 1400px) and (orientation: landscape) {
+        top: 126.2%;
+        height: 14%;
+      }
+      @media screen and (min-width: 1920px) and (max-width: 2879px) and (orientation: landscape) {
+        top: 156.2%;
+        height: 19%;
+      }
+      @media screen and (min-width: 2880px) and (orientation: landscape) {
+        top: 264%;
+        height: 29%;
+      }
+     }
+  
+    .profilespriteBtn:before {
+      content: "";
+      display: block;
+      padding-top: 52%;
+    }
+    .profilespriteBtn:hover {
+      animation: libraryPlay 1.5s steps(10) infinite;
+    }
+  
+  
+  
+    /*my assignment animation*/
+  
+  
+    .assignmentSpriteBtn {
+      background: url("/images/login/LandingPage_MyAssignment_2732x1536_spritesheet.png");
+      background-size: 1001% auto;
+      position: absolute;
+      // width: 16%;
+      width:13%;
+      top: 20%;
+      left: 43.5%;
+    }
+    .assignmentSpriteBtn:before {
+      content: "";
+      display: block;
+      padding-top: 102%;
+    }
+    .assignmentSpriteBtn:hover {
+      animation: assignmentPlay 1s steps(12) infinite;
+    }
+  
+    .assignmentSpriteBtnIfExists {
+      background: url("/images/login/assign-btn-sprite.png");
+      background-size: 1497% auto;
+      position: absolute;
+      // width: 16%;
+      width:14%;
+      top: 20.4%;
+      left: 43.5%;
+      animation: assignmentPlay 1s steps(12) infinite;
+      @media only screen and (max-width: 640px) and (orientation: landscape)
+      {
+      background-size: 1500% 110%;//android
+      }
+      @media only screen and (min-width: 641px) and (max-width: 667px) and (orientation: landscape)
+      {
+        background-size: 1498% auto; // iphone
+      }
+      @media screen and (min-width: 2880px) and (orientation: landscape) {
+        top: 35%;
+      }
+    }
+    .assignmentSpriteBtnIfExists:before {
+      content: "";
+      display: block;
+      // padding-top: 102%;
+      padding-top: 95%;
+    }
+  
+  
+    @keyframes assignmentPlay {
+      from {
+        background-position: 0% 0;
+      }
+      to {
+        background-position: -1200% 0;
+      }
+    }
+    /*my assignment ends*/
+  
+    /*my openreading animation*/
+    .openReadingSpriteBtn {
+      background: url("/images/login/LandingPage_OpenReading_2732x1536_spritesheet.png");
+      background-size: 1000% auto;
+      position: absolute;
+      left: 68%;
+      top: 29%;
+      // width: 17%;
+      width:15%;
+      @media only screen and (max-width: 640px) and (orientation: landscape)
+      {
+            background-size: 1009% auto;
+      }
+      @media only screen and (min-width:1440px){
+        top: 58%;
+      }
+      @media screen and (min-width: 2880px) and (orientation: landscape) {
+        top: 80%;
+      }
+  
+    }
+    // @media only screen and (max-width: 667px)
+    // {
+    //   background-size: 1009% auto;
+    // }
+    .openReadingSpriteBtn:before {
+      content: "";
+      display: block;
+      padding-top: 107%;
+    }
+    .openReadingSpriteBtn:hover {
+      animation: openReadingPlay 1.7s steps(12) infinite;
+    }
+  
+    @keyframes openReadingPlay {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: -1200% 0;
+      }
+    }
+    /*my openreading ends*/
+  
+    /*getNewAchievements*/
+    .getNewAchievements {
+      position: absolute;
+      width: 30%;
+      right: 15%;
+      top: 19%;
+      z-index: 1;
+    }
+    .getNewAchievements li.list-group-item {
+      background: #5F7345;
+      color: #fff;
+    }
+    .NewAchievementsImg_wrap {
+      width: 50px;
+      height: 60px;
+      border: 1px solid #697381;
+      overflow: hidden;
+      float: left;
+      margin: 0 10px;
+    }
+    .NewAchievementsImg_wrap img {
+      width: 100%;
+    }
+    /*my progressReadingBtn animation*/
+    .progressReadingSpriteBtn {
+      background: url("/images/login/progressReading.png");
+      // background-size: 1501% auto;
+      background-size: 1299% auto;
+      position: absolute;
+      // width: 17%;
+      // width: 16%;
+      // left: 43%;
+        left: 44%;
+        top: 48.4%;
+        width:14%;
+  
+        @media screen and (min-width: 1400px) and (orientation: landscape) {
+            top: 70.4%;
+        }
+        @media screen and (min-width: 1920px) and (max-width: 2879px) and (orientation: landscape) {
+          top: 80.4%;
+      }
+        @media screen and (min-width: 2880px) and (orientation: landscape) {
+            top: 153.4%;
+        }
+  
+    }
+    .progressReadingSpriteBtn:before {
+      content: "";
+      display: block;
+      // padding-top: 81%;
+      padding-top: 83%;
+    }
+    .progressReadingSpriteBtn:hover {
+      animation: progressReadingPlay 1.7s steps(13) infinite;
+    }
+    @keyframes progressReadingPlay {
+      from {
+        background-position: 0% 0;
+      }
+      to {
+        background-position: -1300% 0;
+      }
+    }
+    /*my progressReadingBtn ends*/
+  
+    /*my startBtn animation*/
+    .startSpriteBtn {
+      background: url("/images/login/LandingPage_StartButton_2732x1536_spritesheet.png");
+      background-size: 1505% auto;
+      position: absolute;
+      left: 42.6%;
+      top: 74%;
+      width: 15%;
+      overflow: hidden;
+      cursor:pointer;
+      @media only screen and (max-width: 640px) and (orientation: landscape)
+      {
+        background-size: 1575% auto;
+      }
+      @media screen and (min-width: 1400px) and (orientation: landscape) {
+        top: 111%;
+      }
+      @media screen and (min-width: 1920px) and (max-width: 2879px) and (orientation: landscape) {
+        top: 135% !important;
+      }
+      @media screen and (min-width: 2880px) and (orientation: landscape) {
+         top: 234%;
+      }
+    }
+    .startSpriteBtn:before {
+      content: "";
+      display: block;
+      padding-top: 90%;
+    }
+    .startSpriteBtn:hover {
+      animation: startPlay 0.6s steps(4) infinite;
+    }
+  
+    @keyframes startPlay {
+      from {
+        background-position: 0% 0;
+      }
+      to {
+        background-position: -400% 0;
+      }
+    }
+  
+    .stopSpriteBtn {
+      background: url("/images/login/LandingPage_StartButton_2732x1536_spritesheet.png");
+      background-size: 1505% auto;
+      position: absolute;
+      left: 42.6%;
+      position: absolute;
+      top: 74%;
+      width: 15%;
+      @media screen and (min-width: 1400px) and (orientation: landscape) {
+        top: 111%;
+      }
+      @media screen and (min-width: 1920px) and (max-width: 2879px) {
+            top: 139%;
+      }
+      @media screen and (min-width: 2880px) {
+         top: 230%;
+      }
+    }
+    .stopSpriteBtn:before {
+      content: "";
+      display: block;
+      padding-top: 105%;
+    }
+    .stopSpriteBtn:hover {
+      animation: none;
+    }
+  
+  
+    /*my startBtn ends*/
+  
+    /*my logoutBtn animation*/
+    .logoutSpriteBtn {
+      background: url("/images/login/LandingPage_DontPush_2732x1536_spritesheet.png");
+      background-size: 1497%;
+      position: absolute;
+      left: 8%;
+      // top: 80%;
+      top: 85%;
+      width: 9%;
+      cursor: pointer;
+      // height: 12%;
+      height: 14%;
+      @media screen and (min-width: 1400px) and (orientation: landscape) {
+        top: 121%;
+        left: 8%;
+        height: 16%;
+      }
+      @media screen and (min-width: 1920px) and (max-width: 2879px) and (orientation: landscape) {
+        top: 149%;
+        height: 20%;
+      }
+      @media screen and (min-width: 2880px) and (orientation: landscape) {
+        height: 30%;
+        top: 250%;
+    }
+    }
+    .logoutSpriteBtn:before {
+      content: "";
+      display: block;
+      //padding-top: 150%;
+    }
+    .logoutSpriteBtn:hover {
+      animation: logoutPlay 1s steps(10) infinite;
+    }
+    @keyframes logoutPlay {
+      from {
+        background-position: 0% 0;
+      }
+      to {
+        background-position: -1000% 0;
+      }
+    }
+    /*my logoutBtn ends*/
+  
+    .scoreBoard {
+      left: 40.1%;
+      position: absolute;
+      top: 2.2%;
+      width: 264px;
+    }
+    .myAssignment {
+      left: 12%;
+      position: absolute;
+      top: 24%;
+      width: 15%;
+    }
+    .myLibrary {
+      left: 29%;
+      position: absolute;
+      top: 20%;
+      width: 17%;
+    }
+    .openRoom {
+      left: 48%;
+      position: absolute;
+      top: 35%;
+      width: 18%;
+    }
+    .levelReading {
+      left: 70%;
+      position: absolute;
+      top: 36%;
+      width: 21%;
+    }
+    .logout {
+      left: 9%;
+      position: absolute;
+      top: 82%;
+      width: 6%;
+    }
+    .report {
+      left: 31.5%;
+      position: absolute;
+      top: 86%;
+      width: 10%
+    }
+    .game {
+      left: 44%;
+      position: absolute;
+      top: 72.5%;
+      width: 12%;
+    }
+    .profile {
+      left: 58%;
+      position: absolute;
+      top: 87%;
+      width: 10%
+    }
+    .faq {
+      left: 70%;
+      position: absolute;
+      // top: 92%;
+      top:96%;
+      width: 3.4%;
+      @media screen and (min-width: 1400px) and (orientation: landscape) {
+          top: 131%;
+      }
+      @media screen and (min-width: 1920px) and (max-width: 2879px) and (orientation: landscape) {
+          top: 166%;
+      }
+      @media screen and (min-width: 2880px) and (orientation: landscape) {
+        top: 275%;
+      }
+  
+    }
+    .playList {
+      left: 27%;
+      position: absolute;
+      top: 91.4%;
+      width: 4%;
+    }
+    .levelWrapper {
+      cursor: pointer;
+      height: 32px;
+      left: 14%;
+      position: absolute;
+      top: 64%;
+      width: 32px;
+    }
+    .messageBtn {
+      height: 34px;
+      left: 74%;
+      position: absolute;
+      top: 63%;
+      width: 34px;
+      cursor: pointer;
+    }
+    .level {
+      color: #53af42;
+      font-size: 16px;
+      // left: 9px;
+      left:5px;
+      position: relative;
+      top: -12px;
+      z-index: 100;
+    }
+    .levelText {
+      color: #53af42;
+      font-size: x-small;
+      left: 1px;
+      position: relative;
+      top: 1px;
+      z-index: 100;
+    }
+  
+    .scoreWrapper {
+      left: 42%;
+      position: absolute;
+      top: 3%;
+      width: 230px;
+  
+    }
+    .scoreText {
+      color: #53af42;
+      font-size: 0.7em;
+      position: relative;
+      top: 0;
+      font-family: Verdana;
+      font-weight: bold;
+  
+    }
+    .worldText {
+      color: #53af42;
+      position: relative;
+      left: 0;
+      font-size: 0.7em;
+      position: relative;
+      top: 0;
+      text-align: right;
+      font-family: Verdana;
+      font-weight: bold;
+    }
+  
+    .score1 {
+      color: #53af42;
+      font-size: 0.7em;
+      left: 0;
+      position: relative;
+      top: -2px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width:100%;
+      font-family: Verdana;
+      font-weight: bold;
+       // width: 5em;
+    }
+    //.worldRank {
+      // padding-left: 2px;
+      // padding-right: 12px;
+    //}
+    .currentPoints {
+      padding:0
+      // padding-left: 1px;
+      // padding-right: 12px;
+    }
+    .nickname {
+      padding-right: 1px !important;
+    }
+  
+  
+  .body-wrapper {
+    background: #000000;
+    // margin-top: 20px;
+  
+  }
+  
+  .footer {
+    color: #FFFFFF;
+  }
+  
+  @keyframes pulsate {
+    0% {
+      -webkit-transform: scale(0.1, 0.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1.0;
+    }
+    100% {
+      -webkit-transform: scale(1.2, 1.2);
+      opacity: 0.0;
+    }
+  }
+  
+  @-webkit-keyframes pulsate {
+    0% {
+      -webkit-transform: scale(0.1, 0.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1.0;
+    }
+    100% {
+      -webkit-transform: scale(1.2, 1.2);
+      opacity: 0.0;
+    }
+  }
+  
+  .gps_ring {
+    border: 3px solid #999;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    left: -6px;
+    top: -10px;
+    -webkit-animation: pulsate 2s ease-out;
+    animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    opacity: 0.0
+  }
+  
+  .loader {
+    opacity: 0.1;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white url('/images/ajax-loader.gif') no-repeat center;
+  }
+  }

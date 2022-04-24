@@ -1,0 +1,82 @@
+.ruler_wrapper{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.ruler {
+  position: absolute;
+  overflow: hidden;
+}
+.ruler.horizontal {
+  top: 0;
+  left: 0px;
+  right: 0;
+  height: 25px;
+  border-bottom: 1px solid #bbb;
+  background:#EDEBE9;
+}
+.horizontal .tick {
+  width: 1px;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+}
+.horizontal .tick.minor {
+   height: 3px;
+ }
+.horizontal .tick.semi {
+   height: 6px;
+ }
+.horizontal .tick.major {
+   height: 10px;
+ }
+.horizontal .tick span {
+  position: absolute;
+  top: -15px;
+  font-size: 10px;
+  transform: translateX(-50%);
+}
+
+.ruler.vertical {
+  top: 0px;
+  left: 0;
+  bottom: 0;
+  width: 25px;
+  border-right: 1px solid #bbb;
+  background:#EDEBE9;
+}
+.vertical .tick {
+  height: 1px;
+  background: #000;
+  position: absolute;
+  right: 0;
+}
+.vertical .tick.minor {
+  width: 3px;
+}
+.vertical .tick.semi {
+  width: 6px;
+}
+.vertical .tick.major {
+  width: 10px;
+}
+.vertical .tick span {
+  position: absolute;
+  right: 10px;
+  top: -5px;
+  font-size: 10px;
+  transform: translateY(-50%);
+}
+.middle {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.middle:after {
+   content: '+';
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, 50%);
+}
+
